@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Fully Transparent
-  m_Shader: {fileID: -6465566751694194690, guid: 167cdf633a2f9bf4ca90b0d8fbaf2cb0, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: fc536c772407c254481417c17bc59726, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -53,9 +53,12 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
+    - _Distance: 0
+    - _Power: 2.97
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &8861539486647948427
