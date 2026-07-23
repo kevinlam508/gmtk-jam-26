@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: bfd05c3d9e2dde840807ee2df7b4f57e
+AssetOrigin:
+  serializedVersion: 1
+  productId: 259457
+  packageName: 'Better Fog: Height Fog, Light Scattering & More'
+  packageVersion: 3.1
+  assetPath: Assets/INab Studio/Post Processing Assets/Better Fog/Core URP 6/Scripts/BetterFogVolumeComponent.cs
+  uploadId: 916910
