@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 811a27cb2ec4b864ea16e88bf712f62b
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 259457
+  packageName: 'Better Fog: Height Fog, Light Scattering & More'
+  packageVersion: 3.1
+  assetPath: Assets/INab Studio/Post Processing Assets/Better Fog/Demo Scenes/World
+    Fog Plane.unity
+  uploadId: 916910

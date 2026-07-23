@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1aa0f423c058db5479c41a4efd8198f1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 259457
+  packageName: 'Better Fog: Height Fog, Light Scattering & More'
+  packageVersion: 3.1
+  assetPath: Assets/INab Studio/Post Processing Assets/Better Fog/Core URP 6/Shaders/Resources/Shader
+    Graphs_FinalBlit.mat
+  uploadId: 916910

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f5b4b2dee360b904f9b7b9404820bead
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 259457
+  packageName: 'Better Fog: Height Fog, Light Scattering & More'
+  packageVersion: 3.1
+  assetPath: Assets/INab Studio/Post Processing Assets/Better Fog/Demo Scenes/Particles
+    (Fog Offset + Fog Particles).unity
+  uploadId: 916910
