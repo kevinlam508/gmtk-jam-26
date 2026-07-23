@@ -265,8 +265,8 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   _Height:
-    m_OverrideState: 0
-    m_Value: 4
+    m_OverrideState: 1
+    m_Value: 2.63
   _HeightDensity:
     m_OverrideState: 1
     m_Value: 0.435
