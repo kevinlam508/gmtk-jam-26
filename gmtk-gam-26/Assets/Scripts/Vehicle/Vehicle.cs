@@ -61,15 +61,24 @@ public class Vehicle : MonoBehaviour
     {
         int groundedTireCount = 0;
         Vector3 down = -_body.transform.up;
-        foreach (Transform tirePoint in _tirePivots)
+        for (int i = 0; i < _tirePivots.Length; i++)
         {
+            Transform tirePoint = _tirePivots[i];
+
+            // Place s.t. visual root is touching the ground. Actual tire should be above the root
+            Transform tireVisual = i < _frontTireTransforms.Length
+                ? _frontTireTransforms[i] : _backTireTransforms[i - _frontTireTransforms.Length];
+
             bool hit = Physics.Raycast(tirePoint.position, down, out RaycastHit info, _springLength, ~_suspensionIgnoreLayers);
             if (!hit)
             {
+                tireVisual.position = tirePoint.position + down * _springLength;
                 continue;
             }
 
             float distanceThroughGround = _springLength - info.distance;
+            tireVisual.position = info.point;
+
             float desiredForce = distanceThroughGround * _springForce;
 
             Vector3 existingVelocity = _body.GetPointVelocity(tirePoint.position);
