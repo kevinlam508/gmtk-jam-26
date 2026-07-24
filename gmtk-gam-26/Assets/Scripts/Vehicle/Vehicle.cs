@@ -41,9 +41,15 @@ public class Vehicle : MonoBehaviour
     [Range(0, 90)]
     [SerializeField] private float _maxTiltDegrees = 60f;
 
+    [Header("Jump")]
+    [Min(0)]
+    [SerializeField] private float _jumpForce = 10f;
+
     public float DesiredSteer { get; set; }
     public float DesiredMagnitude { get; set; }
     public Vector3 Forward { get; set; }
+
+    public bool IsGrounded { get; private set; }
 
     private void FixedUpdate()
     {
@@ -90,6 +96,7 @@ public class Vehicle : MonoBehaviour
             groundedTireCount++;
         }
 
+        IsGrounded = groundedTireCount == _tirePivots.Length;
         return 1.0f * groundedTireCount / _tirePivots.Length;
     }
 
@@ -173,5 +180,9 @@ public class Vehicle : MonoBehaviour
         Vector3 axis = Vector3.Cross(bodyUp, Vector3.up);
         _body.AddTorque(axis * torque, ForceMode.Acceleration);
     }
+
+    public void Jump()
+    {
+        _body.AddForce(_jumpForce * Vector3.up);
     }
 }

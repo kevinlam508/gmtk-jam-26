@@ -31,4 +31,12 @@ public class PlayerVehicleController : MonoBehaviour
 
         _vehicle.DesiredSteer = acceleration.x;
     }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.started && _vehicle.IsGrounded)
+        {
+            _vehicle.Jump();
+        }
+    }
 }
