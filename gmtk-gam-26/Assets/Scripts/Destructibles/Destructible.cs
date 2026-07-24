@@ -1,7 +1,10 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Destructible : MonoBehaviour
 {
+    private static float RestoreDistance = 5f;
+
     [SerializeField] private GameObject intactObject;
     [SerializeField] private GameObject brokenObject;
     [SerializeField] private ParticleSystem destructionEffect;
@@ -16,6 +19,15 @@ public class Destructible : MonoBehaviour
     void Start()
     {
         Reset();
+    }
+
+    private void Update()
+    {
+        if (isBroken 
+            && Vector3.Distance(transform.position, PlayerVehicleController.PlayerPosition) > RestoreDistance)
+        {
+            Reset();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -56,6 +68,8 @@ public class Destructible : MonoBehaviour
             piece.AddTorque(Random.insideUnitSphere * impulseForce,
                 ForceMode.Impulse);
         }
+
+        isBroken = true;
     }
 
     private void Reset()

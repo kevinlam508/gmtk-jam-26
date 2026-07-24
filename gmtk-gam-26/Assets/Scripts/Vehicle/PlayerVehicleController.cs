@@ -4,6 +4,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerVehicleController : MonoBehaviour
 {
+    public static Vector3 PlayerPosition => Instance._vehicle.transform.position;
+
+    private static PlayerVehicleController Instance;
+
     [SerializeField] private Vehicle _vehicle;
     [SerializeField] private Transform _camera;
 
@@ -11,6 +15,22 @@ public class PlayerVehicleController : MonoBehaviour
     [SerializeField] private float _cameraTurnSpeedDegrees = 30f;
 
     private float _steer;
+
+    private void Start()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
 
     private void FixedUpdate()
     {
