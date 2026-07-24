@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Vehicle : MonoBehaviour
@@ -43,14 +44,15 @@ public class Vehicle : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ProcessSuspension();
-        ProcessMovement(Time.fixedDeltaTime);
-        ProcessSteer(Time.fixedDeltaTime);
+        float groundedRatio = ProcessSuspension();
+        ProcessMovement(Time.fixedDeltaTime, groundedRatio);
+        ProcessSteer(Time.fixedDeltaTime, groundedRatio);
         ProcessTilt(Time.fixedDeltaTime);
     }
 
-    private void ProcessSuspension()
+    private float ProcessSuspension()
     {
+        int groundedTireCount = 0;
         Vector3 down = -_body.transform.up;
         foreach (Transform tirePoint in _tirePivots)
         {
@@ -68,10 +70,14 @@ public class Vehicle : MonoBehaviour
 
             Vector3 force = (desiredForce - damping) * -down;
             _body.AddForceAtPosition(force, tirePoint.position);
+
+            groundedTireCount++;
         }
+
+        return 1.0f * groundedTireCount / _tirePivots.Length;
     }
 
-    private void ProcessMovement(float timeStep)
+    private void ProcessMovement(float timeStep, float groundedRatio)
     {
         Vector3 desiredDirection = DesiredForward;
         Vector3 currentVelocity = _body.linearVelocity;
@@ -82,7 +88,7 @@ public class Vehicle : MonoBehaviour
         float instantAcceleration = (desiredSpeed - forwardSpeed) / timeStep;
         float appliedForce = Mathf.Clamp(instantAcceleration, -_maxAcceleration, _maxAcceleration)
             * _body.mass;
-        _body.AddForce(desiredDirection * appliedForce);
+        _body.AddForce(desiredDirection * appliedForce * groundedRatio);
 
         // Apply traction to side velocity
         Vector3 sideDirection = Vector3.Cross(desiredDirection, Vector3.up);
@@ -90,11 +96,16 @@ public class Vehicle : MonoBehaviour
         float instantSideAcceleration = -sideSpeed / timeStep;
         float appliedSideForce = instantSideAcceleration * _tractionStrength
             * _body.mass;
-        _body.AddForce(sideDirection * appliedSideForce);
+        _body.AddForce(sideDirection * appliedSideForce * groundedRatio);
     }
 
-    private void ProcessSteer(float timeStep)
+    private void ProcessSteer(float timeStep, float groundedRatio)
     {
+        if (groundedRatio < 1)
+        {
+            return;
+        }
+
         Vector3 bodyForward = _body.transform.forward;
         bodyForward.y = 0;
 
