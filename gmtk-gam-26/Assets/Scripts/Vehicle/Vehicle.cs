@@ -41,16 +41,16 @@ public class Vehicle : MonoBehaviour
     [Range(0, 90)]
     [SerializeField] private float _maxTiltDegrees = 60f;
 
-    public float VisualSteer { get; set; }
-
     public float DesiredSteer { get; set; }
     public float DesiredMagnitude { get; set; }
     public Vector3 Forward { get; set; }
 
-    private Vector3 DesiredForward => Forward + (Vector3.Cross(Vector3.up, Forward) * DesiredSteer);
-
     private void FixedUpdate()
     {
+        Debug.DrawRay(_body.position, _body.transform.forward * 5, Color.snow, -1);
+        Debug.DrawRay(_body.position, Forward * 5, Color.black, -1);
+        Debug.DrawRay(_body.position, _body.linearVelocity.normalized * 5, Color.green, -1);
+
         float groundedRatio = ProcessSuspension();
         ProcessMovement(Time.fixedDeltaTime, groundedRatio);
         ProcessSteer(Time.fixedDeltaTime, groundedRatio);
@@ -95,40 +95,44 @@ public class Vehicle : MonoBehaviour
 
     private void ProcessMovement(float timeStep, float groundedRatio)
     {
-        Vector3 desiredDirection = DesiredForward;
+        Vector3 bodyForward = _body.transform.forward;
+        Vector3 driveDirection = bodyForward + (Vector3.Cross(Vector3.up, bodyForward) * DesiredSteer * Mathf.Sign(DesiredMagnitude));
+        driveDirection = driveDirection.normalized;
         Vector3 currentVelocity = _body.linearVelocity;
 
         // Accelerate towards desired velocity
         float desiredSpeed = _defaultSpeed * DesiredMagnitude;
-        float forwardSpeed = Vector3.Dot(currentVelocity, desiredDirection);
+        float forwardSpeed = Vector3.Dot(currentVelocity, driveDirection);
         float instantAcceleration = (desiredSpeed - forwardSpeed) / timeStep;
         float appliedForce = Mathf.Clamp(instantAcceleration, -_maxAcceleration, _maxAcceleration)
             * _body.mass;
-        _body.AddForce(desiredDirection * appliedForce * groundedRatio);
+        _body.AddForce(driveDirection * appliedForce * groundedRatio);
+        Debug.DrawRay(_body.position, driveDirection * 5 * Mathf.Sign(appliedForce), Color.red, -1);
 
         // Apply traction to side velocity
-        Vector3 sideDirection = Vector3.Cross(desiredDirection, Vector3.up);
+        Vector3 sideDirection = Vector3.Cross(Vector3.up, driveDirection);
         float sideSpeed = Vector3.Dot(currentVelocity, sideDirection);
         float instantSideAcceleration = -sideSpeed / timeStep;
         float appliedSideForce = instantSideAcceleration * _tractionStrength
             * _body.mass;
         _body.AddForce(sideDirection * appliedSideForce * groundedRatio);
+        Debug.DrawRay(_body.position, sideDirection * 5 * Mathf.Sign(appliedSideForce), Color.blue, -1);
     }
 
     private void ProcessSteer(float timeStep, float groundedRatio)
     {
         Quaternion frontTireRotation =
-            Mathf.Approximately(VisualSteer, 0)
+            Mathf.Approximately(DesiredSteer, 0)
             ? Quaternion.identity
-            : Quaternion.Euler(0, VisualSteer * _tireTurnAngle, 0);
+            : Quaternion.Euler(0, DesiredSteer * _tireTurnAngle, 0);
         foreach (Transform tire in _frontTireTransforms)
         {
             tire.localRotation = frontTireRotation;
         }
         Quaternion backTireRotation =
-            Mathf.Approximately(VisualSteer, 0)
+            Mathf.Approximately(DesiredSteer, 0)
             ? Quaternion.identity
-            : Quaternion.Euler(0, -VisualSteer * _tireTurnAngle, 0);
+            : Quaternion.Euler(0, -DesiredSteer * _tireTurnAngle, 0);
         foreach (Transform tire in _backTireTransforms)
         {
             tire.localRotation = backTireRotation;
@@ -143,7 +147,7 @@ public class Vehicle : MonoBehaviour
         Vector3 bodyForward = _body.transform.forward;
         bodyForward.y = 0;
 
-        Vector3 steerForward = DesiredForward;
+        Vector3 steerForward = Forward;
         steerForward = steerForward.normalized;
         float angle = Vector3.SignedAngle(bodyForward, steerForward, Vector3.up) * Mathf.Deg2Rad;
 

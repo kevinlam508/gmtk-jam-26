@@ -14,7 +14,8 @@ public class PlayerVehicleController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _orbit.HorizontalAxis.Value += _steer * _cameraTurnSpeedDegrees * Time.fixedDeltaTime;
+        _orbit.HorizontalAxis.Value += Mathf.Sign(_vehicle.DesiredMagnitude)
+            * _steer * _cameraTurnSpeedDegrees * Time.fixedDeltaTime;
 
         Vector3 forward = _camera.transform.forward;
         forward.y = 0;
@@ -27,6 +28,7 @@ public class PlayerVehicleController : MonoBehaviour
         Vector2 acceleration = context.ReadValue<Vector2>();
         _vehicle.DesiredMagnitude = acceleration.y;
         _steer = acceleration.x;
-        _vehicle.VisualSteer = acceleration.x;
+
+        _vehicle.DesiredSteer = acceleration.x;
     }
 }
