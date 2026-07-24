@@ -34,7 +34,7 @@ public class PlayerVehicleController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started && _vehicle.IsGrounded)
+        if (context.started)
         {
             _vehicle.Jump();
         }

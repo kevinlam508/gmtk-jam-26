@@ -41,15 +41,23 @@ public class Vehicle : MonoBehaviour
     [Range(0, 90)]
     [SerializeField] private float _maxTiltDegrees = 60f;
 
-    [Header("Jump")]
+    [Header("Aerial")]
     [Min(0)]
     [SerializeField] private float _jumpForce = 10f;
+    [Min(0)]
+    [SerializeField] private int _maxJumpCount = 2;
+    [Min(0)]
+    [SerializeField] private float _airDashForce = 10f;
+    [Min(0)]
+    [SerializeField] private int _maxAirDashCount = 1;
 
     public float VisualSteer { get; set; }
     public float DesiredMagnitude { get; set; }
     public Vector3 Forward { get; set; }
 
     public bool IsGrounded { get; private set; }
+    private int _jumpCount = 0;
+    private int _airDashCount = 0;
 
     private void FixedUpdate()
     {
@@ -97,6 +105,12 @@ public class Vehicle : MonoBehaviour
         }
 
         IsGrounded = groundedTireCount == _tirePivots.Length;
+        if (IsGrounded)
+        {
+            _jumpCount = 0;
+            _airDashCount = 0;
+        }
+
         return 1.0f * groundedTireCount / _tirePivots.Length;
     }
 
@@ -183,6 +197,32 @@ public class Vehicle : MonoBehaviour
 
     public void Jump()
     {
-        _body.AddForce(_jumpForce * Vector3.up);
+        if (IsGrounded)
+        {
+            _body.AddForce(_jumpForce * Vector3.up);
+            _jumpCount++;
+            return;
+        }
+
+        if (Mathf.Approximately(DesiredMagnitude, 0) && Mathf.Approximately(VisualSteer, 0))
+        {
+            if (_jumpCount < _maxJumpCount)
+            {
+                _body.AddForce(_jumpForce * Vector3.up);
+                _jumpCount++;
+                return;
+            }
+        }
+        else
+        {
+            if (_airDashCount < _maxAirDashCount)
+            {
+                Vector3 direction = new Vector3(VisualSteer, 0, DesiredMagnitude);
+                direction = _body.transform.rotation * direction;
+                direction = direction.normalized;
+                _body.AddForce(direction * _airDashForce);
+                _airDashCount++;
+            }
+        }
     }
 }
