@@ -168,8 +168,10 @@ public class Vehicle : MonoBehaviour
         }
 
         float torque = Mathf.Deg2Rad 
-            * (upDot > 0 ? 90 - deviation : deviation);
+            * (upDot > 0 ? 90 - deviation : deviation)
+            / timeStep;
         Vector3 axis = Vector3.Cross(bodyUp, Vector3.up);
-        _body.AddTorque(axis * torque, ForceMode.VelocityChange);
+        _body.AddTorque(axis * torque, ForceMode.Acceleration);
+    }
     }
 }
