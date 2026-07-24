@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1096790449105609013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4791668047520565690}
+  - component: {fileID: 7302104267132386866}
+  - component: {fileID: 3632646902348762802}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4791668047520565690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096790449105609013}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 61.39874, y: 0, z: 44.54799}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4986391825170105161}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7302104267132386866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096790449105609013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f185e1bbe53e894ba129be023731d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIVehicleController
+  _vehicle: {fileID: 5327518827659781095}
+  _navigator: {fileID: 3632646902348762802}
+--- !u!114 &3632646902348762802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096790449105609013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ec9c7869e879745944e9674e9ed2c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Barmetler.RoadSystem.Runtime::Barmetler.RoadSystem.RoadSystemNavigator
+  currentRoadSystem: {fileID: 0}
+  Goal: {x: 0, y: 0, z: 0}
+  GraphStepSize: 1
+  MinDistanceYScale: 1
+  MinDistanceToRoadToConnect: 10
+--- !u!1001 &4939843237528125606
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4791668047520565690}
+    m_Modifications:
+    - target: {fileID: 125785996931875823, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3258705
+      objectReference: {fileID: 0}
+    - target: {fileID: 125785996931875823, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125785996931875823, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.45768
+      objectReference: {fileID: 0}
+    - target: {fileID: 125785996931875823, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 125785996931875823, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125785996931875823, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125785996931875823, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125785996931875823, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125785996931875823, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125785996931875823, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163978569925249911, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      propertyPath: m_Name
+      value: Enemy Vehicle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+--- !u!4 &4986391825170105161 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 125785996931875823, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+  m_PrefabInstance: {fileID: 4939843237528125606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5327518827659781095 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 964614080308912961, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+  m_PrefabInstance: {fileID: 4939843237528125606}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1e848b10ff5624d9e445cd19301ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Vehicle

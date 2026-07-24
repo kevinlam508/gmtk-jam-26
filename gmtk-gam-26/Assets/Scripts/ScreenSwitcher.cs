@@ -4,8 +4,6 @@ using System.Collections;
 
 public class ScreenSwitcher : MonoBehaviour
 {
-    
-
     [SerializeField] private string _destinationScene;
     [SerializeField] private float waitTime = 0f;
     
