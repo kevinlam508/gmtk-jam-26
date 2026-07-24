@@ -33,6 +33,7 @@ public class MoneyCounterCanvas : MonoBehaviour
         
         int newTotal = _oldMoneyInt + addedMoney;
         _newMoneyString = newTotal.ToString().PadLeft(7, '0');
+        // to do: adjust the tween duration by the amt of money you got
         _moneyText.DOText(_newMoneyString, _tweenDuration, true, ScrambleMode.Custom, "0123456789").SetEase(_shakeCurve);
         _moneyCounter.transform.DOShakePosition(_tweenDuration, _shakeVector, vibrato).SetEase(_shakeCurve);
 
