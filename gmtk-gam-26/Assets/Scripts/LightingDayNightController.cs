@@ -40,7 +40,7 @@ public class LightingDayNightController : MonoBehaviour
         float lerpAmt = _time/_lerpTimeLength;
         _skyBoxSphereMaterial.SetFloat("_SkyboxTextureLerp", _skyBoxLerpCurve.Evaluate(lerpAmt));
         
-        Debug.Log(lerpAmt);
+        
         if(lerpAmt <= 0.5f)
         {
             _nightVolume.weight = 1f;
