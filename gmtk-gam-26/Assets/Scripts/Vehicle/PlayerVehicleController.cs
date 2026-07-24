@@ -29,7 +29,7 @@ public class PlayerVehicleController : MonoBehaviour
         _vehicle.DesiredMagnitude = acceleration.y;
         _steer = acceleration.x;
 
-        _vehicle.DesiredSteer = acceleration.x;
+        _vehicle.VisualSteer = acceleration.x;
     }
 
     public void OnJump(InputAction.CallbackContext context)

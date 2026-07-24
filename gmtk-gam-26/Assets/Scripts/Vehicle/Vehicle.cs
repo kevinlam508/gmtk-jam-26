@@ -45,7 +45,7 @@ public class Vehicle : MonoBehaviour
     [Min(0)]
     [SerializeField] private float _jumpForce = 10f;
 
-    public float DesiredSteer { get; set; }
+    public float VisualSteer { get; set; }
     public float DesiredMagnitude { get; set; }
     public Vector3 Forward { get; set; }
 
@@ -103,7 +103,7 @@ public class Vehicle : MonoBehaviour
     private void ProcessMovement(float timeStep, float groundedRatio)
     {
         Vector3 bodyForward = _body.transform.forward;
-        Vector3 driveDirection = bodyForward + (Vector3.Cross(Vector3.up, bodyForward) * DesiredSteer * Mathf.Sign(DesiredMagnitude));
+        Vector3 driveDirection = bodyForward;
         driveDirection = driveDirection.normalized;
         Vector3 currentVelocity = _body.linearVelocity;
 
@@ -129,17 +129,17 @@ public class Vehicle : MonoBehaviour
     private void ProcessSteer(float timeStep, float groundedRatio)
     {
         Quaternion frontTireRotation =
-            Mathf.Approximately(DesiredSteer, 0)
+            Mathf.Approximately(VisualSteer, 0)
             ? Quaternion.identity
-            : Quaternion.Euler(0, DesiredSteer * _tireTurnAngle, 0);
+            : Quaternion.Euler(0, VisualSteer * _tireTurnAngle, 0);
         foreach (Transform tire in _frontTireTransforms)
         {
             tire.localRotation = frontTireRotation;
         }
         Quaternion backTireRotation =
-            Mathf.Approximately(DesiredSteer, 0)
+            Mathf.Approximately(VisualSteer, 0)
             ? Quaternion.identity
-            : Quaternion.Euler(0, -DesiredSteer * _tireTurnAngle, 0);
+            : Quaternion.Euler(0, -VisualSteer * _tireTurnAngle, 0);
         foreach (Transform tire in _backTireTransforms)
         {
             tire.localRotation = backTireRotation;
