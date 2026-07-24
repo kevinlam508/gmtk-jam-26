@@ -6112,6 +6112,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3017445321232017857, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
+      propertyPath: _jumpForce
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017445321232017857, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
+      propertyPath: _defaultSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017445321232017857, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
+      propertyPath: _tireTurnAngle
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017445321232017857, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
+      propertyPath: _maxAcceleration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017445321232017857, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
+      propertyPath: _tractionStrength
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 3189890212725944520, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.0348
@@ -6151,6 +6171,10 @@ PrefabInstance:
     - target: {fileID: 3189890212725944520, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113268552278273645, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
+      propertyPath: _cameraTurnSpeedDegrees
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

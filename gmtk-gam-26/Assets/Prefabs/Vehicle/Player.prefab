@@ -333,7 +333,7 @@ MonoBehaviour:
   _vehicle: {fileID: 3017445321232017857}
   _camera: {fileID: 7920813607510608084}
   _orbit: {fileID: 1277008260482693032}
-  _cameraTurnSpeedDegrees: 30
+  _cameraTurnSpeedDegrees: 90
 --- !u!1001 &8605578587486467538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,6 +385,26 @@ PrefabInstance:
     - target: {fileID: 5931566707164626109, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+      propertyPath: _jumpForce
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+      propertyPath: _defaultSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+      propertyPath: _tireTurnAngle
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+      propertyPath: _maxAcceleration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+      propertyPath: _tractionStrength
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6945327721757217595, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
       propertyPath: m_LocalPosition.y
