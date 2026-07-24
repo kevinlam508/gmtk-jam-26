@@ -150,15 +150,6 @@ public class Vehicle : MonoBehaviour
         {
             tire.localRotation = frontTireRotation;
         }
-        Quaternion backTireRotation =
-            Mathf.Approximately(VisualSteer, 0)
-            ? Quaternion.identity
-            : Quaternion.Euler(0, -VisualSteer * _tireTurnAngle, 0);
-        foreach (Transform tire in _backTireTransforms)
-        {
-            tire.localRotation = backTireRotation;
-;
-        }
 
         if (groundedRatio < 1)
         {
