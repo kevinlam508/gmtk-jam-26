@@ -41,6 +41,7 @@ public class Destructible : MonoBehaviour
     {
         intactObject.gameObject.SetActive(false);
         brokenObject.gameObject.SetActive(true);
+        // destructionEffect.transform.position = impactPoint;
         destructionEffect.Play();
         intactObjectCollider.enabled = false;
 
