@@ -27,5 +27,6 @@ public class PlayerVehicleController : MonoBehaviour
         Vector2 acceleration = context.ReadValue<Vector2>();
         _vehicle.DesiredMagnitude = acceleration.y;
         _steer = acceleration.x;
+        _vehicle.VisualSteer = acceleration.x;
     }
 }

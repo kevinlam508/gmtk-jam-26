@@ -5,6 +5,11 @@ public class Vehicle : MonoBehaviour
 {
     [SerializeField] private Rigidbody _body;
 
+    [Header("Tires")]
+    [SerializeField] private float _tireTurnAngle = 30f;
+    [SerializeField] private Transform[] _frontTireTransforms;
+    [SerializeField] private Transform[] _backTireTransforms;
+
     [Header("Movement")]
     [SerializeField] private float _defaultSpeed = 2f;
     [SerializeField] private float _maxAcceleration = .5f;
@@ -35,6 +40,8 @@ public class Vehicle : MonoBehaviour
     [Header("Tilt")]
     [Range(0, 90)]
     [SerializeField] private float _maxTiltDegrees = 60f;
+
+    public float VisualSteer { get; set; }
 
     public float DesiredSteer { get; set; }
     public float DesiredMagnitude { get; set; }
@@ -101,6 +108,24 @@ public class Vehicle : MonoBehaviour
 
     private void ProcessSteer(float timeStep, float groundedRatio)
     {
+        Quaternion frontTireRotation =
+            Mathf.Approximately(VisualSteer, 0)
+            ? Quaternion.identity
+            : Quaternion.Euler(0, VisualSteer * _tireTurnAngle, 0);
+        foreach (Transform tire in _frontTireTransforms)
+        {
+            tire.localRotation = frontTireRotation;
+        }
+        Quaternion backTireRotation =
+            Mathf.Approximately(VisualSteer, 0)
+            ? Quaternion.identity
+            : Quaternion.Euler(0, -VisualSteer * _tireTurnAngle, 0);
+        foreach (Transform tire in _backTireTransforms)
+        {
+            tire.localRotation = backTireRotation;
+;
+        }
+
         if (groundedRatio < 1)
         {
             return;
@@ -112,6 +137,7 @@ public class Vehicle : MonoBehaviour
         Vector3 steerForward = DesiredForward;
         steerForward = steerForward.normalized;
         float angle = Vector3.SignedAngle(bodyForward, steerForward, Vector3.up) * Mathf.Deg2Rad;
+
         float angularVelocity = Vector3.Dot(_body.angularVelocity, Vector3.up);
         float turnForce = (angle * _steerTorque) - (angularVelocity * _tarqueDamping);
         turnForce = Mathf.Clamp(turnForce, -_maxSteerTorque, _maxSteerTorque);
