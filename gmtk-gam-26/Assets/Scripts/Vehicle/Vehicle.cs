@@ -31,6 +31,10 @@ public class Vehicle : MonoBehaviour
     [Tooltip("Higher = Stablize faster")]
     [SerializeField] private float _springDamping = .3f;
 
+    [Header("Tilt")]
+    [Range(0, 90)]
+    [SerializeField] private float _maxTiltDegrees = 60f;
+
     public float DesiredSteer { get; set; }
     public float DesiredMagnitude { get; set; }
     public Vector3 Forward { get; set; }
@@ -42,6 +46,7 @@ public class Vehicle : MonoBehaviour
         ProcessSuspension();
         ProcessMovement(Time.fixedDeltaTime);
         ProcessSteer(Time.fixedDeltaTime);
+        ProcessTilt(Time.fixedDeltaTime);
     }
 
     private void ProcessSuspension()
@@ -95,10 +100,26 @@ public class Vehicle : MonoBehaviour
 
         Vector3 steerForward = DesiredForward;
         steerForward = steerForward.normalized;
-        float angle = Vector3.SignedAngle(bodyForward, steerForward, Vector3.up);
+        float angle = Vector3.SignedAngle(bodyForward, steerForward, Vector3.up) * Mathf.Deg2Rad;
         float angularVelocity = Vector3.Dot(_body.angularVelocity, Vector3.up);
         float turnForce = (angle * _steerTorque) - (angularVelocity * _tarqueDamping);
         turnForce = Mathf.Clamp(turnForce, -_maxSteerTorque, _maxSteerTorque);
         _body.AddTorque(_body.transform.up * turnForce);
+    }
+
+    private void ProcessTilt(float timeStep)
+    {
+        Vector3 bodyUp = _body.transform.up;
+        float upDot = Vector3.Dot(Vector3.up, bodyUp);
+        float deviation = Vector3.Angle(Vector3.up, bodyUp);
+        if (upDot > 0 && deviation < 90 - _maxTiltDegrees)
+        {
+            return;
+        }
+
+        float torque = Mathf.Deg2Rad 
+            * (upDot > 0 ? 90 - deviation : deviation);
+        Vector3 axis = Vector3.Cross(bodyUp, Vector3.up);
+        _body.AddTorque(axis * torque, ForceMode.VelocityChange);
     }
 }

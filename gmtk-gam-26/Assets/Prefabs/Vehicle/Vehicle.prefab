@@ -404,9 +404,9 @@ MonoBehaviour:
   _defaultSpeed: 30
   _maxAcceleration: 10
   _tractionStrength: 0.3
-  _steerTorque: 0.15
-  _maxSteerTorque: 0.5
-  _tarqueDamping: 5
+  _steerTorque: 10
+  _maxSteerTorque: 3
+  _tarqueDamping: 1
   _suspensionIgnoreLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -418,6 +418,8 @@ MonoBehaviour:
   _springForce: 60
   _springLength: 0.5
   _springDamping: 3
+  _maxTiltDegrees: 60
+  _tiltCorrectionTorque: 10
 --- !u!54 &2999554512390668668
 Rigidbody:
   m_ObjectHideFlags: 0
