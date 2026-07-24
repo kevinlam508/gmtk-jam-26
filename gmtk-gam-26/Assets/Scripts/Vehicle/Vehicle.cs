@@ -95,8 +95,7 @@ public class Vehicle : MonoBehaviour
 
         Vector3 steerForward = DesiredForward;
         steerForward = steerForward.normalized;
-        float angle = Vector3.SignedAngle(bodyForward, steerForward, Vector3.up)
-            * Mathf.Sign(DesiredMagnitude);
+        float angle = Vector3.SignedAngle(bodyForward, steerForward, Vector3.up);
         float angularVelocity = Vector3.Dot(_body.angularVelocity, Vector3.up);
         float turnForce = (angle * _steerTorque) - (angularVelocity * _tarqueDamping);
         turnForce = Mathf.Clamp(turnForce, -_maxSteerTorque, _maxSteerTorque);
