@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
         AIVehicleController aiCar = newCar.GetComponent<AIVehicleController>();
         if (aiCar == null)
         {
-            Debug.LogError("AI Car Prefab is missing AIVehicleController component!");
+            Debug.LogError("[GameManager] AI Car Prefab is missing AIVehicleController component!");
             return null;
         }
             

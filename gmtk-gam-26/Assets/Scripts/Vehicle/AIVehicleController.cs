@@ -15,6 +15,10 @@ public class AIVehicleController : MonoBehaviour
     void Start()
     {
         _navigator.currentRoadSystem = FindAnyObjectByType<RoadSystem>();
+        if (_navigator.currentRoadSystem == null)
+        {
+            Debug.LogError("[AIVehicleController] Road System is missing from the scene!");
+        }
         SetNewGoal();
     }
 
