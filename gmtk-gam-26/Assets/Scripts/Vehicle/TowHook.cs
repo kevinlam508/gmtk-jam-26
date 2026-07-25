@@ -17,24 +17,49 @@ public class TowHook : MonoBehaviour
  
     public float minRopeNodeDistance;
 
-    public bool activateChain;    
+    public bool activateChain;
 
-    [Header("Visual Chain")]
     public Transform targetPoint;
     private Transform cachedTargetPoint;
     public Transform originPoint;
-    private Transform gravityPoint;
-    private Transform targetGravityPoint;
+    
+
+    [Header("Visual Chain")]
+    
+    //[SerializeField, Tooltip("The Mesh of chain link to render")]
+    //Mesh link;
+    //[SerializeField, Tooltip("The chain link material, must have gpu instancing enabled!")]
+    //Material linkMaterial;
+
+    //Matrix4x4[] matrices;
+    //Quaternion[] currentNodeRotations;
+
+    public GameObject hookObject;
+    private Quaternion prevHookRotation;
+
+    public int maxChainPoints = 20;
+    public float distanceBetweenPoints = .2f;
+    public float chainDrawSpeed = .05f;
+    public float chainDrawProgress = 1;
+    private int currentTotalPoints = 0;
+
 
     public QuadBezier bezier;
     public LineRenderer line;
-    public float chainGravity;
+    public float chainHangMax = 1;
+    public float currentChainHang;
+    public float chainTightenSpeed = 10;
+    public float chainMoveSpeed = 2;
 
-    public int maxChainPoints = 20;
-    private int currentTotalPoints;
-    public float distanceBetweenPoints = .2f;
-
-
+    private Transform gravityPoint;
+    private Transform targetGravityPoint;
+    [Header("Visual Chain Fire Arc")]
+    public float chainGravity = .02f;
+    public float chainGravityMax = 5;
+    private float currentChainGravity;
+    public float chainFireArcHeight = 4;
+    private float startingDistance = 0;
+    private float prevDistance = 0;
     [Header("Gravity Point Dynamics")]
     public float gravityFrequency = 2f;
     public float gravityDamping = 0.5f;
@@ -77,27 +102,45 @@ public class TowHook : MonoBehaviour
         linePositions = new Vector3[maxChainPoints];
         gravityDynamics = new SecondOrderDynamics(gravityFrequency, gravityDamping, gravityResponse, gravityPoint.position);
         line.enabled = false;
-
+        
         hookTargets = new List<HookTarget>();
+
+        //matrices = new Matrix4x4[maxChainPoints];
+        //Vector3 startPosition = Vector3.zero;
+        //for (int i = 0; i < currentTotalPoints; i++)
+        //{
+
+        //    linePositions[i] = startPosition;
+        //    currentNodeRotations[i] = Quaternion.identity;
+
+        //    linePositions[i] = startPosition;
+
+        //    matrices[i] = Matrix4x4.TRS(startPosition, Quaternion.identity, Vector3.one);
+
+        //    startPosition.y -= distanceBetweenPoints;
+
+        //}
     }
 
     private void FixedUpdate()
     {
         if (currentHookedTarget != null)
         {
-            SetChainPositions();
-            DrawChain();
-
             float dist = Vector3.Distance(currentHookedTarget.transform.position, transform.position);
             if (dist <= captureRange)
             {
                 HookTarget cachedHookTarget = currentHookedTarget;
                 currentHookedTarget.SetHooked(false);
+                currentHookedTarget.SetInView(false);
                 Debug.Log(currentHookedTarget.name + " CAPTURED!!!");
+                hookTargets.Remove(currentHookedTarget);
                 ActivateChainCallback(false);
                 cachedHookTarget.OnCaptureComplete();
                 hookTargets.Remove(cachedHookTarget);
             }
+            SetChainPositions();
+            DrawChain();
+            //TranslateMatrices();
         }
 
         TargetsInRangeCheck();
@@ -128,8 +171,16 @@ public class TowHook : MonoBehaviour
         {
             SetPointNumber();
             Vector3 midpoint = (originPoint.position + targetPoint.position) * 0.5f;
+            midpoint += new Vector3(0, chainFireArcHeight, 0);
             midpoint += new Vector3(Random.Range(-1, 1),Random.Range(-1, 1), Random.Range(-1, 1)) * chainWhipRadius;
             gravityPoint.position = midpoint;
+            targetGravityPoint.position = midpoint;
+            currentChainHang = 0;
+            currentChainGravity = 0;
+            chainDrawProgress = 0;
+            startingDistance = Vector3.Distance(originPoint.position, targetPoint.position);
+            prevDistance = startingDistance;
+            hookObject.SetActive(true);
         }
         else
         {
@@ -138,6 +189,7 @@ public class TowHook : MonoBehaviour
             Vector3 midpoint = (originPoint.position + targetPoint.position) * 0.5f;
             targetGravityPoint.position = midpoint;
             gravityPoint.position = midpoint;
+            hookObject.SetActive(false);
         }
             
         line.enabled = activateChain;
@@ -154,7 +206,7 @@ public class TowHook : MonoBehaviour
         for (int i = 0; i < currentTotalPoints; i++)
         {
             float prog = (float)i / currentTotalPoints;
-
+            prog = Mathf.Lerp(0, chainDrawProgress, prog);
             linePositions[i] = bezier.BezPos(prog);
         }
     }
@@ -162,23 +214,47 @@ public class TowHook : MonoBehaviour
     private void UpdateGravityPoint()
     {
         Vector3 midpoint = (originPoint.position + targetPoint.position) * 0.5f;
-        targetGravityPoint.position = midpoint + Vector3.down * chainGravity;
-
-        gravityPoint.position = gravityDynamics.Update(Time.fixedDeltaTime, targetGravityPoint.position, Vector3.zero);
-    }
-
-    public void DrawChain()
-    {
-        for (int n = 0; n < linePositions.Length; n++)
+        
+        if (targetGravityPoint.position.y > midpoint.y + .5f)
         {
-            if (n > currentTotalPoints)
-                linePositions[n] = targetPoint.position;
-            else
-                linePositions[n] = linePositions[n];
+            currentChainGravity += chainGravity;
+            currentChainGravity = Mathf.Clamp(currentChainGravity, 0, chainGravityMax);
+            targetGravityPoint.position = Vector3.MoveTowards(targetGravityPoint.position, midpoint, currentChainGravity);
+            gravityPoint.position = targetGravityPoint.position;
         }
+        else
+        {
+            float dist = Vector3.Distance(originPoint.position, targetPoint.position);
+            float distDiff = prevDistance - dist;
+            // if tightening pull taught harder
+            if (distDiff < 0)
+            {
+                currentChainHang = Mathf.MoveTowards(currentChainHang, 0, Time.fixedDeltaTime * (chainTightenSpeed + -distDiff));
+            }
+            else
+            {
+                currentChainHang = Mathf.MoveTowards(currentChainHang, chainHangMax, Time.fixedDeltaTime * (chainMoveSpeed + distDiff));
+            }
 
-        line.positionCount = currentTotalPoints;
-        line.SetPositions(linePositions);
+            prevDistance = dist;
+
+            Vector3 targetPos = midpoint + Vector3.down * currentChainHang;
+            targetGravityPoint.position = targetPos;
+            gravityPoint.position = gravityDynamics.Update(Time.fixedDeltaTime, targetPos, Vector3.zero);
+        }
+        if (chainDrawProgress < 1)
+        {
+            chainDrawProgress += chainDrawSpeed;
+            chainDrawProgress = Mathf.Clamp01(chainDrawProgress);
+
+            hookObject.transform.position = bezier.BezPos(chainDrawProgress);
+            
+            // hook has arrived
+            if (chainDrawProgress >= 1)
+                hookObject.transform.rotation = currentHookedTarget.hookSpot.rotation;
+            else
+                hookObject.transform.LookAt(bezier.BezPos(chainDrawProgress + .02f));
+        }
     }
 
     public void SetRopePositionsCallback(InputAction.CallbackContext context)
@@ -205,8 +281,8 @@ public class TowHook : MonoBehaviour
                 if (target.isInRange)
                 {
                     target.SetHooked(true);
-                    ActivateChainCallback(true);
                     targetPoint = target.hookSpot;
+                    ActivateChainCallback(true);
                     currentHookedTarget = target;
                 }
             }
@@ -249,6 +325,39 @@ public class TowHook : MonoBehaviour
                 ActivateChainCallback(false);
             target.SetInView(false);
         }
+    }
+
+    private void Update()
+    {
+        //if (activateChain)
+        //    Graphics.DrawMeshInstanced(link, 0, linkMaterial, matrices, currentTotalPoints);
+    }
+
+    void TranslateMatrices()
+    {
+        for (int i = 0; i < currentTotalPoints; i++)
+        {
+            //matrices[i].SetTRS(linePositions[i], currentNodeRotations[i], Vector3.one);
+        }
+    }
+
+    public void DrawChain()
+    {
+        //SetPointNumber();
+        for (int n = 0; n < linePositions.Length; n++)
+        {
+            if (n > currentTotalPoints)
+                linePositions[n] = targetPoint.position;
+            else if (n == linePositions.Length - 1 && chainDrawProgress >= 1)
+                linePositions[n] = targetPoint.position;
+            else if (n == 0)
+                linePositions[n] = originPoint.position;
+            else
+                linePositions[n] = linePositions[n];
+        }
+
+        line.positionCount = currentTotalPoints;
+        line.SetPositions(linePositions);
     }
 
     public void SetPointNumber()
