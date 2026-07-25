@@ -7,12 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hit_Streaks
+  m_Name: Hit_Flash_Spikes
   m_Shader: {fileID: -6465566751694194690, guid: ba647eae1ae9c974b82cb7a012a9cd14, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _ALPHATEST_ON
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -33,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Base_Texture:
-        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Texture: {fileID: 2800000, guid: 3e4fba667d5a13a448f2f915a9da4ad9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -49,14 +48,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DissolveTexture:
-        m_Texture: {fileID: 2800000, guid: da95beec8fb12d348978f0e2d11410bc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Dissolve_Texture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -100,7 +91,7 @@ Material:
     m_Floats:
     - _AddPrecomputedVelocity: 0
     - _AffineTextureStrength: 0
-    - _AlphaClip: 1
+    - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Alpha_Clip_Threshold: 0.5
     - _Ambient_Light: 0.02
@@ -110,16 +101,15 @@ Material:
     - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Color_Bit_Depth: 64
+    - _Color_Bit_Depth: 128
     - _Color_Bit_Depth_Offset: 0
-    - _Color_Intensity: 3
+    - _Color_Intensity: 30
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _Dissolve: 0
-    - _Dissolve_Contrast: 1
-    - _Dissolve_Softness: 0.35
+    - _Dissolve_Softness: 0.2
     - _DstBlend: 10
     - _DstBlendAlpha: 10
     - _EnvironmentReflections: 1
@@ -132,7 +122,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Resolution_Limit: 128
+    - _Resolution_Limit: 1024
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _Snaps_Per_Unit: 64
@@ -141,7 +131,6 @@ Material:
     - _SrcBlend: 5
     - _SrcBlendAlpha: 1
     - _Surface: 1
-    - _UseDissolve: 1
     - _Use_Dissolve: 1
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
@@ -149,17 +138,15 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _AlphaChannel: {r: 0, g: 0, b: 0, a: 1}
-    - _Alpha_Channel: {r: 1, g: 0, b: 0, a: 1}
+    - _Alpha_Channel: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Base_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Override_Base_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Override_Base_Color: {r: 1, g: 1, b: 1, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &6365107694383206151
+--- !u!114 &6878645318038600258
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

@@ -96,7 +96,7 @@ Material:
     - _AlphaToMask: 0
     - _Alpha_Clip_Threshold: 0
     - _Ambient_Light: 0.5
-    - _Blend: 0
+    - _Blend: 2
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
     - _CastShadows: 0
@@ -104,15 +104,15 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Color_Bit_Depth: 64
     - _Color_Bit_Depth_Offset: 0
-    - _Color_Intensity: 100
+    - _Color_Intensity: 50
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _Dissolve: 0
     - _Dissolve_Softness: 0
-    - _DstBlend: 10
-    - _DstBlendAlpha: 10
+    - _DstBlend: 1
+    - _DstBlendAlpha: 1
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
