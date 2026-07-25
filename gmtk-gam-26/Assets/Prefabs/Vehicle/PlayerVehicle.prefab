@@ -309,9 +309,33 @@ PrefabInstance:
       value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1621670262501801983, guid: 30b57697b0080a0498cfc859066c8a3e, type: 3}
+      propertyPath: _tireRadius
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621670262501801983, guid: 30b57697b0080a0498cfc859066c8a3e, type: 3}
       propertyPath: _springLength
       value: 0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 1621670262501801983, guid: 30b57697b0080a0498cfc859066c8a3e, type: 3}
+      propertyPath: _tireVisuals.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621670262501801983, guid: 30b57697b0080a0498cfc859066c8a3e, type: 3}
+      propertyPath: '_tireVisuals.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7861800866422694441}
+    - target: {fileID: 1621670262501801983, guid: 30b57697b0080a0498cfc859066c8a3e, type: 3}
+      propertyPath: '_tireVisuals.Array.data[1]'
+      value: 
+      objectReference: {fileID: 882075506379639068}
+    - target: {fileID: 1621670262501801983, guid: 30b57697b0080a0498cfc859066c8a3e, type: 3}
+      propertyPath: '_tireVisuals.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7757868667651008306}
+    - target: {fileID: 1621670262501801983, guid: 30b57697b0080a0498cfc859066c8a3e, type: 3}
+      propertyPath: '_tireVisuals.Array.data[3]'
+      value: 
+      objectReference: {fileID: 3745357855800704737}
     - target: {fileID: 1899756344903933777, guid: 30b57697b0080a0498cfc859066c8a3e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
