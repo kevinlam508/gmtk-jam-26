@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4791668047520565690}
   - component: {fileID: 7302104267132386866}
-  - component: {fileID: 3632646902348762802}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -47,24 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIVehicleController
   _vehicle: {fileID: 5327518827659781095}
-  _navigator: {fileID: 3632646902348762802}
---- !u!114 &3632646902348762802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096790449105609013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9ec9c7869e879745944e9674e9ed2c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Barmetler.RoadSystem.Runtime::Barmetler.RoadSystem.RoadSystemNavigator
-  currentRoadSystem: {fileID: 0}
-  Goal: {x: 0, y: 0, z: 0}
-  GraphStepSize: 1
-  MinDistanceYScale: 1
-  MinDistanceToRoadToConnect: 10
+  _navigator: {fileID: 3257097772265841}
+  _targetDistanceFromGoal: 5
+  _targetDistanceFromSubgoal: 3
 --- !u!1001 &4939843237528125606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120,8 +104,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5163978569925249911, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3257097772265841}
   m_SourcePrefab: {fileID: 100100000, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+--- !u!1 &227425625603115985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5163978569925249911, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+  m_PrefabInstance: {fileID: 4939843237528125606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3257097772265841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227425625603115985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ec9c7869e879745944e9674e9ed2c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Barmetler.RoadSystem.Runtime::Barmetler.RoadSystem.RoadSystemNavigator
+  currentRoadSystem: {fileID: 0}
+  Goal: {x: 0, y: 0, z: 0}
+  GraphStepSize: 1
+  MinDistanceYScale: 1
+  MinDistanceToRoadToConnect: 10
 --- !u!4 &4986391825170105161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 125785996931875823, guid: c616339d567e0c341aa038d40b39d638, type: 3}
@@ -132,7 +141,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 964614080308912961, guid: c616339d567e0c341aa038d40b39d638, type: 3}
   m_PrefabInstance: {fileID: 4939843237528125606}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 227425625603115985}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c1e848b10ff5624d9e445cd19301ca7, type: 3}

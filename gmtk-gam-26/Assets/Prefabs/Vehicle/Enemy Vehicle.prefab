@@ -233,6 +233,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1621670262501801983, guid: 30b57697b0080a0498cfc859066c8a3e, type: 3}
+      propertyPath: _maxSteerTorque
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1899756344903933777, guid: 30b57697b0080a0498cfc859066c8a3e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
