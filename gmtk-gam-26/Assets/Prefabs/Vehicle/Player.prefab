@@ -290,7 +290,19 @@ MonoBehaviour:
     m_ActionId: 6b444451-8a00-4d00-a97e-f47457f736a8
     m_ActionName: 'Player/Look[/Mouse/delta]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2225464744002742400}
+        m_TargetAssemblyTypeName: TowHook, Assembly-CSharp
+        m_MethodName: SetRopePositionsCallback
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6c2ab1b8-8984-453a-af3d-a3c78ae1679a
     m_ActionName: 'Player/Attack[/Mouse/leftButton,/Keyboard/enter]'
   - m_PersistentCalls:
@@ -334,6 +346,118 @@ MonoBehaviour:
   _camera: {fileID: 7920813607510608084}
   _orbit: {fileID: 1277008260482693032}
   _cameraTurnSpeedDegrees: 90
+--- !u!1 &6456481409833246276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5328707712298307516}
+  m_Layer: 0
+  m_Name: HookOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5328707712298307516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6456481409833246276}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.00505, z: -0.00013}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3928488365391844083}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &6861410441388263493
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2683019889379248495}
+    m_Modifications:
+    - target: {fileID: 478608066844958456, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.010730267
+      objectReference: {fileID: 0}
+    - target: {fileID: 478608066844958456, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 478608066844958456, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.3222103
+      objectReference: {fileID: 0}
+    - target: {fileID: 478608066844958456, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 478608066844958456, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478608066844958456, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478608066844958456, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478608066844958456, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478608066844958456, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478608066844958456, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053936452456074510, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: m_Name
+      value: TowHook
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745333949078364357, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: originPoint
+      value: 
+      objectReference: {fileID: 5328707712298307516}
+    - target: {fileID: 4745333949078364357, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: targetPoint
+      value: 
+      objectReference: {fileID: 4155436659093549902}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+--- !u!114 &2225464744002742400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4745333949078364357, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+  m_PrefabInstance: {fileID: 6861410441388263493}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6668af77c7ef92643a951c70a7802741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowHook
+--- !u!4 &6457312979119806141 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 478608066844958456, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+  m_PrefabInstance: {fileID: 6861410441388263493}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8605578587486467538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -412,7 +536,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5931566707164626109, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6457312979119806141}
+    - targetCorrespondingSourceObject: {fileID: 4749577400444593953, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5328707712298307516}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
 --- !u!4 &2683019889379248495 stripped
@@ -431,3 +561,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1e848b10ff5624d9e445cd19301ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vehicle
+--- !u!4 &3928488365391844083 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4749577400444593953, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+  m_PrefabInstance: {fileID: 8605578587486467538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4155436659093549902 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5676290069560723100, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+  m_PrefabInstance: {fileID: 8605578587486467538}
+  m_PrefabAsset: {fileID: 0}

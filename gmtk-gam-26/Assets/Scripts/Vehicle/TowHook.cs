@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,8 +23,8 @@ public class TowHook : MonoBehaviour
     public Transform targetPoint;
     private Transform cachedTargetPoint;
     public Transform originPoint;
-    public Transform gravityPoint;
-    public Transform targetGravityPoint;
+    private Transform gravityPoint;
+    private Transform targetGravityPoint;
 
     public QuadBezier bezier;
     public LineRenderer line;
@@ -45,7 +46,7 @@ public class TowHook : MonoBehaviour
     
     private Vector3[] linePositions;
 
-    public Camera mainCam;
+    private Camera mainCam;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -56,7 +57,20 @@ public class TowHook : MonoBehaviour
             enabled = false;
             return;
         }
-        
+
+        GameObject gravityPointObject = new GameObject();
+        gravityPointObject.name = "Gravity Point";
+        gravityPoint = gravityPointObject.transform;
+
+        GameObject targetGravityPointObject = new GameObject();
+        targetGravityPointObject.name = "Target Gravity Point";
+        targetGravityPoint = targetGravityPointObject.transform;
+
+        mainCam = Camera.main;
+
+        bezier.controlPoint = originPoint;
+        bezier.endPoint = originPoint;
+
         visualRangeDetector.radius = visualRange;
         cachedTargetPoint = targetPoint;
 
@@ -166,6 +180,11 @@ public class TowHook : MonoBehaviour
 
     public void SetRopePositionsCallback(InputAction.CallbackContext context)
     {
+        if (!context.started)
+        {
+            return;
+        }
+
         //chain.SetRopePositions(context.ReadValue<Vector2>());
 
         RaycastHit hit;

@@ -60,8 +60,6 @@ MonoBehaviour:
   activateChain: 0
   targetPoint: {fileID: 0}
   originPoint: {fileID: 365093704856932613}
-  gravityPoint: {fileID: 0}
-  targetGravityPoint: {fileID: 0}
   bezier: {fileID: 7907114332768997330}
   line: {fileID: 2054409407114373526}
   chainGravity: 0
@@ -71,7 +69,6 @@ MonoBehaviour:
   gravityDamping: 0.5
   gravityResponse: 0
   chainWhipRadius: 0
-  mainCam: {fileID: 0}
 --- !u!114 &7907114332768997330
 MonoBehaviour:
   m_ObjectHideFlags: 0
