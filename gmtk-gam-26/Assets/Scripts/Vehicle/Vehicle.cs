@@ -24,8 +24,14 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private float _maxSteerTorque = .5f;
     [Min(0)]
     [SerializeField] private float _tarqueDamping = 5f;
+
+    [Header("Steer Visuals")]
     [Min(0)]
     [SerializeField] private float _visualTurnBonusAngle = 0f;
+    [Min(1)]
+    [SerializeField] private float _visualTurnEnterMultiplier = 1f;
+    [Min(1)]
+    [SerializeField] private float _visualTurnRestorationMultiplier = 1f;
 
     [Header("Suspension")]
     [SerializeField] private LayerMask _suspensionIgnoreLayers;
@@ -155,7 +161,9 @@ public class Vehicle : MonoBehaviour
         }
 
         Quaternion rootRotation = Quaternion.Euler(0, VisualSteer * _visualTurnBonusAngle, 0);
-        _visualRoot.localRotation = Quaternion.Lerp(_visualRoot.localRotation, rootRotation, timeStep);
+        float rootRotationMultiplier = Mathf.Approximately(VisualSteer, 0)
+            ? _visualTurnRestorationMultiplier : _visualTurnEnterMultiplier;
+        _visualRoot.localRotation = Quaternion.Lerp(_visualRoot.localRotation, rootRotation, timeStep * rootRotationMultiplier);
 
         if (groundedRatio < 1)
         {
