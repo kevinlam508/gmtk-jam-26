@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 68af1764792b73a43b28f02402c34adf
+guid: 20c09dd521db2c54da3b26a0054b33cd
 ModelImporter:
   serializedVersion: 24501
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ConstructionStripes
+    second: {fileID: 2100000, guid: 7a75f9913dc176d4c81d7b02bd4f88c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 249414f4cf7bd204395a794f3ad83672, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 public class Destructible : MonoBehaviour
 {
-    private static float RestoreDistance = 5f;
+    private static float RestoreDistance = 10f;
 
     [SerializeField] private GameObject intactObject;
     [SerializeField] private GameObject brokenObject;
     [SerializeField] private ParticleSystem destructionEffect;
-    [SerializeField] private Collider intactObjectCollider;
+    [SerializeField] private Rigidbody intactRigidbody;
 
     [SerializeField] private float breakThreshold = 8f;
 
@@ -16,15 +16,23 @@ public class Destructible : MonoBehaviour
 
     [SerializeField] private bool isBroken;
 
+    [SerializeField]
+    private Rigidbody[] brokenPieces;
+    private List<Vector3> brokenInitialPositions = new();
+    private List<Quaternion> brokenInitialRotation = new();
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+
     void Start()
     {
+        Initialize();
         Reset();
     }
 
     private void Update()
     {
         if (isBroken 
-            && Vector3.Distance(transform.position, PlayerVehicleController.PlayerPosition) > RestoreDistance)
+            && Vector3.Distance(initialPosition, PlayerVehicleController.PlayerPosition) > RestoreDistance)
         {
             Reset();
         }
@@ -32,16 +40,12 @@ public class Destructible : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Entered"); 
         if (isBroken)
         {
             return;
         }
 
         float impactForce = collision.relativeVelocity.magnitude;
-
-        Debug.Log(impactForce);
-
         if (impactForce > breakThreshold)
         {
             Break(collision.GetContact(0).point, collision.relativeVelocity);
@@ -49,15 +53,36 @@ public class Destructible : MonoBehaviour
 
     }
 
+    private void Initialize()
+    {
+        brokenInitialPositions.Clear();
+        brokenInitialRotation.Clear();
+
+        initialPosition = transform.localPosition;
+        initialRotation = transform.localRotation;
+
+        brokenPieces = brokenObject.GetComponentsInChildren<Rigidbody>(true);
+        
+        foreach (Rigidbody piece in brokenPieces)
+        {
+            brokenInitialPositions.Add(piece.transform.localPosition);
+            brokenInitialRotation.Add(piece.transform.localRotation);
+
+            Debug.Log(piece.name);
+        }
+    }
+
     private void Break(Vector3 impactPoint, Vector3 impactVelocity)
     {
+        isBroken = true;
+
+        intactRigidbody.isKinematic = true;
+
         intactObject.gameObject.SetActive(false);
         brokenObject.gameObject.SetActive(true);
-        // destructionEffect.transform.position = impactPoint;
         destructionEffect.Play();
-        intactObjectCollider.enabled = false;
 
-        foreach (Rigidbody piece in brokenObject.GetComponentsInChildren<Rigidbody>())
+        foreach (Rigidbody piece in brokenPieces)
         {
             Vector3 direction = (piece.worldCenterOfMass - impactPoint).normalized;
 
@@ -68,15 +93,30 @@ public class Destructible : MonoBehaviour
             piece.AddTorque(Random.insideUnitSphere * impulseForce,
                 ForceMode.Impulse);
         }
-
-        isBroken = true;
     }
 
     private void Reset()
     {
-        intactObject.gameObject.SetActive(true);
+        destructionEffect.Stop();
+
         brokenObject.gameObject.SetActive(false);
+
+        intactRigidbody.linearVelocity = Vector3.zero;
+        intactRigidbody.angularVelocity = Vector3.zero;
+        transform.SetLocalPositionAndRotation(initialPosition, initialRotation);
+
+        for (int i=0; i<brokenPieces.Length; i++)
+        {
+            Rigidbody piece = brokenPieces[i];
+            piece.linearVelocity = Vector3.zero;
+            piece.angularVelocity = Vector3.zero;
+            brokenPieces[i].transform.SetLocalPositionAndRotation(brokenInitialPositions[i], brokenInitialRotation[i]);
+            piece.Sleep();
+        }
+        Debug.Log("Reset");
+        
+        intactRigidbody.isKinematic = false;
+        intactObject.gameObject.SetActive(true);
         isBroken = false;
-        intactObjectCollider.enabled = true;
     }
 }
