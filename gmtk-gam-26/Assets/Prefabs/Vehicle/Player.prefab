@@ -527,9 +527,21 @@ PrefabInstance:
       value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+      propertyPath: _jumpSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
       propertyPath: _visualRoot
       value: 
       objectReference: {fileID: 2079878730640982365}
+    - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+      propertyPath: _steerTorque
+      value: 16.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+      propertyPath: _airDashSpeed
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
       propertyPath: _defaultSpeed
       value: 15
@@ -544,11 +556,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
       propertyPath: _tractionStrength
-      value: 0.8
+      value: 0.662
       objectReference: {fileID: 0}
     - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
       propertyPath: _visualTurnBonusAngle
-      value: 30
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+      propertyPath: _visualTurnEnterMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+      propertyPath: _visualTurnRestorationMultiplier
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6945327721757217595, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
       propertyPath: m_LocalPosition.y
