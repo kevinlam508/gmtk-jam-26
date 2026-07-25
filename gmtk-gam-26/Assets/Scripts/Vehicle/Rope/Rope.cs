@@ -120,7 +120,6 @@ public class Rope : MonoBehaviour
             matrices[i] = Matrix4x4.TRS(startPosition, Quaternion.identity, Vector3.one);
 
             startPosition.y -= nodeDistance;
-
         }
 
         // for line renderer data

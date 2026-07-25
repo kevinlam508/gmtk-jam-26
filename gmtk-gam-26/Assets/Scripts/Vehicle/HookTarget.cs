@@ -53,6 +53,7 @@ public class HookTarget : MonoBehaviour
         {
             renderer.sharedMaterials = baseMaterials.ToArray();
             isHooked = false;
+            isInRange = false;
         }
     }
 
