@@ -48,6 +48,7 @@ MonoBehaviour:
   _contractTime: 60
   _numStartingCars: 2
   _numRequiredContracts: 5
-  _contractReward: 1000
+  _contractProfiles:
+  - {fileID: 11400000, guid: 4f130580397f3e04986bed85cb4a4558, type: 2}
   _aiCarPrefab: {fileID: 1096790449105609013, guid: d15c5540715a88c40beba63b795b68d5, type: 3}
   _waypoints: []

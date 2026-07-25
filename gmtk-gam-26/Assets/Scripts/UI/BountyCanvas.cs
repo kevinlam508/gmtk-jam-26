@@ -67,10 +67,11 @@ public class BountyCanvas : MonoBehaviour
     }
     
     // set current bounty UI
-    public void SetBountyUI(Sprite portrait, int value /*, Image car*/)
+    public void SetBountyUI(ContractProfileData profile)
     {
-        _bountyPortrait.sprite = portrait;
-        _bountyValueText.text = $"${value:n0}"; // formats value with comma
+        _bountyPortrait.sprite = profile.Portrait;
+        _bountyValueText.text = $"${profile.Bounty:n0}"; // formats value with comma
+        NewBounty();
     }
     
     // update timer value

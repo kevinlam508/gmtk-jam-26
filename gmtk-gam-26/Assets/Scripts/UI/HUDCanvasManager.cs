@@ -12,14 +12,20 @@ public class HUDCanvasManager : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.ContractChanged += _bounty.SetBountyUI;
         GameManager.Instance.ContractTimerChanged += _bounty.UpdateBountyTimerUI;
+        GameManager.Instance.ContractSucceded += _bounty.BountyComplete;
+        GameManager.Instance.ContractFailed += _bounty.BountyFailed;
         GameManager.Instance.TimerChanged += _timer.UpdateGlobalTimerUI;
         GameManager.Instance.MoneyChanged += _moneyCounter.OnMoneyChanged;
     }
 
     private void OnDestroy()
     {
+        GameManager.Instance.ContractChanged -= _bounty.SetBountyUI;
         GameManager.Instance.ContractTimerChanged += _bounty.UpdateBountyTimerUI;
+        GameManager.Instance.ContractSucceded -= _bounty.BountyComplete;
+        GameManager.Instance.ContractFailed -= _bounty.BountyFailed;
         GameManager.Instance.TimerChanged -= _timer.UpdateGlobalTimerUI;
         GameManager.Instance.MoneyChanged -= _moneyCounter.OnMoneyChanged;
     }

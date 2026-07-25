@@ -9,7 +9,8 @@ public class MoneyCounterCanvas : MonoBehaviour
     private string _newMoneyString;
     [SerializeField] private float _tweenDuration;
     [SerializeField] private GameObject _moneyCounter;
-    private Transform _moneyCounterStartTransform;
+    private Vector3 _moneyCounterStartPosition;
+    private Vector3 _moneyCounterStartScale;
     [SerializeField] private float _punchScale;
     private Vector3 _scaleVector;
     [SerializeField] private float _shakeDistance;
@@ -17,19 +18,19 @@ public class MoneyCounterCanvas : MonoBehaviour
     [SerializeField] private AnimationCurve _shakeCurve;
     [SerializeField] private int vibrato;
     
-
     private void Start()
     {
         _moneyText.text = "0".PadLeft(7, '0');
-        _moneyCounterStartTransform = _moneyCounter.transform;
-        
+        _moneyCounterStartPosition = _moneyCounter.transform.position;
+        _moneyCounterStartScale = _moneyCounter.transform.localScale;
+
         _scaleVector = new Vector3(_punchScale, _punchScale, _punchScale);
         _shakeVector = new Vector3(0, _shakeDistance, 0);
     }
     public void OnMoneyChanged(int addedMoney)
     {
-        _moneyCounter.transform.position = _moneyCounterStartTransform.position;
-        _moneyCounter.transform.localScale = _moneyCounterStartTransform.localScale;
+        _moneyCounter.transform.position = _moneyCounterStartPosition;
+        _moneyCounter.transform.localScale = _moneyCounterStartScale;
         
         int newTotal = _oldMoneyInt + addedMoney;
         _newMoneyString = newTotal.ToString().PadLeft(7, '0');
