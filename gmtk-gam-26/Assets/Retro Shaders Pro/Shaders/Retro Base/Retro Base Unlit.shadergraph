@@ -314,6 +314,20 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+                    "m_Id": "00bf45d4e7a04971bac29310f9a4fc0c"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "b733b812da9040d9a4f5d3c059ed8102"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
                     "m_Id": "0168b5633f304496bf2fe13a1c5902be"
                 },
                 "m_SlotId": 0
@@ -533,20 +547,6 @@
                     "m_Id": "3845a393cb0d4d8883c2227c0e2dc4be"
                 },
                 "m_SlotId": 1
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "36c5db94bc1b44bd8fd95d53f86c9382"
-                },
-                "m_SlotId": 2
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "b733b812da9040d9a4f5d3c059ed8102"
-                },
-                "m_SlotId": 0
             }
         },
         {
@@ -1957,8 +1957,8 @@
     "m_ObjectId": "1605a11402c5473987cd6d7c03794343",
     "m_Title": "Resolution Limiter",
     "m_Position": {
-        "x": -4695.00048828125,
-        "y": 510.0000305175781
+        "x": -4695.333984375,
+        "y": 510.0001220703125
     }
 }
 
@@ -3021,10 +3021,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 18.99999237060547,
-            "y": -274.0,
-            "width": 209.00006103515626,
-            "height": 302.0000305175781
+            "x": -11.333331108093262,
+            "y": 255.99993896484376,
+            "width": 209.3333282470703,
+            "height": 304.00006103515627
         }
     },
     "m_Slots": [
@@ -3844,8 +3844,8 @@
     "m_ObjectId": "567aa1c4a5e4403a94318ddc0a40769e",
     "m_Title": "Triplanar VS UV Grunge",
     "m_Position": {
-        "x": -3680.999755859375,
-        "y": -1459.9998779296875
+        "x": -3681.33349609375,
+        "y": -1460.0001220703125
     }
 }
 
@@ -4096,8 +4096,8 @@
     "m_ObjectId": "5e6d7b9754d04f0db4416e07573a6410",
     "m_Title": "Sample Base Texture",
     "m_Position": {
-        "x": -3563.000244140625,
-        "y": -454.0001220703125
+        "x": -3563.333251953125,
+        "y": -454.0000305175781
     }
 }
 
@@ -4107,8 +4107,8 @@
     "m_ObjectId": "606c23f7afab4f5aa87d9eb0a68eeffd",
     "m_Title": "Snap vertices to discrete points",
     "m_Position": {
-        "x": -1768.0001220703125,
-        "y": -1678.000244140625
+        "x": -1767.9998779296875,
+        "y": -1678.0001220703125
     }
 }
 
@@ -5113,8 +5113,8 @@
     "m_ObjectId": "853e7322fd7e470b85d3e5380aaa6403",
     "m_Title": "Posterize the base color",
     "m_Position": {
-        "x": -1761.000244140625,
-        "y": -337.0001220703125
+        "x": -1761.33349609375,
+        "y": -337.3333740234375
     }
 }
 
@@ -6129,10 +6129,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -247.9999237060547,
-            "y": -139.0,
-            "width": 182.99996948242188,
-            "height": 100.99998474121094
+            "x": -278.6665954589844,
+            "y": 391.3332824707031,
+            "width": 183.9999542236328,
+            "height": 102.66665649414063
         }
     },
     "m_Slots": [
@@ -6349,8 +6349,8 @@
     "m_ObjectId": "ad68778db0474da1bf427aecbaeeac76",
     "m_Title": "Use affine texture UVs for texture mapping if required",
     "m_Position": {
-        "x": -4914.00048828125,
-        "y": -291.00030517578127
+        "x": -4913.99951171875,
+        "y": -291.33331298828127
     }
 }
 
@@ -6568,8 +6568,8 @@
     "m_ObjectId": "b3811e3a33b54751a968eb5924f30cbb",
     "m_Title": "Apply Unity fog",
     "m_Position": {
-        "x": -273.0,
-        "y": -333.0002136230469
+        "x": -304.0,
+        "y": 196.6665802001953
     }
 }
 
@@ -7130,7 +7130,7 @@
         "a": 1.0
     },
     "isMainColor": false,
-    "m_ColorMode": 0
+    "m_ColorMode": 1
 }
 
 {
@@ -7923,8 +7923,8 @@
     "m_ObjectId": "f2c3ddc02016470e89ac208abacb1a56",
     "m_Title": "Calculate affine texture UVs on the vertex stage side",
     "m_Position": {
-        "x": -1535.000244140625,
-        "y": -1021.0001220703125
+        "x": -1535.33349609375,
+        "y": -1021.3333129882813
     }
 }
 
@@ -8034,10 +8034,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2854.0,
-            "y": -295.0000305175781,
-            "width": 134.000244140625,
-            "height": 34.00006103515625
+            "x": -2858.666748046875,
+            "y": -296.0,
+            "width": 135.33349609375,
+            "height": 36.0
         }
     },
     "m_Slots": [

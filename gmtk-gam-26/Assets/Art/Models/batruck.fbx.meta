@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: EmissiveMat
+    second: {fileID: 2100000, guid: cefa2d554306572409f3cf1b10d7f363, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Material
     second: {fileID: 2100000, guid: 66b60c00abdfc9a488f36a279d9db239, type: 2}
   materials:
