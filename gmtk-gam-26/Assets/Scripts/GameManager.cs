@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
         _contractTarget = SpawnNewVehicle();
         ContractTimer = _contractTime;
 
-        _currentContract = Random.Range(0, _contractPool.Count - 1);
+        _currentContract = Random.Range(0, _contractPool.Count);
         _contractChanged?.Invoke(_contractPool[_currentContract]);
     }
 
