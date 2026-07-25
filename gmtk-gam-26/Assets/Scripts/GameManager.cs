@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     public int Money { get; private set; }
     public int ContractsCompleted { get; private set; }
 
+
+    public Vector3? TargetLocation => _contractTarget?.Location;
+
     private void Awake()
     {
         if (_instance == null)

@@ -16,7 +16,9 @@ public class AIVehicleController : MonoBehaviour
     private Transform _targetWaypoint = null;
     private List<Bezier.OrientedPoint> _orientedPoints;
     private int _pathIndex;
-    
+
+    public Vector3 Location => _vehicle.transform.position;
+
     private void Start()
     {
         _navigator.currentRoadSystem = FindAnyObjectByType<RoadSystem>();
