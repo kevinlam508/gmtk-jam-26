@@ -118,7 +118,7 @@ Material:
     - _AlphaToMask: 0
     - _Alpha_Clip_Threshold: 0.5
     - _AmbientLight: 0.02
-    - _Ambient_Light: 0.02
+    - _Ambient_Light: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -139,7 +139,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Grunge_Blend_1: 0.267
+    - _Grunge_Blend_1: 0.112
     - _Grunge_Tiling: 0.1
     - _Metallic: 0
     - _NormalStrength: 1
