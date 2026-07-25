@@ -2195,7 +2195,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.332389, y: 2.332389, z: 2.332389}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1663294888}
@@ -2249,7 +2249,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 512005541, guid: f90c7751d2abf6f478be03a818412166, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4674,6 +4674,16 @@ PrefabInstance:
 --- !u!4 &396947073 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 797a2192a597e8a42a481f16674c0e12, type: 3}
+  m_PrefabInstance: {fileID: 396947072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &396947074 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2559789700139351428, guid: 797a2192a597e8a42a481f16674c0e12, type: 3}
+  m_PrefabInstance: {fileID: 396947072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &396947075 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4113209941629599500, guid: 797a2192a597e8a42a481f16674c0e12, type: 3}
   m_PrefabInstance: {fileID: 396947072}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &415814776
@@ -13125,6 +13135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1663294888}
+  - component: {fileID: 1663294889}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -13149,6 +13160,34 @@ Transform:
   - {fileID: 199582528}
   m_Father: {fileID: 2070641884}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &1663294889
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663294887}
+  serializedVersion: 3
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.16026232
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 396947075}
+    - renderer: {fileID: 396947074}
+  - screenRelativeHeight: 0.07495014
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.02281797
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 199582529}
+  m_Enabled: 1
+  m_GlobalIlluminationLOD: 0
 --- !u!1 &1674669953
 GameObject:
   m_ObjectHideFlags: 0
