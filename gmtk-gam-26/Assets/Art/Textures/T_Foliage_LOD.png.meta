@@ -105,7 +105,7 @@ TextureImporter:
         width: 90
         height: 236
       alignment: 9
-      pivot: {x: 0.46943024, y: 0.008867843}
+      pivot: {x: 0.46281818, y: 0.014029298}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,9 +125,9 @@ TextureImporter:
         x: 90
         y: 0
         width: 87
-        height: 165
+        height: 166
       alignment: 9
-      pivot: {x: 0.4534621, y: 0.021920795}
+      pivot: {x: 0.45803937, y: 0.021685943}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -147,9 +147,9 @@ TextureImporter:
         x: 175
         y: 131
         width: 81
-        height: 123
+        height: 125
       alignment: 9
-      pivot: {x: 0.45593166, y: 0.037006035}
+      pivot: {x: 0.46244267, y: 0.032725707}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -158,6 +158,50 @@ TextureImporter:
       bones: []
       spriteID: cc0692c5a6609e14c95e9efcf11e65f4
       internalID: 512005541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Bush_L_LOD
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 174
+        width: 85
+        height: 73
+      alignment: 9
+      pivot: {x: 0.547485, y: 0.046106}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3642d38ab6cfc4040a567c36071d2535
+      internalID: 744988892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Bush_S_LOD
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 0
+        width: 47
+        height: 61
+      alignment: 9
+      pivot: {x: 0.44794157, y: 0.11967837}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69788ee80d00475438e5b31bb0ef4941
+      internalID: 211270778
       vertices: []
       indices: 
       edges: []
@@ -176,8 +220,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
+      T_Bush_L_LOD: 744988892
+      T_Bush_S_LOD: 211270778
       T_Tree_L_LOD: -1079970238
       T_Tree_M_LOD: -1482963301
       T_Tree_S_LOD: 512005541
