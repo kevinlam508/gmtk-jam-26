@@ -882,7 +882,7 @@ MonoBehaviour:
     dimension: 1
   scanlineStrength:
     m_OverrideState: 1
-    m_Value: 0.032
+    m_Value: 0.142
   scanlineSize:
     m_OverrideState: 1
     m_Value: 4
