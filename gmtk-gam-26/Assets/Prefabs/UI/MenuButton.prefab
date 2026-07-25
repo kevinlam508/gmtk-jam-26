@@ -139,8 +139,8 @@ MonoBehaviour:
   returnScale: 1
   clickScale: 0.98
   _audioSource: {fileID: 8179591966813438811}
-  _hoverSfx: {fileID: 0}
-  _clickSfx: {fileID: 0}
+  _hoverSfx: {fileID: 8300000, guid: d3f1d0d0a4d24164a8c096043d31319c, type: 3}
+  _clickSfx: {fileID: 8300000, guid: 156e42632f626404d9c7956e8d15dbbd, type: 3}
 --- !u!82 &8179591966813438811
 AudioSource:
   m_ObjectHideFlags: 0
