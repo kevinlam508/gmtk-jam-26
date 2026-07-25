@@ -52,11 +52,11 @@ public class Vehicle : MonoBehaviour
 
     [Header("Aerial")]
     [Min(0)]
-    [SerializeField] private float _jumpForce = 10f;
+    [SerializeField] private float _jumpSpeed = 10f;
     [Min(0)]
     [SerializeField] private int _maxJumpCount = 2;
     [Min(0)]
-    [SerializeField] private float _airDashForce = 10f;
+    [SerializeField] private float _airDashSpeed = 10f;
     [Min(0)]
     [SerializeField] private int _maxAirDashCount = 1;
 
@@ -218,25 +218,20 @@ public class Vehicle : MonoBehaviour
             Vector3 direction = new Vector3(VisualSteer, 0, DesiredMagnitude);
             direction = _body.transform.rotation * direction;
             direction = direction.normalized;
-            _body.AddForce(direction * _airDashForce);
+            float existingSpeed = Vector3.Dot(_body.linearVelocity, direction);
+            _body.AddForce(direction * (_airDashSpeed - existingSpeed), ForceMode.VelocityChange);
             _airDashCount++;
         }
     }
 
     public void Jump()
     {
-        if (IsGrounded)
+        if (IsGrounded || _jumpCount < _maxJumpCount)
         {
-            _body.AddForce(_jumpForce * Vector3.up);
-            _jumpCount++;
-            return;
-        }
+            float existingVertical = Vector3.Dot(_body.linearVelocity, Vector3.up);
 
-        if (_jumpCount < _maxJumpCount)
-        {
-            _body.AddForce(_jumpForce * Vector3.up);
+            _body.AddForce((_jumpSpeed - existingVertical) * Vector3.up, ForceMode.VelocityChange);
             _jumpCount++;
-            return;
         }
     }
 }
