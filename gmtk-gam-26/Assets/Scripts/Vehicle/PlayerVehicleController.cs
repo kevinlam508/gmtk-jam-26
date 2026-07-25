@@ -6,6 +6,7 @@ public class PlayerVehicleController : MonoBehaviour
 {
     public static Vector3 PlayerPosition => Instance._vehicle.transform.position;
     public static Vector3 PlayerVelocity => Instance._vehicle.Velocity;
+    public static float PlayerTopSpeed => Instance._vehicle.TopSpeed;
 
     private static PlayerVehicleController Instance;
 
@@ -14,6 +15,14 @@ public class PlayerVehicleController : MonoBehaviour
 
     [SerializeField] private CinemachineOrbitalFollow _orbit;
     [SerializeField] private float _cameraTurnSpeedDegrees = 30f;
+
+    [Header("Juice")]
+    [SerializeField, Range(0, 1)] private float _speedRatioLimit;
+    [SerializeField] private CinemachineCamera _cinemachineCam;
+    [SerializeField] private float _cameraMinFOV = 60f;
+    [SerializeField] private float _cameraMaxFOV = 80f;
+    [SerializeField, Range(0, 1)] private float _cameraStepFOV = 0.5f;
+    [SerializeField] private ParticleSystem _speedLines;
 
     private float _steer;
 
@@ -42,6 +51,7 @@ public class PlayerVehicleController : MonoBehaviour
         forward.y = 0;
         forward = forward.normalized;
         _vehicle.Forward = forward;
+        UpdateFOV();
     }
 
     public void OnAccelerate(InputAction.CallbackContext context)
@@ -66,6 +76,28 @@ public class PlayerVehicleController : MonoBehaviour
         if (context.started)
         {
             _vehicle.AirDash();
+        }
+    }
+
+    private void UpdateFOV()
+    {
+        Vector3 velocity = PlayerVelocity;
+        velocity.y = 0f;
+
+        float _currentSpeedRatio;
+        _currentSpeedRatio = velocity.magnitude/PlayerTopSpeed;
+
+        float _currentFOV = _cinemachineCam.Lens.FieldOfView;
+
+        if (_currentSpeedRatio > _speedRatioLimit)
+        {
+            _cinemachineCam.Lens.FieldOfView = Mathf.Lerp(_currentFOV, _cameraMaxFOV, Mathf.Min(_currentSpeedRatio, _cameraStepFOV));
+            _speedLines.Play();
+        }
+        else
+        {
+            _cinemachineCam.Lens.FieldOfView = Mathf.Lerp(_cameraMinFOV, _cameraMaxFOV, _currentSpeedRatio);
+            _speedLines.Stop();
         }
     }
 }
