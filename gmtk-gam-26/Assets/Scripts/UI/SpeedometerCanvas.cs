@@ -61,7 +61,6 @@ public class SpeedometerCanvas : MonoBehaviour
         
         
         _speedText.text = currentSpeed.ToString();
-        Debug.Log(currentSpeed);
 
         if (_oldSpeed < currentSpeed)
         {

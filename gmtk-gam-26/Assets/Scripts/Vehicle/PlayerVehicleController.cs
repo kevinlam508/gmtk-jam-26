@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerVehicleController : MonoBehaviour
 {
     public static Vector3 PlayerPosition => Instance._vehicle.transform.position;
+    public static Vector3 PlayerVelocity => Instance._vehicle.Velocity;
 
     private static PlayerVehicleController Instance;
 

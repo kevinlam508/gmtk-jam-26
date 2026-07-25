@@ -74,11 +74,11 @@ public class BountyCanvas : MonoBehaviour
     }
     
     // update timer value
-    public void UpdateBountyTimerUI(float time)
+    public void UpdateBountyTimerUI(float currentTime, float totalTime)
     {
         // if timer is running out, coffin should shake, maybe change the fill color too
 
-        _coffinFill.fillAmount = time;
+        _coffinFill.fillAmount = currentTime / totalTime;
     }
     
     // timer runs out, bounty failed

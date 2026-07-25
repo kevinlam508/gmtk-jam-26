@@ -6,13 +6,29 @@ public class HUDCanvasManager : MonoBehaviour
     [SerializeField] private SpeedometerCanvas _speedometer;
     [SerializeField] private MoneyCounterCanvas _moneyCounter;
     [SerializeField] private TimerCanvas _timer;
-    
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    [Min(1)]
+    [SerializeField] private float _speedMultiplier = 3f;
+
+    private void Start()
     {
-        
+        GameManager.Instance.ContractTimerChanged += _bounty.UpdateBountyTimerUI;
+        GameManager.Instance.TimerChanged += _timer.UpdateGlobalTimerUI;
+        GameManager.Instance.MoneyChanged += _moneyCounter.OnMoneyChanged;
     }
 
-    
+    private void OnDestroy()
+    {
+        GameManager.Instance.ContractTimerChanged += _bounty.UpdateBountyTimerUI;
+        GameManager.Instance.TimerChanged -= _timer.UpdateGlobalTimerUI;
+        GameManager.Instance.MoneyChanged -= _moneyCounter.OnMoneyChanged;
+    }
+
+    private void Update()
+    {
+        Vector3 velocity = PlayerVehicleController.PlayerVelocity;
+        velocity.y = 0;
+        float speed = velocity.magnitude;
+        _speedometer.OnSpeedChanged(Mathf.RoundToInt(_speedMultiplier * speed));
+    }
 }

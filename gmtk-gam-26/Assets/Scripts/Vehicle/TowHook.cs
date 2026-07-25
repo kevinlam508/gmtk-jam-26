@@ -94,9 +94,9 @@ public class TowHook : MonoBehaviour
                 HookTarget cachedHookTarget = currentHookedTarget;
                 currentHookedTarget.SetHooked(false);
                 Debug.Log(currentHookedTarget.name + " CAPTURED!!!");
-                hookTargets.Remove(currentHookedTarget);
                 ActivateChainCallback(false);
                 cachedHookTarget.OnCaptureComplete();
+                hookTargets.Remove(cachedHookTarget);
             }
         }
 

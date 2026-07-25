@@ -11,6 +11,10 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private float _tireTurnAngle = 30f;
     [SerializeField] private Transform[] _frontTireTransforms;
     [SerializeField] private Transform[] _backTireTransforms;
+    [Min(.001f)]
+    [Tooltip("For determining spin speed from velocity. Bigger = slower spin")]
+    [SerializeField] private float _tireRadius;
+    [SerializeField] private Transform[] _tireVisuals;
 
     [Header("Movement")]
     [SerializeField] private float _defaultSpeed = 2f;
@@ -73,6 +77,8 @@ public class Vehicle : MonoBehaviour
     public bool IsGrounded { get; private set; }
     private int _jumpCount = 0;
     private int _airDashCount = 0;
+
+    public Vector3 Velocity => _body.linearVelocity;
 
     private void FixedUpdate()
     {
@@ -153,6 +159,16 @@ public class Vehicle : MonoBehaviour
             * _body.mass;
         _body.AddForce(sideDirection * appliedSideForce * groundedRatio);
         Debug.DrawRay(_body.position, sideDirection * 5 * Mathf.Sign(appliedSideForce), Color.blue, -1);
+
+        if (IsGrounded)
+        {
+            float tireAngularChange = forwardSpeed / _tireRadius * timeStep;
+            Quaternion tireRotation = Quaternion.Euler(tireAngularChange * Mathf.Rad2Deg, 0, 0);
+            foreach (Transform tireVisual in _tireVisuals)
+            {
+                tireVisual.localRotation *= tireRotation;
+            }
+        }
     }
 
     private void ProcessSteer(float timeStep, float groundedRatio)
