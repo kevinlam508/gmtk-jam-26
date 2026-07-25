@@ -3,7 +3,12 @@ guid: ef29d0bc1999291468c64f14053a300b
 ModelImporter:
   serializedVersion: 24501
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gmtk2026_FoliageAtlas
+    second: {fileID: 2100000, guid: 9e9a63a79f1b2ae4ba935f4197c87745, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
