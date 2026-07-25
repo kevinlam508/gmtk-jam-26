@@ -26,16 +26,7 @@ public class TowHook : MonoBehaviour
 
     [Header("Visual Chain")]
     
-    //[SerializeField, Tooltip("The Mesh of chain link to render")]
-    //Mesh link;
-    //[SerializeField, Tooltip("The chain link material, must have gpu instancing enabled!")]
-    //Material linkMaterial;
-
-    //Matrix4x4[] matrices;
-    //Quaternion[] currentNodeRotations;
-
     public GameObject hookObject;
-    private Quaternion prevHookRotation;
 
     public int maxChainPoints = 20;
     public float distanceBetweenPoints = .2f;
@@ -73,6 +64,8 @@ public class TowHook : MonoBehaviour
 
     private Camera mainCam;
 
+    private Coroutine retractHookCoroutine;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -102,24 +95,9 @@ public class TowHook : MonoBehaviour
         linePositions = new Vector3[maxChainPoints];
         gravityDynamics = new SecondOrderDynamics(gravityFrequency, gravityDamping, gravityResponse, gravityPoint.position);
         line.enabled = false;
-        
+
+        hookObject.SetActive(false);
         hookTargets = new List<HookTarget>();
-
-        //matrices = new Matrix4x4[maxChainPoints];
-        //Vector3 startPosition = Vector3.zero;
-        //for (int i = 0; i < currentTotalPoints; i++)
-        //{
-
-        //    linePositions[i] = startPosition;
-        //    currentNodeRotations[i] = Quaternion.identity;
-
-        //    linePositions[i] = startPosition;
-
-        //    matrices[i] = Matrix4x4.TRS(startPosition, Quaternion.identity, Vector3.one);
-
-        //    startPosition.y -= distanceBetweenPoints;
-
-        //}
     }
 
     private void FixedUpdate()
@@ -127,6 +105,12 @@ public class TowHook : MonoBehaviour
         if (currentHookedTarget != null)
         {
             float dist = Vector3.Distance(currentHookedTarget.transform.position, transform.position);
+            if (hookObject)
+            {
+                hookObject.transform.position = currentHookedTarget.transform.position;
+                hookObject.transform.rotation = currentHookedTarget.transform.rotation;
+            }
+            
             if (dist <= captureRange)
             {
                 HookTarget cachedHookTarget = currentHookedTarget;
@@ -138,7 +122,6 @@ public class TowHook : MonoBehaviour
             }
             SetChainPositions();
             DrawChain();
-            //TranslateMatrices();
         }
 
         TargetsInRangeCheck();
@@ -174,6 +157,7 @@ public class TowHook : MonoBehaviour
     public void ActivateChainCallback(bool activate)
     {
         activateChain = activate;
+
         if (activateChain)
         {
             SetPointNumber();
@@ -256,6 +240,7 @@ public class TowHook : MonoBehaviour
 
             hookObject.transform.position = bezier.BezPos(chainDrawProgress);
             
+
             // hook has arrived
             if (chainDrawProgress >= 1)
                 hookObject.transform.rotation = currentHookedTarget.hookSpot.rotation;
@@ -331,20 +316,6 @@ public class TowHook : MonoBehaviour
             if (target == currentHookedTarget)
                 ActivateChainCallback(false);
             target.SetInView(false);
-        }
-    }
-
-    private void Update()
-    {
-        //if (activateChain)
-        //    Graphics.DrawMeshInstanced(link, 0, linkMaterial, matrices, currentTotalPoints);
-    }
-
-    void TranslateMatrices()
-    {
-        for (int i = 0; i < currentTotalPoints; i++)
-        {
-            //matrices[i].SetTRS(linePositions[i], currentNodeRotations[i], Vector3.one);
         }
     }
 
