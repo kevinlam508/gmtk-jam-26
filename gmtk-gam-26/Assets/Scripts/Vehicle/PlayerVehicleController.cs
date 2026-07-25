@@ -59,4 +59,12 @@ public class PlayerVehicleController : MonoBehaviour
             _vehicle.Jump();
         }
     }
+
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            _vehicle.AirDash();
+        }
+    }
 }

@@ -186,6 +186,29 @@ public class Vehicle : MonoBehaviour
         _body.AddTorque(axis * torque, ForceMode.Acceleration);
     }
 
+    public void AirDash()
+    {
+        if (IsGrounded)
+        {
+            return;
+        }
+
+        // Don't know what direction to dash
+        if (Mathf.Approximately(DesiredMagnitude, 0) && Mathf.Approximately(VisualSteer, 0))
+        {
+            return;
+        }
+
+        if (_airDashCount < _maxAirDashCount)
+        {
+            Vector3 direction = new Vector3(VisualSteer, 0, DesiredMagnitude);
+            direction = _body.transform.rotation * direction;
+            direction = direction.normalized;
+            _body.AddForce(direction * _airDashForce);
+            _airDashCount++;
+        }
+    }
+
     public void Jump()
     {
         if (IsGrounded)
@@ -195,25 +218,11 @@ public class Vehicle : MonoBehaviour
             return;
         }
 
-        if (Mathf.Approximately(DesiredMagnitude, 0) && Mathf.Approximately(VisualSteer, 0))
+        if (_jumpCount < _maxJumpCount)
         {
-            if (_jumpCount < _maxJumpCount)
-            {
-                _body.AddForce(_jumpForce * Vector3.up);
-                _jumpCount++;
-                return;
-            }
-        }
-        else
-        {
-            if (_airDashCount < _maxAirDashCount)
-            {
-                Vector3 direction = new Vector3(VisualSteer, 0, DesiredMagnitude);
-                direction = _body.transform.rotation * direction;
-                direction = direction.normalized;
-                _body.AddForce(direction * _airDashForce);
-                _airDashCount++;
-            }
+            _body.AddForce(_jumpForce * Vector3.up);
+            _jumpCount++;
+            return;
         }
     }
 }
