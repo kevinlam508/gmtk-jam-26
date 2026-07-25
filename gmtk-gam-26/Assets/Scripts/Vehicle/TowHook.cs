@@ -135,12 +135,6 @@ public class TowHook : MonoBehaviour
                 Debug.Log(currentHookedTarget.name + " CAPTURED!!!");
                 ActivateChainCallback(false);
                 cachedHookTarget.OnCaptureComplete();
-
-                // Destroyed from the callback
-                if (cachedHookTarget == null)
-                {
-                    hookTargets.Remove(cachedHookTarget);
-                }
             }
             SetChainPositions();
             DrawChain();
@@ -152,6 +146,15 @@ public class TowHook : MonoBehaviour
 
     private void TargetsInRangeCheck()
     {
+        // idk why there's always dead hook targets in the list, but just purge them all
+        for (int i = hookTargets.Count - 1; i >= 0; i--)
+        {
+            if (hookTargets[i] == null)
+            {
+                hookTargets.RemoveAt(i);
+            }
+        }
+
         for (int i = 0; i < hookTargets.Count; i++)
         {
             float dist = Vector3.Distance(hookTargets[i].gameObject.transform.position, transform.position);
