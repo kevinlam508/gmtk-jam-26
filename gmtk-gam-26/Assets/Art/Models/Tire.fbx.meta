@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2b823382608771644ab51e1e6b5ff493
+guid: 25b16d9f848739844998c3cb65dde690
 ModelImporter:
   serializedVersion: 24501
   internalIDToNameTable: []
@@ -7,18 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Count
-    second: {fileID: 2100000, guid: 7fec1146d49744942bc7f562064c92d8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: EmissiveMat
-    second: {fileID: 2100000, guid: cefa2d554306572409f3cf1b10d7f363, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 66b60c00abdfc9a488f36a279d9db239, type: 2}
+      name: Tire
+    second: {fileID: 2100000, guid: ab14a0684879aaa4a9ddb47e34c94ebc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
