@@ -8,6 +8,7 @@ public class AIVehicleController : MonoBehaviour
 {
     [SerializeField] private Vehicle _vehicle;
     [SerializeField] private RoadSystemNavigator _navigator;
+    [SerializeField] private HookTarget _hookTarget;
     [SerializeField] private float _targetDistanceFromGoal = 5f;
     [SerializeField] private float _targetDistanceFromSubgoal = 1f;
 
@@ -23,6 +24,9 @@ public class AIVehicleController : MonoBehaviour
         {
             Debug.Log("[AIVehicleController] No Road System found in the scene!");
         }
+
+        _hookTarget.captured += OnHookTargetCaptured;
+        
         SetNewGoal();
     }
 
@@ -101,5 +105,11 @@ public class AIVehicleController : MonoBehaviour
         {
             _playerCar = null;
         }
+    }
+
+    private void OnHookTargetCaptured()
+    {
+        _hookTarget.captured -= OnHookTargetCaptured;
+        GameManager.Instance.OnAIVehicleCaptured(this);
     }
 }

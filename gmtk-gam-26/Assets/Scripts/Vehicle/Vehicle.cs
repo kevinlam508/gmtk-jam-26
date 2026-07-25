@@ -1,3 +1,4 @@
+using Barmetler.RoadSystem.Util;
 using System;
 using UnityEngine;
 
@@ -47,8 +48,13 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private float _springDamping = .3f;
 
     [Header("Tilt")]
-    [Range(0, 90)]
-    [SerializeField] private float _maxTiltDegrees = 60f;
+    [Range(0, 1)]
+    [SerializeField] private float _tiltCorrectionTolerance = .1f;
+    [Min(0)]
+    [SerializeField] private float _tiltCorrectionTorque = 5f;
+    [Min(0)]
+    [SerializeField] private float _tiltCheckDistance = .5f;
+    [SerializeField] private BoxCollider _mainBoxCollider;
 
     [Header("Aerial")]
     [Min(0)]
@@ -185,19 +191,27 @@ public class Vehicle : MonoBehaviour
 
     private void ProcessTilt(float timeStep)
     {
-        Vector3 bodyUp = _body.transform.up;
-        float upDot = Vector3.Dot(Vector3.up, bodyUp);
-        float deviation = Vector3.Angle(Vector3.up, bodyUp);
-        if (upDot > 0 && deviation < 90 - _maxTiltDegrees)
+        float upDot = Vector3.Dot(Vector3.up, _body.transform.up);
+        if (Mathf.Abs(upDot) > _tiltCorrectionTolerance)
         {
             return;
         }
 
-        float torque = Mathf.Deg2Rad 
-            * (upDot > 0 ? 90 - deviation : deviation)
-            / timeStep;
-        Vector3 axis = Vector3.Cross(bodyUp, Vector3.up);
-        _body.AddTorque(axis * torque, ForceMode.Acceleration);
+        bool onSide = HasSideContact(_mainBoxCollider.center, _body.transform.right, _mainBoxCollider.size.x)
+            || HasSideContact(_mainBoxCollider.center, -_body.transform.right, _mainBoxCollider.size.x)
+            || HasSideContact(_mainBoxCollider.center, _body.transform.up, _mainBoxCollider.size.z)
+            || HasSideContact(_mainBoxCollider.center, -_body.transform.up, _mainBoxCollider.size.z);
+        if (!onSide)
+        {
+            return;
+        }
+
+        _body.AddTorque(_tiltCorrectionTorque * Vector3.Cross(_body.transform.up, Vector3.up));
+
+        bool HasSideContact(Vector3 position, Vector3 direction, float bonusDistance)
+        {
+            return Physics.Raycast(_mainBoxCollider.transform.position + position, direction, _tiltCheckDistance + bonusDistance, ~_suspensionIgnoreLayers);
+        }
     }
 
     public void AirDash()

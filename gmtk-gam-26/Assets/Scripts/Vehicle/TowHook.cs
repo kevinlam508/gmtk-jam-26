@@ -91,9 +91,12 @@ public class TowHook : MonoBehaviour
             float dist = Vector3.Distance(currentHookedTarget.transform.position, transform.position);
             if (dist <= captureRange)
             {
+                HookTarget cachedHookTarget = currentHookedTarget;
                 currentHookedTarget.SetHooked(false);
                 Debug.Log(currentHookedTarget.name + " CAPTURED!!!");
+                hookTargets.Remove(currentHookedTarget);
                 ActivateChainCallback(false);
+                cachedHookTarget.OnCaptureComplete();
             }
         }
 

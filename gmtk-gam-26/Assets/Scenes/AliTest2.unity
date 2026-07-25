@@ -119,6 +119,83 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &472204916
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1437156851143031845, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.12433
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437156851143031845, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437156851143031845, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.63415
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437156851143031845, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437156851143031845, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437156851143031845, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437156851143031845, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437156851143031845, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437156851143031845, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437156851143031845, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451485372569275860, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: _contractTime
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451485372569275860, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: _numStartingCars
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451485372569275860, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: _waypoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451485372569275860, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: '_waypoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2053137239}
+    - target: {fileID: 4451485372569275860, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: '_waypoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1845315279}
+    - target: {fileID: 6296418831831711536, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6231706d7f95a724e8a9fab27f42acff, type: 3}
 --- !u!1 &765404996
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +883,69 @@ Transform:
   m_GameObject: {fileID: 1377709175}
   serializedVersion: 2
   m_LocalRotation: {x: 0.007359636, y: 0, z: 0, w: 0.99997294}
-  m_LocalPosition: {x: -1.2438803, y: 4.9626274, z: -3.6870108}
+  m_LocalPosition: {x: -1.2438803, y: 0.9300375, z: -3.6870108}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1845315278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1845315279}
+  m_Layer: 0
+  m_Name: Waypoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1845315279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845315278}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.14, y: 0.87, z: -18.37}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2053137238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2053137239}
+  m_Layer: 0
+  m_Name: Waypoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2053137239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053137238}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.14, y: 0.87, z: -3.35211}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -834,7 +973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3189890212725944520, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.8
+      value: -1.23259
       objectReference: {fileID: 0}
     - target: {fileID: 3189890212725944520, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -886,3 +1025,6 @@ SceneRoots:
   - {fileID: 2538266893986231642}
   - {fileID: 1377709180}
   - {fileID: 1190311808}
+  - {fileID: 472204916}
+  - {fileID: 2053137239}
+  - {fileID: 1845315279}

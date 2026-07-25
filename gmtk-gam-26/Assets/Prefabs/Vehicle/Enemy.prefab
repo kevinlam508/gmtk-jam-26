@@ -47,8 +47,114 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AIVehicleController
   _vehicle: {fileID: 5327518827659781095}
   _navigator: {fileID: 3257097772265841}
+  _hookTarget: {fileID: 3168593997294150355}
   _targetDistanceFromGoal: 5
   _targetDistanceFromSubgoal: 3
+--- !u!1 &5966075891524711683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2707102925276946996}
+  m_Layer: 6
+  m_Name: HookTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2707102925276946996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5966075891524711683}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.065, z: -0.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4986391825170105161}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8161226739042240196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6206431289802835800}
+  - component: {fileID: 1888496436897714788}
+  - component: {fileID: 3168593997294150355}
+  m_Layer: 13
+  m_Name: HookCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6206431289802835800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8161226739042240196}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4986391825170105161}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1888496436897714788
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8161226739042240196}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3168593997294150355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8161226739042240196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe891dd2fc9237546bd72e6091f6a0f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HookTarget
+  hookSpot: {fileID: 2707102925276946996}
+  renderer: {fileID: 6038702524526248022}
+  seenOutline: {fileID: 2100000, guid: c7ef10d1684b8c34f94e30e6a82d6903, type: 2}
+  inRangeOutline: {fileID: 2100000, guid: 71dadf09c2c375c4488dc4009374ca16, type: 2}
+  hookedOutline: {fileID: 2100000, guid: 47beefb7562177a46800b839c485fc6f, type: 2}
+  isInView: 0
+  isInRange: 0
+  isHooked: 0
 --- !u!1001 &4939843237528125606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97,13 +203,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 964614080308912961, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      propertyPath: _visualRoot
+      value: 
+      objectReference: {fileID: 3372888267030401420}
+    - target: {fileID: 964614080308912961, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      propertyPath: _defaultSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5163978569925249911, guid: c616339d567e0c341aa038d40b39d638, type: 3}
       propertyPath: m_Name
       value: Enemy Vehicle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 125785996931875823, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6206431289802835800}
+    - targetCorrespondingSourceObject: {fileID: 125785996931875823, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2707102925276946996}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5163978569925249911, guid: c616339d567e0c341aa038d40b39d638, type: 3}
       insertIndex: -1
@@ -131,6 +251,11 @@ MonoBehaviour:
   GraphStepSize: 1
   MinDistanceYScale: 1
   MinDistanceToRoadToConnect: 10
+--- !u!4 &3372888267030401420 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7657017953775571242, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+  m_PrefabInstance: {fileID: 4939843237528125606}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4986391825170105161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 125785996931875823, guid: c616339d567e0c341aa038d40b39d638, type: 3}
@@ -147,3 +272,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1e848b10ff5624d9e445cd19301ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vehicle
+--- !u!23 &6038702524526248022 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1675372815871541488, guid: c616339d567e0c341aa038d40b39d638, type: 3}
+  m_PrefabInstance: {fileID: 4939843237528125606}
+  m_PrefabAsset: {fileID: 0}
