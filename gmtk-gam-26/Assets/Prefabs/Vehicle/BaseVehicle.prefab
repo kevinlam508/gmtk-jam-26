@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vehicle
   _body: {fileID: 2999554512390668668}
-  _visualRoot: {fileID: 0}
+  _visualRoot: {fileID: 2575070134082606947}
   _tireTurnAngle: 30
   _frontTireTransforms:
   - {fileID: 8625329531349702615}
@@ -453,6 +453,8 @@ MonoBehaviour:
   _backTireTransforms:
   - {fileID: 8139324856540815566}
   - {fileID: 5308887168172647467}
+  _tireRadius: 0
+  _tireVisuals: []
   _defaultSpeed: 30
   _maxAcceleration: 10
   _tractionStrength: 0.3
