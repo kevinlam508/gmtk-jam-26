@@ -4,6 +4,7 @@ using UnityEngine;
 public class Vehicle : MonoBehaviour
 {
     [SerializeField] private Rigidbody _body;
+    [SerializeField] private Transform _visualRoot;
 
     [Header("Tires")]
     [SerializeField] private float _tireTurnAngle = 30f;
@@ -23,6 +24,8 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private float _maxSteerTorque = .5f;
     [Min(0)]
     [SerializeField] private float _tarqueDamping = 5f;
+    [Min(0)]
+    [SerializeField] private float _visualTurnBonusAngle = 0f;
 
     [Header("Suspension")]
     [SerializeField] private LayerMask _suspensionIgnoreLayers;
@@ -86,13 +89,13 @@ public class Vehicle : MonoBehaviour
             bool hit = Physics.Raycast(tirePoint.position, down, out RaycastHit info, _springLength, ~_suspensionIgnoreLayers);
             if (!hit)
             {
-                tireVisual.position = tirePoint.position + down * _springLength;
+                tireVisual.localPosition = tirePoint.localPosition + down * _springLength;
                 continue;
             }
 
-            float distanceThroughGround = _springLength - info.distance;
-            tireVisual.position = info.point;
+            tireVisual.localPosition = tirePoint.localPosition + down * info.distance;
 
+            float distanceThroughGround = _springLength - info.distance;
             float desiredForce = distanceThroughGround * _springForce;
 
             Vector3 existingVelocity = _body.GetPointVelocity(tirePoint.position);
@@ -150,6 +153,9 @@ public class Vehicle : MonoBehaviour
         {
             tire.localRotation = frontTireRotation;
         }
+
+        Quaternion rootRotation = Quaternion.Euler(0, VisualSteer * _visualTurnBonusAngle, 0);
+        _visualRoot.localRotation = Quaternion.Lerp(_visualRoot.localRotation, rootRotation, timeStep);
 
         if (groundedRatio < 1)
         {
