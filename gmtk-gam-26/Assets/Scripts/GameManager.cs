@@ -67,12 +67,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void OnAIVehicleDefeated(AIVehicleController aiCar)
+    public void OnAIVehicleCaptured(AIVehicleController aiCar)
     {
         if (aiCar == _contractTarget)
         {
             Money += _contractReward;
             ContractsCompleted++;
+            Destroy(aiCar.gameObject);
 
             if (ContractsCompleted == _numRequiredContracts)
             {

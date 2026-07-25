@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +21,9 @@ public class HookTarget : MonoBehaviour
     
     private List<Material> baseMaterials;
 
-    private void Start()
+    public event Action captured;
+
+    private void Awake()
     {
         baseMaterials = new List<Material>();
         seenMaterials = new List<Material>();
@@ -76,5 +79,10 @@ public class HookTarget : MonoBehaviour
         {
             renderer.sharedMaterials = hookedMaterials.ToArray();
         }
+    }
+
+    public void OnCaptureComplete()
+    {
+        captured?.Invoke();
     }
 }

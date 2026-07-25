@@ -24,6 +24,9 @@ public class AIVehicleController : MonoBehaviour
         {
             Debug.Log("[AIVehicleController] No Road System found in the scene!");
         }
+
+        _hookTarget.captured += OnHookTargetCaptured;
+        
         SetNewGoal();
     }
 
@@ -102,5 +105,11 @@ public class AIVehicleController : MonoBehaviour
         {
             _playerCar = null;
         }
+    }
+
+    private void OnHookTargetCaptured()
+    {
+        _hookTarget.captured -= OnHookTargetCaptured;
+        GameManager.Instance.OnAIVehicleCaptured(this);
     }
 }
