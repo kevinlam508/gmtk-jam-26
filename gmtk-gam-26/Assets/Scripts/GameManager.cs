@@ -168,8 +168,6 @@ public class GameManager : MonoBehaviour
             }
             ContractSucceded?.Invoke();
 
-            Destroy(aiCar.gameObject);
-
             if (ContractsCompleted == _numRequiredContracts)
             {
                 EndGame(true);
@@ -183,6 +181,7 @@ public class GameManager : MonoBehaviour
         {
             SpawnNewVehicle();
         }
+        Destroy(aiCar.gameObject);
     }
 
     public Transform GetRandomWaypointExcept(Transform pointToExclude)

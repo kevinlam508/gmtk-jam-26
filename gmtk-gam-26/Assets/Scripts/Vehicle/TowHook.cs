@@ -133,10 +133,14 @@ public class TowHook : MonoBehaviour
                 currentHookedTarget.SetHooked(false);
                 currentHookedTarget.SetInView(false);
                 Debug.Log(currentHookedTarget.name + " CAPTURED!!!");
-                hookTargets.Remove(currentHookedTarget);
                 ActivateChainCallback(false);
                 cachedHookTarget.OnCaptureComplete();
-                hookTargets.Remove(cachedHookTarget);
+
+                // Destroyed from the callback
+                if (cachedHookTarget == null)
+                {
+                    hookTargets.Remove(cachedHookTarget);
+                }
             }
             SetChainPositions();
             DrawChain();
