@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MetalTrim
-    second: {fileID: 2100000, guid: 7d7af9f8b6a3f2740a70a658be153660, type: 2}
+    second: {fileID: 2100000, guid: 8e9bfaf64016ca1448dcff3f0b2e1178, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

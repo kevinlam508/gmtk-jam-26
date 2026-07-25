@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ffd5ae1af68e6914990f073c8d15da79
+guid: 701730f7c83a40b43b9f73da6d4a8052
 ModelImporter:
   serializedVersion: 24501
   internalIDToNameTable: []
@@ -8,7 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MetalTrim
-    second: {fileID: 2100000, guid: 8e9bfaf64016ca1448dcff3f0b2e1178, type: 2}
+    second: {fileID: 2100000, guid: 0ce509990c3b88c4a85b5ade2a068624, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SmoothConc
+    second: {fileID: 2100000, guid: 38cc33be4083ced409827ca4174717a2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
