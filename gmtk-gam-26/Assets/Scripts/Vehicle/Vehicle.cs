@@ -70,6 +70,10 @@ public class Vehicle : MonoBehaviour
     [Min(0)]
     [SerializeField] private int _maxAirDashCount = 1;
 
+    [Header("Juice")]
+    [SerializeField] private ParticleSystem _dashVFX;
+    [SerializeField] private ParticleSystem _jumpVFX;
+
     public float VisualSteer { get; set; }
     public float DesiredMagnitude { get; set; }
     public Vector3 Forward { get; set; }
@@ -252,6 +256,7 @@ public class Vehicle : MonoBehaviour
             float existingSpeed = Vector3.Dot(_body.linearVelocity, direction);
             _body.AddForce(direction * (_airDashSpeed - existingSpeed), ForceMode.VelocityChange);
             _airDashCount++;
+            _dashVFX.Play();
         }
     }
 
@@ -263,6 +268,7 @@ public class Vehicle : MonoBehaviour
 
             _body.AddForce((_jumpSpeed - existingVertical) * Vector3.up, ForceMode.VelocityChange);
             _jumpCount++;
+            _jumpVFX.Play();
         }
     }
 }
