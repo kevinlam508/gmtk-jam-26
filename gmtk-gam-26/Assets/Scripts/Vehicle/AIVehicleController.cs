@@ -8,6 +8,7 @@ public class AIVehicleController : MonoBehaviour
 {
     [SerializeField] private Vehicle _vehicle;
     [SerializeField] private RoadSystemNavigator _navigator;
+    [SerializeField] private HookTarget _hookTarget;
     [SerializeField] private float _targetDistanceFromGoal = 5f;
     [SerializeField] private float _targetDistanceFromSubgoal = 1f;
 
