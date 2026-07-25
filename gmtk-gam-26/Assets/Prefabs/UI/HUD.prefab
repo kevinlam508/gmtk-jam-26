@@ -726,6 +726,7 @@ GameObject:
   - component: {fileID: 7197519563652347230}
   - component: {fileID: 3436361526919990927}
   - component: {fileID: 6177072690879879118}
+  - component: {fileID: 8098499002315320252}
   m_Layer: 5
   m_Name: TimerCanvas
   m_TagString: Untagged
@@ -827,6 +828,18 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &8098499002315320252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2804094756257596005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f11abffca940834c8fb497488e6546c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimerCanvas
 --- !u!1 &2945848811138562279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,10 +1249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1d1532e2555f147b9bff90612a9a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HUDCanvasManager
-  _bounty: {fileID: 0}
-  _speedometer: {fileID: 0}
-  _moneyCounter: {fileID: 0}
-  _timer: {fileID: 0}
+  _bounty: {fileID: 467941948210903071}
+  _speedometer: {fileID: 4019322015071563098}
+  _moneyCounter: {fileID: 4760178109360312956}
+  _timer: {fileID: 8098499002315320252}
 --- !u!1 &3454555141335707166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,7 +1543,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 140.7
+  m_fontSize: 140.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1756,7 +1769,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.15
+  m_fontSize: 29.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2875,7 +2888,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 153
+  m_fontSize: 152.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -7,6 +7,10 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    public event Action<float, float> TimerChanged;
+    public event Action<float, float> ContractTimerChanged;
+    public event Action<int> MoneyChanged;
+
     [Header("Starting Values")] 
     [SerializeField] private float _totalTime;
     [SerializeField] private float _contractTime;
@@ -23,9 +27,38 @@ public class GameManager : MonoBehaviour
     private List<AIVehicleController> _activeVehicles;
     private AIVehicleController _contractTarget;
 
-    public float Timer { get; private set; }
-    public float ContractTimer { get; private set; }
-    public int Money { get; private set; }
+    private float _timer;
+    public float Timer 
+    {
+        get => _timer;
+        private set
+        {
+            _timer = value;
+            TimerChanged?.Invoke(_timer, _totalTime);
+        }
+    }
+
+    private float _contractTimer;
+    public float ContractTimer
+    {
+        get => _contractTimer;
+        private set
+        {
+            _contractTimer = value;
+            TimerChanged?.Invoke(_contractTimer, _contractTime);
+        }
+    }
+
+    private int _money;
+    public int Money 
+    {
+        get => _money;
+        private set
+        {
+            _money = value;
+            MoneyChanged?.Invoke(_money);
+        }
+    }
     public int ContractsCompleted { get; private set; }
 
 

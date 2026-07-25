@@ -78,6 +78,8 @@ public class Vehicle : MonoBehaviour
     private int _jumpCount = 0;
     private int _airDashCount = 0;
 
+    public Vector3 Velocity => _body.linearVelocity;
+
     private void FixedUpdate()
     {
         Debug.DrawRay(_body.position, _body.transform.forward * 5, Color.snow, -1);
