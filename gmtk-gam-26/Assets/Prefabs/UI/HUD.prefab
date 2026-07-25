@@ -840,6 +840,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f11abffca940834c8fb497488e6546c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimerCanvas
+  _timerLabel: {fileID: 5523219760543835610}
+  _timeFormat: <mspace=.65em>{0}</mspace>:<mspace=.65em>{1}</mspace>
 --- !u!1 &2945848811138562279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2862,7 +2864,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 09:99
+  m_text: <mspace=0em>09:99</mspace>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d4a8f22e64b946442b01f0a6377a3cf3, type: 2}
   m_sharedMaterial: {fileID: -7010468816127244243, guid: d4a8f22e64b946442b01f0a6377a3cf3, type: 2}

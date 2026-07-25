@@ -47,8 +47,18 @@ MonoBehaviour:
   _totalTime: 300
   _contractTime: 60
   _numStartingCars: 2
-  _numRequiredContracts: 5
+  _numRequiredContracts: 10
   _contractProfiles:
-  - {fileID: 11400000, guid: 4f130580397f3e04986bed85cb4a4558, type: 2}
+  - {fileID: 11400000, guid: cfbd0e97b6a661449acef88e74bd297b, type: 2}
+  - {fileID: 11400000, guid: ccd4040daf2bb784c90f148ef790d744, type: 2}
+  - {fileID: 11400000, guid: 141bc3a7a96a98947931f62b479152fe, type: 2}
+  - {fileID: 11400000, guid: 9cd94e31620e86848afe64ad2110a584, type: 2}
+  - {fileID: 11400000, guid: 4dd43982ad18a824cb3ab57ec78240a8, type: 2}
+  - {fileID: 11400000, guid: b52ead648aca5964d96fd6fada2e49e8, type: 2}
+  - {fileID: 11400000, guid: d5be449ab91c44847857df8aec7c66e4, type: 2}
+  - {fileID: 11400000, guid: 6f5b7fd228c88a64f8e3e12fcc28e880, type: 2}
+  - {fileID: 11400000, guid: 701c3290e171c31479a4b20f1257af45, type: 2}
+  - {fileID: 11400000, guid: ab1c797d46aa1e44b9c16ee7dab53665, type: 2}
+  - {fileID: 11400000, guid: a7e0cea0e6b8e3841987428a01922d29, type: 2}
   _aiCarPrefab: {fileID: 1096790449105609013, guid: d15c5540715a88c40beba63b795b68d5, type: 3}
   _waypoints: []

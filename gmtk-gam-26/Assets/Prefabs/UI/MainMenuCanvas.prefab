@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f77b84d8e381af449d9d9df15ddc5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tweener
-  tweenDuration: 0.2
+  tweenDuration: 0.1
   playOnAwake: 0
   loop: 0
   onComplete:
@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f77b84d8e381af449d9d9df15ddc5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tweener
-  tweenDuration: 0.2
+  tweenDuration: 0.1
   playOnAwake: 0
   loop: 0
   onComplete:

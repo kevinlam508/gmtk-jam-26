@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 981d6c3dacf43484da888bbfca07c116, type: 3}
-  m_Name: BasicProfile
+  m_Name: BasicProfile 4
   m_EditorClassIdentifier: Assembly-CSharp::ContractProfileData
-  Portrait: {fileID: 1669091376, guid: 089fb94d30ca9124ba2d9fe547bf123a, type: 3}
-  Bounty: 1000
+  Portrait: {fileID: 21300000, guid: 694a6ff59b5d8864384f451df2964854, type: 3}
+  Bounty: 1050

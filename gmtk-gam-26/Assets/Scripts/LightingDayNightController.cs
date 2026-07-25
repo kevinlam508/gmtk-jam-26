@@ -31,32 +31,41 @@ public class LightingDayNightController : MonoBehaviour
         _nightVolume.weight = 1f;
         _transitionVolume.weight = 0f;
         _morningVolume.weight = 0f;
+
+        GameManager.Instance.TimerChanged += OnTimerChanged;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        _time+=(Time.deltaTime * _timeSpeed);
-        float lerpAmt = _time/_lerpTimeLength;
-        _skyBoxSphereMaterial.SetFloat("_SkyboxTextureLerp", _skyBoxLerpCurve.Evaluate(lerpAmt));
-        
-        
-        if(lerpAmt <= 0.5f)
+        GameManager.Instance.TimerChanged -= OnTimerChanged;
+    }
+
+    private void OnTimerChanged(float current, float totalTime)
+    {
+        SetTiemRatio(current / totalTime);
+    }
+
+    public void SetTiemRatio(float ratio)
+    {
+        _skyBoxSphereMaterial.SetFloat("_SkyboxTextureLerp", _skyBoxLerpCurve.Evaluate(ratio));
+
+
+        if (ratio <= 0.5f)
         {
             _nightVolume.weight = 1f;
             _morningVolume.weight = 0f;
-            _transitionVolume.weight = _volumeLerpCurve1.Evaluate(lerpAmt * 2f);
+            _transitionVolume.weight = _volumeLerpCurve1.Evaluate(ratio * 2f);
         }
         else
         {
             _nightVolume.weight = 1f;
             _transitionVolume.weight = 1f;
-            _morningVolume.weight = _volumeLerpCurve2.Evaluate((lerpAmt *2f) - 1f);
+            _morningVolume.weight = _volumeLerpCurve2.Evaluate((ratio * 2f) - 1f);
         }
-        if(_time >= _lerpTimeLength)
+        if (_time >= _lerpTimeLength)
         {
             _time = 0f;
         }
-        _directionalLight.color = _directionalLightColorGradient.Evaluate(_directionalLightLerpCurve.Evaluate(lerpAmt));
+        _directionalLight.color = _directionalLightColorGradient.Evaluate(_directionalLightLerpCurve.Evaluate(ratio));
     }
 }

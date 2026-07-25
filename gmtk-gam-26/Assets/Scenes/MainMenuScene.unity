@@ -388,11 +388,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3519618198521207427, guid: 7d8362601547ae04d921a0dd4819bee6, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 3819b0ea1f3674947a5b9622a601dd6f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -699,6 +699,10 @@ PrefabInstance:
     - target: {fileID: 6716610528768863768, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
       propertyPath: _destinationScene
       value: LevelScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567968206058425513, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
+      propertyPath: loop
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8006971042458985006, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
       propertyPath: m_Pivot.x

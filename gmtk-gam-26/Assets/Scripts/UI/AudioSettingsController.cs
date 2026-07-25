@@ -25,27 +25,21 @@ public class AudioSettingsController : MonoBehaviour
 
     public void OnMasterValueChanged(float value)
     {
-        SetMixerVolume(_masterMixer.audioMixer, value);
+        _masterMixer.audioMixer.SetFloat("MasterVolume", Mathf.Log10(value) * 20);
     }
 
     public void OnMusicValueChanged(float value)
     {
-        SetMixerVolume(_musicMixer.audioMixer, value);
+        _musicMixer.audioMixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
     }
 
     public void OnSFXValueChanged(float value)
     {
-        SetMixerVolume(_sfxMixer.audioMixer, value);
+        _sfxMixer.audioMixer.SetFloat("SFXVolume", Mathf.Log10(value) * 20);
     }
 
     public void OnUIValueChanged(float value)
     {
-        SetMixerVolume(_uiMixer.audioMixer, value);
-    }
-
-    private void SetMixerVolume(AudioMixer mixer, float sliderValue)
-    {
-        mixer.SetFloat("Volume", Mathf.Log10(sliderValue) * 20);
-        
+        _uiMixer.audioMixer.SetFloat("UIVolume", Mathf.Log10(value) * 20);
     }
 }
