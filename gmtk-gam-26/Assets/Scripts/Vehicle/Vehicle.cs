@@ -101,11 +101,11 @@ public class Vehicle : MonoBehaviour
             bool hit = Physics.Raycast(tirePoint.position, down, out RaycastHit info, _springLength, ~_suspensionIgnoreLayers);
             if (!hit)
             {
-                tireVisual.localPosition = tirePoint.localPosition + down * _springLength;
+                tireVisual.localPosition = tirePoint.localPosition - Vector3.up * _springLength;
                 continue;
             }
 
-            tireVisual.localPosition = tirePoint.localPosition + down * info.distance;
+            tireVisual.localPosition = tirePoint.localPosition - Vector3.up * info.distance;
 
             float distanceThroughGround = _springLength - info.distance;
             float desiredForce = distanceThroughGround * _springForce;
