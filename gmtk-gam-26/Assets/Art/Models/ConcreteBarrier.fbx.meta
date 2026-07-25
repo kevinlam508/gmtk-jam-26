@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 28b026a3720953f4a8a2842f89a45afa
+guid: 1d0c9e4c008eb3f42962e0b922876575
 ModelImporter:
   serializedVersion: 24501
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 7d7af9f8b6a3f2740a70a658be153660, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material2
-    second: {fileID: 2100000, guid: 405896b1d5716a64bafe4d2b3006b902, type: 2}
+      name: Mio3CheckerMapMat_1024
+    second: {fileID: 2100000, guid: 806c9b96b03f9af4b81f41583cf5a314, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
