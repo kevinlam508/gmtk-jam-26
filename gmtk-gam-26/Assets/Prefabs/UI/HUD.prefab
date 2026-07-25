@@ -512,7 +512,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664125062394753401}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1253,6 +1253,7 @@ MonoBehaviour:
   _speedometer: {fileID: 4019322015071563098}
   _moneyCounter: {fileID: 4760178109360312956}
   _timer: {fileID: 8098499002315320252}
+  _speedMultiplier: 3
 --- !u!1 &3454555141335707166
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,7 +2170,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5438341495620087719}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
