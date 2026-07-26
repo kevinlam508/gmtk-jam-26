@@ -514,9 +514,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2b823382608771644ab51e1e6b5ff493, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1206274659}
-    - targetCorrespondingSourceObject: {fileID: -5780699349011210587, guid: 2b823382608771644ab51e1e6b5ff493, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2106190817}
   m_SourcePrefab: {fileID: 100100000, guid: 2b823382608771644ab51e1e6b5ff493, type: 3}
 --- !u!1 &33598587
 GameObject:
@@ -1330,7 +1327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1400622330
 Transform:
   m_ObjectHideFlags: 0
@@ -1737,6 +1734,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4015496518067931136, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4190312591278823301, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1784,6 +1785,10 @@ PrefabInstance:
     - target: {fileID: 5991519394318663995, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146937480621574597, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6195722487066460845, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2053,86 +2058,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 8.871, y: -156.77, z: -7.251}
---- !u!1 &2106190815 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -5780699349011210587, guid: 2b823382608771644ab51e1e6b5ff493, type: 3}
-  m_PrefabInstance: {fileID: 10983979}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2106190817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106190815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f77b84d8e381af449d9d9df15ddc5e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tweener
-  startDelay: 0
-  tweenDuration: 1
-  playOnAwake: 1
-  loop: 1
-  destroyOnEnd: 0
-  onComplete:
-    m_PersistentCalls:
-      m_Calls: []
-  startScale: {x: 1, y: 1, z: 1}
-  endScale: {x: 0, y: 0, z: 0}
-  scaleTween:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  scaleLooptype: 0
-  startPos: {fileID: 0}
-  endPos: {fileID: 0}
-  posTween:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  posLooptype: 0
-  startRot: {x: 0, y: 0, z: 0}
-  endRot: {x: 30, y: 0, z: 0}
-  rotTween:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  rotateLooptype: 1
-  image: {fileID: 0}
-  alphaCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  alpha: 0
-  startAlpha: 0
-  endAlpha: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
