@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class EndScreen : MonoBehaviour
 {
