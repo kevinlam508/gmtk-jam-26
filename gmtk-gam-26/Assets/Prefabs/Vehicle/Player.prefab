@@ -25033,7 +25033,7 @@ PrefabInstance:
       objectReference: {fileID: 8659777451138357472}
     - target: {fileID: 7907114332768997330, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
       propertyPath: length
-      value: 0.000002709805
+      value: 0.0000016029431
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25146,11 +25146,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
       propertyPath: _maxAcceleration
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
       propertyPath: _tractionStrength
-      value: 0.662
+      value: 0.948
       objectReference: {fileID: 0}
     - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
       propertyPath: _visualTurnBonusAngle
