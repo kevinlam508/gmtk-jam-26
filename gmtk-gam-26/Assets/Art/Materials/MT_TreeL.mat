@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MT_TreeL
-  m_Shader: {fileID: -6465566751694194690, guid: f11636e1af0ba8649b93f8de9233593b, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 6d1d9f09feb1e5d47885ea3781814e3c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -115,6 +115,9 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
+    - _CameraDepthFadeMinAlpha: 0.4
+    - _CameraDepthFadeOffset: 0.5
+    - _CameraDepthFadeRange: 5
     - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
