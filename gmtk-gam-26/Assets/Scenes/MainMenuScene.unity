@@ -805,11 +805,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25b16d9f848739844998c3cb65dde690, type: 3}
---- !u!1 &1107465095 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6922112445348771571, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
-  m_PrefabInstance: {fileID: 1859305091}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1206274657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2b823382608771644ab51e1e6b5ff493, type: 3}
@@ -832,9 +827,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f77b84d8e381af449d9d9df15ddc5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tweener
+  startDelay: 0
   tweenDuration: 3
   playOnAwake: 1
   loop: 1
+  destroyOnEnd: 0
   onComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -1046,14 +1043,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238690837}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f77b84d8e381af449d9d9df15ddc5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tweener
+  startDelay: 0
   tweenDuration: 1
   playOnAwake: 0
   loop: 0
+  destroyOnEnd: 1
   onComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -1112,7 +1111,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   posLooptype: 0
   startRot: {x: 0, y: 0, z: 0}
-  endRot: {x: 4.131, y: -4.848, z: -7.251}
+  endRot: {x: 9.74, y: -140, z: -9}
   rotTween:
     serializedVersion: 2
     m_Curve:
@@ -1608,10 +1607,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4764055017609191582, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6195722487066460845, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1627,18 +1622,6 @@ PrefabInstance:
     - target: {fileID: 6401111895546264186, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076418412106070767, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
-      propertyPath: TransitionToMainPanel.m_PersistentCalls.m_Calls.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076418412106070767, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
-      propertyPath: TransitionToMainPanel.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076418412106070767, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
-      propertyPath: TransitionToMainPanel.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7076418412106070767, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
       propertyPath: TransitionToMainPanel.m_PersistentCalls.m_Calls.Array.data[3].m_Target
@@ -1647,39 +1630,7 @@ PrefabInstance:
     - target: {fileID: 7076418412106070767, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
       propertyPath: TransitionToMainPanel.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 1107465095}
-    - target: {fileID: 7076418412106070767, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
-      propertyPath: TransitionToMainPanel.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076418412106070767, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
-      propertyPath: TransitionToMainPanel.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076418412106070767, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
-      propertyPath: TransitionToMainPanel.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: Tween
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076418412106070767, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
-      propertyPath: TransitionToMainPanel.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076418412106070767, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
-      propertyPath: TransitionToMainPanel.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: Tweener, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076418412106070767, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
-      propertyPath: TransitionToMainPanel.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076418412106070767, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
-      propertyPath: TransitionToMainPanel.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076418412106070767, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
-      propertyPath: TransitionToMainPanel.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1238690842}
     - target: {fileID: 8006971042458985006, guid: 063062f76089e52449f1c10e341e8faf, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1829,9 +1780,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f77b84d8e381af449d9d9df15ddc5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tweener
+  startDelay: 0
   tweenDuration: 1
   playOnAwake: 1
   loop: 1
+  destroyOnEnd: 0
   onComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -1854,7 +1807,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   posLooptype: 0
   startRot: {x: 0, y: 0, z: 0}
-  endRot: {x: 20, y: 0, z: 0}
+  endRot: {x: 30, y: 0, z: 0}
   rotTween:
     serializedVersion: 2
     m_Curve:

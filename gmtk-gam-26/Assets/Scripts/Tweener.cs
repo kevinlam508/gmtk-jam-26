@@ -1,12 +1,15 @@
+using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
 
 public class Tweener : MonoBehaviour
 {
+    [SerializeField] private float startDelay;
     [SerializeField] private float tweenDuration;
     [SerializeField] private bool playOnAwake;
     [SerializeField] private bool loop;
+    [SerializeField] private bool destroyOnEnd;
     
     [SerializeField] private UnityEvent onComplete;
     
@@ -38,26 +41,48 @@ public class Tweener : MonoBehaviour
 
     void OnEnable()
     {
+        
         if (playOnAwake)
         {
+            Reset();
             Tween();
         }
 
+        
+    }
+
+    public void Reset()
+    {
+        if (scaleTween != null) gameObject.transform.localScale = startScale;
+        if (posTween != null) gameObject.transform.position = startPos.transform.position;
+        if (rotTween != null) gameObject.transform.localEulerAngles = startRot;
     }
     
     public void Tween()
     {
-        Scale();
-        // RectTransform();
-        Position();
-        Rotate();
+        StartCoroutine(DelayTween());
+        
+        IEnumerator DelayTween()
+        {
+            yield return new WaitForSeconds(startDelay);
+            Scale();
+            // RectTransform();
+            Position();
+            Rotate();
+        }
     }
 
     public void TweenReverse()
     {
-        Scale(true);
-        Position(true);
-        Rotate(true);
+        StartCoroutine(DelayTween());
+        
+        IEnumerator DelayTween()
+        {
+            yield return new WaitForSeconds(startDelay);
+            Scale(true);
+            Position(true);
+            Rotate(true);
+        }
     }
 
     public void Scale(bool isReverse = false)
@@ -83,7 +108,7 @@ public class Tweener : MonoBehaviour
     
     public void Position(bool isReverse = false)
     {
-        if (posTween == null || startPos == null) return;
+        if (posTween == null) return;
         
         // if (isReverse)
         // {
@@ -149,5 +174,6 @@ public class Tweener : MonoBehaviour
     void OnComplete()
     {
         onComplete.Invoke();
+        if(destroyOnEnd) Destroy(this);
     }
 }
