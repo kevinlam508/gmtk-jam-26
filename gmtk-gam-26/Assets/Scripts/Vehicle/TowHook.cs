@@ -58,7 +58,9 @@ public class TowHook : MonoBehaviour
 
     [Header("Truck Visuals")]
     [SerializeField] private Animator _truckAnimator;
-    [SerializeField] private SkinnedMeshRenderer _hookMeshRenderer;
+    [SerializeField] private SkinnedMeshRenderer _hookSkinnedMeshRenderer;
+    [SerializeField] private GameObject _hookGameplayModel;
+    [SerializeField] private TrailRenderer _hookTrail;
 
     public float chainWhipRadius;
 
@@ -100,7 +102,12 @@ public class TowHook : MonoBehaviour
         gravityDynamics = new SecondOrderDynamics(gravityFrequency, gravityDamping, gravityResponse, gravityPoint.position);
         line.enabled = false;
 
-        hookObject.SetActive(false);
+        _hookTrail.emitting = false;
+        _hookTrail.Clear();
+        //hookObject.SetActive(false);
+        if (_hookSkinnedMeshRenderer != null)
+            _hookSkinnedMeshRenderer.enabled = true;
+
         hookTargets = new List<HookTarget>();
     }
 
@@ -117,6 +124,8 @@ public class TowHook : MonoBehaviour
             
             if (dist <= captureRange)
             {
+                _hookTrail.emitting = false;
+                _hookTrail.Clear();
                 HookTarget cachedHookTarget = currentHookedTarget;
                 currentHookedTarget.SetHooked(false);
                 currentHookedTarget.SetInView(false);
@@ -175,7 +184,12 @@ public class TowHook : MonoBehaviour
             chainDrawProgress = 0;
             startingDistance = Vector3.Distance(originPoint.position, targetPoint.position);
             prevDistance = startingDistance;
-            hookObject.SetActive(true);
+            _hookTrail.Clear();
+            //hookObject.SetActive(true);
+            _hookGameplayModel.SetActive(true);
+            if (_hookSkinnedMeshRenderer != null)
+                _hookSkinnedMeshRenderer.enabled = true;
+            _hookTrail.emitting = true;
         }
         else
         {
@@ -184,7 +198,10 @@ public class TowHook : MonoBehaviour
             Vector3 midpoint = (originPoint.position + targetPoint.position) * 0.5f;
             targetGravityPoint.position = midpoint;
             gravityPoint.position = midpoint;
-            hookObject.SetActive(false);
+            _hookTrail.emitting = false;
+            _hookTrail.Clear();
+            //hookObject.SetActive(false);
+            _hookGameplayModel.SetActive(false);
         }
             
         line.enabled = activateChain;
@@ -282,7 +299,8 @@ public class TowHook : MonoBehaviour
                     targetPoint = target.hookSpot;
                     ActivateChainCallback(true);
                     currentHookedTarget = target;
-                    _hookMeshRenderer.enabled = false;
+                    if (_hookSkinnedMeshRenderer != null)
+                        _hookSkinnedMeshRenderer.enabled = false;
                 }
             }
         }
@@ -290,7 +308,8 @@ public class TowHook : MonoBehaviour
         {
             if (currentHookedTarget != null)
             {
-                _hookMeshRenderer.enabled = true;
+                if (_hookSkinnedMeshRenderer != null)
+                    _hookSkinnedMeshRenderer.enabled = true;
                 currentHookedTarget.SetHooked(false);
                 if (hookTargets.Contains(currentHookedTarget))
                 {

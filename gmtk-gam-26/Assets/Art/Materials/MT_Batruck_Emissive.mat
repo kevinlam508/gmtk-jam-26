@@ -21,7 +21,6 @@ Material:
     RenderType: Opaque
   disabledShaderPasses:
   - MOTIONVECTORS
-  - SHADOWCASTER
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -101,7 +100,7 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
-    - _CastShadows: 0
+    - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Color_Bit_Depth: 64
@@ -136,12 +135,15 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _Toggle_Smooth_Step_Color: 0
+    - _USECOLORVARIATION: 0
+    - _USEROTSCALEVARIATION: 0
     - _Use_Triplanar_Grunge: 0
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 0
+    - _fortesting: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Base_Color: {r: 9.189588, g: 3.0601196, b: 1.0114316, a: 1}
