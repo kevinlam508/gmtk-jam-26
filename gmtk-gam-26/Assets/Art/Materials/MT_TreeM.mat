@@ -138,12 +138,12 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Resolution_Limit: 128
+    - _Resolution_Limit: 64
     - _Smooth_Step_High: 1
     - _Smooth_Step_Low: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _Snaps_Per_Unit: 128
+    - _Snaps_Per_Unit: 64
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
