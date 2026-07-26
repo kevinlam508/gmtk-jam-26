@@ -13,6 +13,7 @@ public class AIVehicleController : MonoBehaviour
     [SerializeField] private float _targetDistanceFromSubgoal = 1f;
 
     [SerializeField] private float _fallRecoveryHeight = -10f;
+    [SerializeField] private float _hookForceMagnitude = 10f;
 
     private GameObject _playerCar = null;
     private Transform _targetWaypoint = null;
@@ -39,6 +40,13 @@ public class AIVehicleController : MonoBehaviour
         if (_vehicle.transform.position.y < _fallRecoveryHeight)
         {
             _vehicle.transform.position = _navigator.Goal;
+            return;
+        }
+
+        if (_hookTarget.isHooked)
+        {
+            Vector3 vectorToPlayer = PlayerVehicleController.PlayerPosition - _vehicle.transform.position;
+            _vehicle.ApplyExternalForce(vectorToPlayer.normalized * _hookForceMagnitude);
             return;
         }
 

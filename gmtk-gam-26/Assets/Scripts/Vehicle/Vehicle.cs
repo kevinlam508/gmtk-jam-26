@@ -271,4 +271,9 @@ public class Vehicle : MonoBehaviour
             _jumpVFX.Play();
         }
     }
+
+    public void ApplyExternalForce(Vector3 force)
+    {
+        _body.AddForce(force);
+    }
 }
