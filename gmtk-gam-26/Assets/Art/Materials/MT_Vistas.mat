@@ -136,7 +136,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Resolution_Limit: 1024
+    - _Resolution_Limit: 256
     - _Smooth_Step_High: 1
     - _Smooth_Step_Low: 0
     - _Smoothness: 0.5
@@ -158,7 +158,7 @@ Material:
     - _fortesting: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Base_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Base_Color: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
     - _Base_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Base_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
