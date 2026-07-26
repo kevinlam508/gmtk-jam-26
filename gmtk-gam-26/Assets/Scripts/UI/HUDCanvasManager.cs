@@ -6,6 +6,7 @@ public class HUDCanvasManager : MonoBehaviour
     [SerializeField] private SpeedometerCanvas _speedometer;
     [SerializeField] private MoneyCounterCanvas _moneyCounter;
     [SerializeField] private TimerCanvas _timer;
+    [SerializeField] private BountiesCompletedCanvas _bountiesCompleted;
 
     [Min(1)]
     [SerializeField] private float _speedMultiplier = 6f;
@@ -16,7 +17,7 @@ public class HUDCanvasManager : MonoBehaviour
         GameManager.Instance.ContractTimerChanged += _bounty.UpdateBountyTimerUI;
         GameManager.Instance.ContractSucceded += _bounty.BountyComplete;
         GameManager.Instance.ContractFailed += _bounty.BountyFailed;
-        GameManager.Instance.ContractsCompletedChanged += _bounty.OnBountyCompletCountChanged;
+        GameManager.Instance.ContractsCompletedChanged += _bountiesCompleted.UpdateBountiesCompleted;
 
         GameManager.Instance.TimerChanged += _timer.UpdateGlobalTimerUI;
         GameManager.Instance.MoneyChanged += _moneyCounter.OnMoneyChanged;
@@ -28,7 +29,7 @@ public class HUDCanvasManager : MonoBehaviour
         GameManager.Instance.ContractTimerChanged += _bounty.UpdateBountyTimerUI;
         GameManager.Instance.ContractSucceded -= _bounty.BountyComplete;
         GameManager.Instance.ContractFailed -= _bounty.BountyFailed;
-        GameManager.Instance.ContractsCompletedChanged -= _bounty.OnBountyCompletCountChanged;
+        GameManager.Instance.ContractsCompletedChanged -= _bountiesCompleted.UpdateBountiesCompleted;
 
         GameManager.Instance.TimerChanged -= _timer.UpdateGlobalTimerUI;
         GameManager.Instance.MoneyChanged -= _moneyCounter.OnMoneyChanged;

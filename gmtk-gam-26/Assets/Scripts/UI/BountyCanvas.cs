@@ -126,11 +126,6 @@ public class BountyCanvas : MonoBehaviour
             }
         }
     }
-
-    public void OnBountyCompletCountChanged(int current, int total)
-    {
-
-    }
     
     // timer runs out, bounty failed
     public void BountyFailed()
