@@ -42,7 +42,7 @@ public class LightingDayNightController : MonoBehaviour
 
     private void OnTimerChanged(float current, float totalTime)
     {
-        SetTiemRatio(current / totalTime);
+        SetTiemRatio((totalTime - current) / totalTime);
     }
 
     public void SetTiemRatio(float ratio)
