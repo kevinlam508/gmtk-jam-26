@@ -62,6 +62,12 @@ public class TowHook : MonoBehaviour
     [SerializeField] private GameObject _hookGameplayModel;
     [SerializeField] private TrailRenderer _hookTrail;
 
+    [Header("Audio")] 
+    [SerializeField] private AudioSource hookAudioSource;
+    [SerializeField] private AudioClip hookLaunchClip;
+    [SerializeField] private AudioClip captureClip;
+    
+
     public float chainWhipRadius;
 
     private SecondOrderDynamics gravityDynamics;
@@ -130,6 +136,7 @@ public class TowHook : MonoBehaviour
                 currentHookedTarget.SetHooked(false);
                 currentHookedTarget.SetInView(false);
                 Debug.Log(currentHookedTarget.name + " CAPTURED!!!");
+                hookAudioSource.PlayOneShot(captureClip);
                 ActivateChainCallback(false);
                 cachedHookTarget.OnCaptureComplete();
             }
@@ -186,6 +193,7 @@ public class TowHook : MonoBehaviour
             prevDistance = startingDistance;
             _hookTrail.Clear();
             //hookObject.SetActive(true);
+            hookAudioSource.PlayOneShot(hookLaunchClip);
             _hookGameplayModel.SetActive(true);
             if (_hookSkinnedMeshRenderer != null)
                 _hookSkinnedMeshRenderer.enabled = true;
