@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: TreeElena
+    second: {fileID: 2100000, guid: 73e1bfc3dda2aa149b0a5a6235c32d4c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: gmtk2026_Bark
     second: {fileID: 2100000, guid: 3ef989a7da450d5449f5ce4c1eb2a63e, type: 2}
   - first:
