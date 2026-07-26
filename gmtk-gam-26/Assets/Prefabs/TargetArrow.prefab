@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1549016490448842904}
   - component: {fileID: 2709937188291877298}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TargetArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ MonoBehaviour:
   _followOffset: {x: 0, y: 1, z: 0}
   _visualRoot: {fileID: 3292175459991660799}
   _material: {fileID: 2100000, guid: cb901201c5e2ff64b9e187a3e4ef54a8, type: 2}
-  _offColor: {r: 2.41751, g: 0.009420995, b: 2.9960775, a: 1}
+  _offColor: {r: 38.68016, g: 0.15073591, b: 47.93724, a: 1}
   _onColor: {r: 618.88257, g: 2.4117746, b: 766.99585, a: 1}
   _hoverOverTargetDistance: 18
   _moveToTargetSpeed: 50
@@ -62,7 +62,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6360562455911116746}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VisualRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,6 +152,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f51b99f1b2eb32f499422ed557eb27c4, type: 3}
       propertyPath: m_Name
       value: Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f51b99f1b2eb32f499422ed557eb27c4, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
