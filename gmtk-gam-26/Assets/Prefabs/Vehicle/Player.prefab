@@ -25028,7 +25028,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4704876993164392835}
     - target: {fileID: 4745333949078364357, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
-      propertyPath: _hookMeshRenderer
+      propertyPath: _hookSkinnedMeshRenderer
       value: 
       objectReference: {fileID: 8659777451138357472}
     - target: {fileID: 7907114332768997330, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
