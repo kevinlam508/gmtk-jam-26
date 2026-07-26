@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: TreeElena
+    second: {fileID: 2100000, guid: e987f36a402edd74db01356ef9bb2141, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: gmtk2026_FoliageAtlas
     second: {fileID: 2100000, guid: 9e9a63a79f1b2ae4ba935f4197c87745, type: 2}
   materials:
