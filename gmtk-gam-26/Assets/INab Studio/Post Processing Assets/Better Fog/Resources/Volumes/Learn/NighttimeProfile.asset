@@ -716,7 +716,7 @@ MonoBehaviour:
     m_Value: 0
   _FogColor:
     m_OverrideState: 1
-    m_Value: {r: 0.5339979, g: 0.8819218, b: 0.9056604, a: 1}
+    m_Value: {r: 0.40744036, g: 0.76813626, b: 0.7924528, a: 1}
   _GradientStart:
     m_OverrideState: 0
     m_Value: -12.4
