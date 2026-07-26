@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1437156851143031845}
   - component: {fileID: 4451485372569275860}
+  - component: {fileID: 7773852111820559743}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b9b20f02034084cb331b5f24ed2cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  _switcher: {fileID: 7773852111820559743}
   _totalTime: 300
   _contractTime: 60
   _numStartingCars: 2
@@ -62,3 +64,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a7e0cea0e6b8e3841987428a01922d29, type: 2}
   _aiCarPrefab: {fileID: 1096790449105609013, guid: d15c5540715a88c40beba63b795b68d5, type: 3}
   _waypoints: []
+--- !u!114 &7773852111820559743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6296418831831711536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51db03abe56b526488c4b1179ee39325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenSwitcher
+  _destinationScene: EndScene
+  waitTime: 0
