@@ -70874,6 +70874,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1313398150425286156, guid: f81c274206f444944b0ba2bd658eae2f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -0.09917063
+      objectReference: {fileID: 0}
     - target: {fileID: 2212480791513791495, guid: f81c274206f444944b0ba2bd658eae2f, type: 3}
       propertyPath: m_Name
       value: LevelScene-Wade
