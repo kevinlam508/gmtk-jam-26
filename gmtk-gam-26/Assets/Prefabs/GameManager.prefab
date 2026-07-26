@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b9b20f02034084cb331b5f24ed2cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  contractCompleteVFX: {fileID: 3857239494475624328, guid: 0d264ae34c5ff414c96d32cb25ce897a, type: 3}
   _switcher: {fileID: 7773852111820559743}
   _totalTime: 300
   _contractTime: 60

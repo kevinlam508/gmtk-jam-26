@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private Action<int> _moneyChanged;
     private Action<ContractProfileData> _contractChanged;
     private Action<int, int> _contractsCompletedChanged;
+    public GameObject contractCompleteVFX;
 
     public event Action<float, float> TimerChanged
     {
@@ -229,6 +230,8 @@ public class GameManager : MonoBehaviour
         {
             SpawnNewVehicle(true);
         }
+        Vector3 loc = aiCar.Location;
+        Instantiate(contractCompleteVFX, loc, Quaternion.identity);
         Destroy(aiCar.gameObject);
     }
 
