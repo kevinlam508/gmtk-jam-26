@@ -50,7 +50,7 @@ MonoBehaviour:
   _totalTime: 300
   _contractTime: 60
   _numStartingCars: 2
-  _numRequiredContracts: 10
+  _numRequiredContracts: 7
   _contractProfiles:
   - {fileID: 11400000, guid: cfbd0e97b6a661449acef88e74bd297b, type: 2}
   - {fileID: 11400000, guid: ccd4040daf2bb784c90f148ef790d744, type: 2}

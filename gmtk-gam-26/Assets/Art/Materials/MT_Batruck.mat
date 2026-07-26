@@ -54,11 +54,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissiveMask:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 5e2a7ab4b50a9aa4982179edb593ecbc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Grunge_Texture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: ecda80dc76a6e1849977a82ca20eb023, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -119,7 +119,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Grunge_Blend_1: 0.5
+    - _Grunge_Blend_1: 0.332
     - _Grunge_Tiling: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
@@ -149,7 +149,7 @@ Material:
     - _Base_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissiveColor: {r: 191.74904, g: 11.456665, b: 11.456665, a: 1}
     - _Grunge_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Grunge_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Grunge_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
