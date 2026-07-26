@@ -6283,7 +6283,7 @@ MonoBehaviour:
   autoSetControlPoints: 0
   points:
   - {x: 31.4891, y: 0, z: 76.51812}
-  - {x: 28.92748, y: 0, z: 58.09588}
+  - {x: 28.927479, y: 0, z: 58.095863}
   - {x: 29.861277, y: 0, z: 56.56871}
   - {x: 19.771244, y: 0, z: 40.836914}
   - {x: 13.070904, y: 0, z: 30.390125}
@@ -15907,14 +15907,14 @@ MonoBehaviour:
   autoSetControlPoints: 0
   points:
   - {x: 140.70433, y: 0.5049753, z: -0.22460532}
-  - {x: 139.62161, y: 0.9116733, z: 10.936801}
+  - {x: 139.62161, y: 0.9116734, z: 10.936803}
   - {x: 138.2114, y: -0.6389005, z: 20.870504}
   - {x: 135.96584, y: 0.08571243, z: 29.01062}
   - {x: 132.62733, y: 1.1630043, z: 41.11264}
   - {x: 130.67181, y: 0.101287335, z: 48.531036}
   - {x: 127.397995, y: 0.100883484, z: 57.172512}
   - {x: 122.92644, y: 0.1003319, z: 68.97542}
-  - {x: 120.35546, y: -0.09000015, z: 77.83884}
+  - {x: 120.35548, y: -0.09000015, z: 77.83883}
   - {x: 101.33799, y: -0.09000015, z: 90.39595}
   normals:
   - {x: 0.065255605, y: 0.9974171, z: -0.030013647}
@@ -15923,11 +15923,11 @@ MonoBehaviour:
   - {x: 0, y: 1, z: 0}
   angles: []
   bounds:
-    m_Center: {x: 121.021164, y: 0.23261419, z: 45.085674}
-    m_Extent: {x: 19.683167, y: 0.3415239, z: 45.31028}
+    m_Center: {x: 121.021164, y: 0.23261417, z: 45.085674}
+    m_Extent: {x: 19.683167, y: 0.34152386, z: 45.31028}
   boundingBoxes:
-  - m_Center: {x: 138.33508, y: 0.23261419, z: 14.393007}
-    m_Extent: {x: 2.3692474, y: 0.3415239, z: 14.617613}
+  - m_Center: {x: 138.33508, y: 0.23261417, z: 14.393007}
+    m_Extent: {x: 2.3692474, y: 0.34152386, z: 14.617613}
   - m_Center: {x: 131.68192, y: 0.32713276, z: 43.091568}
     m_Extent: {x: 4.2839203, y: 0.24142039, z: 14.080948}
   - m_Center: {x: 114.368, y: 0.0054416656, z: 73.78423}
@@ -20122,6 +20122,10 @@ PrefabInstance:
     - target: {fileID: 3189890212725944520, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8116037191538163943, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
+      propertyPath: Lens.FarClipPlane
+      value: 600
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26558,7 +26562,7 @@ MonoBehaviour:
   autoSetControlPoints: 0
   points:
   - {x: -20.868399, y: 0, z: -63.682407}
-  - {x: -38.121185, y: 0, z: -59.14403}
+  - {x: -38.121193, y: 0, z: -59.144028}
   - {x: -79.70721, y: 0, z: -65.30597}
   - {x: -101.957466, y: 0, z: -63.94433}
   normals:
@@ -44331,7 +44335,7 @@ MonoBehaviour:
   autoSetControlPoints: 0
   points:
   - {x: 12.795713, y: 0, z: -44.09257}
-  - {x: 21.39473, y: 0, z: -42.089607}
+  - {x: 21.394733, y: 0, z: -42.089607}
   - {x: 25.310673, y: 0, z: -49.860355}
   - {x: 36.302647, y: 0, z: -52.399654}
   normals:
@@ -52232,6 +52236,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2287573323554794147, guid: 8c2ca6b376351054b913a2f3b066a0a3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 333
+      objectReference: {fileID: 0}
+    - target: {fileID: 2287573323554794147, guid: 8c2ca6b376351054b913a2f3b066a0a3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 333
+      objectReference: {fileID: 0}
+    - target: {fileID: 2287573323554794147, guid: 8c2ca6b376351054b913a2f3b066a0a3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 333
+      objectReference: {fileID: 0}
+    - target: {fileID: 2287573323554794147, guid: 8c2ca6b376351054b913a2f3b066a0a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.18892
       objectReference: {fileID: 0}
@@ -53829,7 +53845,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 5000
+  far clip plane: 600
   field of view: 60
   orthographic: 0
   orthographic size: 10
@@ -54774,7 +54790,7 @@ MonoBehaviour:
   autoSetControlPoints: 0
   points:
   - {x: -14.695673, y: 10, z: -9.790707}
-  - {x: -7.122002, y: 10, z: -6.704884}
+  - {x: -7.122, y: 10, z: -6.7048836}
   - {x: 16.063427, y: 9.914465, z: 1.7544887}
   - {x: 33.900936, y: 10.252963, z: 1.4017885}
   - {x: 49.960526, y: 10.557723, z: 1.084243}
@@ -63692,7 +63708,7 @@ MonoBehaviour:
   autoSetControlPoints: 0
   points:
   - {x: 5.0042863, y: 0, z: -45.90743}
-  - {x: -5.2802844, y: 0, z: -48.303005}
+  - {x: -5.28029, y: 0, z: -48.303005}
   - {x: -13.669355, y: 0, z: -52.038456}
   - {x: -15.9824095, y: 0, z: -60.831596}
   normals:
