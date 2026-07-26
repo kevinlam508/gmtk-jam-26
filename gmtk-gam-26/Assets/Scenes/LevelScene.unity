@@ -6823,7 +6823,7 @@ MonoBehaviour:
   autoSetControlPoints: 0
   points:
   - {x: 31.4891, y: 0, z: 76.51812}
-  - {x: 28.927471, y: 0, z: 58.095802}
+  - {x: 28.927464, y: 0, z: 58.095757}
   - {x: 29.861277, y: 0, z: 56.56871}
   - {x: 19.771244, y: 0, z: 40.836914}
   - {x: 13.070904, y: 0, z: 30.390125}
@@ -12984,7 +12984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3724999895924198563, guid: 54b7fb872cda23f49968c5171c3ecdba, type: 3}
       propertyPath: m_fontSize
-      value: 30.7
+      value: 25.15
       objectReference: {fileID: 0}
     - target: {fileID: 4255050958538245219, guid: 54b7fb872cda23f49968c5171c3ecdba, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -12996,11 +12996,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5523219760543835610, guid: 54b7fb872cda23f49968c5171c3ecdba, type: 3}
       propertyPath: m_fontSize
-      value: 177.05
+      value: 162.45
       objectReference: {fileID: 0}
     - target: {fileID: 6542657966835401158, guid: 54b7fb872cda23f49968c5171c3ecdba, type: 3}
       propertyPath: m_fontSize
-      value: 171.3
+      value: 149.4
       objectReference: {fileID: 0}
     - target: {fileID: 6698090125311278590, guid: 54b7fb872cda23f49968c5171c3ecdba, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -16300,7 +16300,7 @@ MonoBehaviour:
   - {x: 130.67181, y: 0.101287335, z: 48.531036}
   - {x: 127.397995, y: 0.100883484, z: 57.172512}
   - {x: 122.92644, y: 0.1003319, z: 68.97542}
-  - {x: 120.35639, y: -0.09000015, z: 77.83823}
+  - {x: 120.35645, y: -0.09000015, z: 77.83818}
   - {x: 101.33799, y: -0.09000015, z: 90.39595}
   normals:
   - {x: 0.013289373, y: 0.99980044, z: -0.014914684}
@@ -27482,7 +27482,7 @@ MonoBehaviour:
   autoSetControlPoints: 0
   points:
   - {x: -20.868399, y: 0, z: -63.682407}
-  - {x: -38.121235, y: 0, z: -59.14402}
+  - {x: -38.121265, y: 0, z: -59.144012}
   - {x: -79.70721, y: 0, z: -65.30597}
   - {x: -101.957466, y: 0, z: -63.94433}
   normals:
@@ -44550,7 +44550,7 @@ MonoBehaviour:
   autoSetControlPoints: 0
   points:
   - {x: 12.795713, y: 0, z: -44.09257}
-  - {x: 21.394754, y: 0, z: -42.089603}
+  - {x: 21.39477, y: 0, z: -42.0896}
   - {x: 25.310673, y: 0, z: -49.860355}
   - {x: 36.302647, y: 0, z: -52.399654}
   normals:
@@ -54293,7 +54293,7 @@ MonoBehaviour:
   autoSetControlPoints: 0
   points:
   - {x: -14.695673, y: 10, z: -9.790707}
-  - {x: -7.12199, y: 10, z: -6.7048793}
+  - {x: -7.1219835, y: 10, z: -6.7048764}
   - {x: 16.06445, y: 9.860617, z: 1.7544514}
   - {x: 33.90196, y: 10.199115, z: 1.4017512}
   - {x: 49.961548, y: 10.503875, z: 1.0842057}
@@ -54639,7 +54639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027017247510418429, guid: d2373e93da9f0f340802e3b4c214f921, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.1
+      value: -37.06
       objectReference: {fileID: 0}
     - target: {fileID: 4027017247510418429, guid: d2373e93da9f0f340802e3b4c214f921, type: 3}
       propertyPath: m_LocalPosition.y
@@ -54647,7 +54647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027017247510418429, guid: d2373e93da9f0f340802e3b4c214f921, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -44.9
+      value: -43.5
       objectReference: {fileID: 0}
     - target: {fileID: 4027017247510418429, guid: d2373e93da9f0f340802e3b4c214f921, type: 3}
       propertyPath: m_LocalRotation.w
@@ -63451,7 +63451,7 @@ MonoBehaviour:
   autoSetControlPoints: 0
   points:
   - {x: 5.0042863, y: 0, z: -45.90743}
-  - {x: -5.2803187, y: 0, z: -48.303013}
+  - {x: -5.2803445, y: 0, z: -48.303017}
   - {x: -13.669355, y: 0, z: -52.038456}
   - {x: -15.9824095, y: 0, z: -60.831596}
   normals:
@@ -70873,10 +70873,6 @@ PrefabInstance:
     - target: {fileID: 899763061275907871, guid: f81c274206f444944b0ba2bd658eae2f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1313398150425286156, guid: f81c274206f444944b0ba2bd658eae2f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: -0.09917063
       objectReference: {fileID: 0}
     - target: {fileID: 2212480791513791495, guid: f81c274206f444944b0ba2bd658eae2f, type: 3}
       propertyPath: m_Name
