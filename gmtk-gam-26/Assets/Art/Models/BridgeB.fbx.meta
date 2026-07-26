@@ -3,7 +3,22 @@ guid: b845f9dfc80f3be488473cd0e751335c
 ModelImporter:
   serializedVersion: 24501
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ExtraConc
+    second: {fileID: 2100000, guid: 9cbedecc715de2949bb15e18d64e029c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MainConc
+    second: {fileID: 2100000, guid: 38cc33be4083ced409827ca4174717a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalTrim
+    second: {fileID: 2100000, guid: 0ce509990c3b88c4a85b5ade2a068624, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
