@@ -7,6 +7,7 @@ public class CanvasGroupToggler : MonoBehaviour
     [SerializeField] private bool interactable = true;
     [SerializeField] private bool toggleOnStart = false;
     [SerializeField] float durationOnStart = 0;
+    [SerializeField] private bool hideOnStart = false;
 
     void Start()
     {
@@ -14,6 +15,11 @@ public class CanvasGroupToggler : MonoBehaviour
         if (toggleOnStart)
         {
             ShowCanvasGroup(durationOnStart);
+        }
+
+        if (hideOnStart)
+        {
+            HideCanvasGroup(durationOnStart);
         }
     }
     public void ShowCanvasGroup(float fadeDuration = 0)
