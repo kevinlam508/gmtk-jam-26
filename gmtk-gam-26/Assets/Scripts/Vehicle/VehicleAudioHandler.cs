@@ -7,12 +7,14 @@ public class VehicleAudioHandler : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] private AudioSource _revDriveSource;
     [SerializeField] private AudioSource _driftSource;
-    [SerializeField] private AudioSource _impactSource;
+    [SerializeField] private AudioSource _actionSource;
 
     [Header("Audio Clips")]
     [SerializeField] private AudioClip[] _revClips;
     [SerializeField] private AudioClip _driveClip;
     [SerializeField] private AudioClip _driftClip;
+    [SerializeField] private AudioClip _jumpClip;
+    [SerializeField] private AudioClip _dashClip;
 
     private Vehicle _vehicle;
     private bool _isAccelerating;
@@ -38,7 +40,7 @@ public class VehicleAudioHandler : MonoBehaviour
             if (!_revDriveSource.isPlaying)
             {
                 _revDriveSource.clip = _revClips[Random.Range(0, _revClips.Length)];
-                _revClipTimer = _revDriveSource.clip.length;
+                _revClipTimer = 0f;
                 _revDriveSource.loop = false;
                 _revDriveSource.pitch = Random.Range(0.5f, 1f);
                 _revDriveSource.Play();
@@ -64,6 +66,8 @@ public class VehicleAudioHandler : MonoBehaviour
             if (_revDriveSource.isPlaying)
             {
                 _revDriveSource.Stop();
+                _isPlayingRev = false;
+                _revClipTimer = 0f;
             }
         }
 
@@ -84,5 +88,17 @@ public class VehicleAudioHandler : MonoBehaviour
                 _driftSource.Stop();
             }
         }
+    }
+
+    public void PlayJumpSFX()
+    {
+        _actionSource.clip = _jumpClip;
+        _actionSource.Play();
+    }
+
+    public void PlayDashSFX()
+    {
+        _actionSource.clip = _dashClip;
+        _actionSource.Play();
     }
 }
