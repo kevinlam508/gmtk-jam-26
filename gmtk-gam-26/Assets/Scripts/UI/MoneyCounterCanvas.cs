@@ -17,6 +17,7 @@ public class MoneyCounterCanvas : MonoBehaviour
     private Vector3 _shakeVector;
     [SerializeField] private AnimationCurve _shakeCurve;
     [SerializeField] private int vibrato;
+    [SerializeField] private string _monospaceFormat = "<mspace=0em>{0}</mspace>";
     
     private void Start()
     {
@@ -34,6 +35,7 @@ public class MoneyCounterCanvas : MonoBehaviour
         
         int newTotal = _oldMoneyInt + addedMoney;
         _newMoneyString = newTotal.ToString().PadLeft(7, '0');
+        // _newMoneyString = string.Format(_monospaceFormat, newTotal.ToString().PadLeft(7, '0'));
         // to do: adjust the tween duration by the amt of money you got
         _moneyText.DOText(_newMoneyString, _tweenDuration, true, ScrambleMode.Custom, "0123456789").SetEase(_shakeCurve);
         _moneyCounter.transform.DOShakePosition(_tweenDuration, _shakeVector, vibrato).SetEase(_shakeCurve);
@@ -47,15 +49,15 @@ public class MoneyCounterCanvas : MonoBehaviour
         _oldMoneyInt = newTotal;
     }
 
-    // [ContextMenu("Add 100")]
-    // public void TestAdd100()
-    // {
-    //     OnMoneyChanged(100);
-    // }
-    //
-    // [ContextMenu("Add 5000")]
-    // public void TestAdd5000()
-    // {
-    //     OnMoneyChanged(5000);
-    // }
+    [ContextMenu("Add 100")]
+    public void TestAdd100()
+    {
+        OnMoneyChanged(100);
+    }
+    
+    [ContextMenu("Add 5000")]
+    public void TestAdd5000()
+    {
+        OnMoneyChanged(5000);
+    }
 }

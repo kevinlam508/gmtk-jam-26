@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Tweener : MonoBehaviour
 {
@@ -39,25 +40,32 @@ public class Tweener : MonoBehaviour
         [SerializeField] private AnimationCurve rotTween;
         [SerializeField] private LoopType rotateLooptype;
 
+    [Header("Alpha")]
+        [SerializeField] private Image image;
+        [SerializeField] private AnimationCurve alphaCurve;
+        [SerializeField] private bool alpha;
+        [SerializeField] private float startAlpha;
+        [SerializeField] private float endAlpha;
+
     void OnEnable()
     {
-        
         if (playOnAwake)
         {
             Reset();
             Tween();
         }
-
-        
     }
 
+    [ContextMenu("reset")]
     public void Reset()
     {
         if (scaleTween != null) gameObject.transform.localScale = startScale;
-        if (posTween != null) gameObject.transform.position = startPos.transform.position;
+        if (posTween != null || startPos != null) gameObject.transform.position = startPos.transform.position;
         if (rotTween != null) gameObject.transform.localEulerAngles = startRot;
+        if (alpha) image.DOFade(startAlpha, 0);
     }
     
+    [ContextMenu("tween")]
     public void Tween()
     {
         StartCoroutine(DelayTween());
@@ -72,18 +80,18 @@ public class Tweener : MonoBehaviour
         }
     }
 
-    public void TweenReverse()
-    {
-        StartCoroutine(DelayTween());
-        
-        IEnumerator DelayTween()
-        {
-            yield return new WaitForSeconds(startDelay);
-            Scale(true);
-            Position(true);
-            Rotate(true);
-        }
-    }
+    // public void TweenReverse()
+    // {
+    //     StartCoroutine(DelayTween());
+    //     
+    //     IEnumerator DelayTween()
+    //     {
+    //         yield return new WaitForSeconds(startDelay);
+    //         Scale(true);
+    //         Position(true);
+    //         Rotate(true);
+    //     }
+    // }
 
     public void Scale(bool isReverse = false)
     {
@@ -169,6 +177,14 @@ public class Tweener : MonoBehaviour
             gameObject.transform.localEulerAngles = startRot;
             gameObject.transform.DORotate(endRot, tweenDuration, RotateMode.LocalAxisAdd).SetEase(rotTween).OnComplete(OnComplete);
         }
+    }
+
+    private void Alpha()
+    {
+        if (!alpha) return;
+        
+        image.DOFade(startAlpha, 0);
+        image.DOFade(endAlpha, tweenDuration).SetEase(alphaCurve);
     }
 
     void OnComplete()

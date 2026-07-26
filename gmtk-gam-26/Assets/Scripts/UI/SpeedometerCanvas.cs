@@ -84,8 +84,6 @@ public class SpeedometerCanvas : MonoBehaviour
                 //     _speedometer.transform.localScale = Vector3.one
                 // );
             }
-
-            
         }
         else
         {
@@ -98,11 +96,11 @@ public class SpeedometerCanvas : MonoBehaviour
             {
                 shakeTween = _speedometer.transform.DOShakePosition(_tweenDuration, _shakeVector, vibrato).SetLoops(-1);
                 shakeTween.Play();
-                Debug.Log($"is shaking, dotween says shake tween is {shakeTween.IsPlaying()}");
+                // Debug.Log($"is shaking, dotween says shake tween is {shakeTween.IsPlaying()}");
             }
             else
             {
-                Debug.Log($"is ALREADY shaking, dotween says shake tween is {shakeTween.IsPlaying()}");
+                // Debug.Log($"is ALREADY shaking, dotween says shake tween is {shakeTween.IsPlaying()}");
             }
         }
         

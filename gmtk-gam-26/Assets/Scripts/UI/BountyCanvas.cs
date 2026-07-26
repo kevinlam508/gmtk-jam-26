@@ -23,6 +23,7 @@ public class BountyCanvas : MonoBehaviour
     [SerializeField] private TMP_Text _failedtext;
     [SerializeField] private GameObject _gravestoneCrack;
     [SerializeField] private GameObject _coffinOverlay;
+    [SerializeField] private Tweener _spark;
     private bool startedShaking;
 
     [Header("Tween Settings")]
@@ -88,6 +89,8 @@ public class BountyCanvas : MonoBehaviour
             _coffin.transform.eulerAngles = _coffinStartRot;
             _gravestone.transform.position = _graveStartPos;
             _gravestone.transform.eulerAngles = _graveStartRot;
+            _coffin.transform.localScale = Vector3.one;
+            _gravestone.transform.localScale = Vector3.one;
         }
     }
 
@@ -173,6 +176,9 @@ public class BountyCanvas : MonoBehaviour
         IEnumerator BountyCompleteCoroutine()
         {
             _completeText.SetActive(true);
+            _spark.gameObject.SetActive(true);
+            // _spark.Reset();
+            _spark.Tween();
             _completeText.transform.localScale = Vector3.one*0.15f;
         
             _completeText.transform.DOScale(1, .2f).SetEase(Ease.OutBack);
@@ -186,6 +192,8 @@ public class BountyCanvas : MonoBehaviour
             _coffin.transform.eulerAngles = _coffinStartRot;
             _gravestone.transform.position = _graveStartPos;
             _gravestone.transform.eulerAngles = _graveStartRot;
+            _spark.Reset();
+            _spark.gameObject.SetActive(false);
         }
     }
 }
