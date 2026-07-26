@@ -12,6 +12,8 @@ public class AIVehicleController : MonoBehaviour
     [SerializeField] private float _targetDistanceFromGoal = 5f;
     [SerializeField] private float _targetDistanceFromSubgoal = 1f;
 
+    [SerializeField] private float _fallRecoveryHeight = -10f;
+
     private GameObject _playerCar = null;
     private Transform _targetWaypoint = null;
     private List<Bezier.OrientedPoint> _orientedPoints;
@@ -34,6 +36,12 @@ public class AIVehicleController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_vehicle.transform.position.y < _fallRecoveryHeight)
+        {
+            _vehicle.transform.position = _navigator.Goal;
+            return;
+        }
+
         Vector3 vectorToGoal = _navigator.Goal - _vehicle.transform.position;
         float targetDistanceSqr = _targetDistanceFromGoal * _targetDistanceFromGoal;
         if (vectorToGoal.sqrMagnitude <= targetDistanceSqr)

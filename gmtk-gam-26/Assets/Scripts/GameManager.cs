@@ -4,6 +4,7 @@ using Barmetler.RoadSystem;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -236,7 +237,11 @@ public class GameManager : MonoBehaviour
         ContractTimer = _contractTime;
 
         _currentContract = Random.Range(0, _contractPool.Count);
-        _contractChanged?.Invoke(_contractPool[_currentContract]);
+        
+        // sorry kevin i just want it to delay a little bit between contracts
+        DOVirtual.DelayedCall(1.5f,()=>
+                _contractChanged?.Invoke(_contractPool[_currentContract])
+        );
     }
 
     private void EndGame(bool won)

@@ -47,15 +47,15 @@ public class MoneyCounterCanvas : MonoBehaviour
         _oldMoneyInt = newTotal;
     }
 
-    [ContextMenu("Add 100")]
-    public void TestAdd100()
-    {
-        OnMoneyChanged(100);
-    }
-
-    [ContextMenu("Add 5000")]
-    public void TestAdd5000()
-    {
-        OnMoneyChanged(5000);
-    }
+    // [ContextMenu("Add 100")]
+    // public void TestAdd100()
+    // {
+    //     OnMoneyChanged(100);
+    // }
+    //
+    // [ContextMenu("Add 5000")]
+    // public void TestAdd5000()
+    // {
+    //     OnMoneyChanged(5000);
+    // }
 }

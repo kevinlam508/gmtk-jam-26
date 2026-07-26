@@ -10,6 +10,7 @@ public class HookTarget : MonoBehaviour
     public Material seenOutline;
     public Material inRangeOutline;
     public Material hookedOutline;
+    public Animation hookHitAnim;
 
     public bool isInView;
     public bool isInRange;
@@ -79,6 +80,7 @@ public class HookTarget : MonoBehaviour
         if (isHooked)
         {
             renderer.sharedMaterials = hookedMaterials.ToArray();
+            hookHitAnim.Play();
         }
     }
 

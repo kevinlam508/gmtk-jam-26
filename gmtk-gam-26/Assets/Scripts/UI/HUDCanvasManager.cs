@@ -8,7 +8,7 @@ public class HUDCanvasManager : MonoBehaviour
     [SerializeField] private TimerCanvas _timer;
 
     [Min(1)]
-    [SerializeField] private float _speedMultiplier = 3f;
+    [SerializeField] private float _speedMultiplier = 6f;
 
     private void Start()
     {
