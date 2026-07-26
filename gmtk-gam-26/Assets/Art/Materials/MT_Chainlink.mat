@@ -13,15 +13,17 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHATEST_ON
+  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2450
+  m_CustomRenderQueue: 3000
   stringTagMap:
-    RenderType: TransparentCutout
+    RenderType: Transparent
   disabledShaderPasses:
   - MOTIONVECTORS
+  - DepthOnly
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -31,7 +33,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Base_Texture:
-        m_Texture: {fileID: 2800000, guid: c00818ac9ce759046874229482f1fa7b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3c9107fd6684b884885acd33470a749a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -108,10 +110,10 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AffineTextureStrength: 0.1
     - _AlphaClip: 1
-    - _AlphaToMask: 1
-    - _Alpha_Clip_Threshold: 0.5
+    - _AlphaToMask: 0
+    - _Alpha_Clip_Threshold: 0
     - _AmbientLight: 0.02
-    - _Ambient_Light: 0.02
+    - _Ambient_Light: 0.008
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -128,9 +130,9 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _Dissolve: 0
-    - _Dissolve_Softness: 0.5
-    - _DstBlend: 0
-    - _DstBlendAlpha: 0
+    - _Dissolve_Softness: 0
+    - _DstBlend: 10
+    - _DstBlendAlpha: 10
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -145,12 +147,12 @@ Material:
     - _Resolution_Limit: 256
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
-    - _Snaps_Per_Unit: 64
+    - _Snaps_Per_Unit: 110.3
     - _SoftParticleFadeDistance: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _SrcBlendAlpha: 1
-    - _Surface: 0
+    - _Surface: 1
     - _USE_AMBIENT_OVERRIDE: 0
     - _USE_FLAT_SHADING: 0
     - _USE_REFLECTION_CUBEMAP: 0
@@ -161,10 +163,10 @@ Material:
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZTest: 4
-    - _ZWrite: 1
+    - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Alpha_Channel: {r: 1, g: 0, b: 0, a: 0}
+    - _Alpha_Channel: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CubemapColor: {r: 1, g: 1, b: 1, a: 1}
