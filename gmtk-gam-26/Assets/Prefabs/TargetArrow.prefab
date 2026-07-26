@@ -49,7 +49,7 @@ MonoBehaviour:
   _followOffset: {x: 0, y: 1, z: 0}
   _visualRoot: {fileID: 3292175459991660799}
   _material: {fileID: 2100000, guid: cb901201c5e2ff64b9e187a3e4ef54a8, type: 2}
-  _offColor: {r: 38.68016, g: 0.15073591, b: 47.93724, a: 1}
+  _offColor: {r: 9.670044, g: 0.037683994, b: 11.984314, a: 1}
   _onColor: {r: 618.88257, g: 2.4117746, b: 766.99585, a: 1}
   _hoverOverTargetDistance: 18
   _moveToTargetSpeed: 50
