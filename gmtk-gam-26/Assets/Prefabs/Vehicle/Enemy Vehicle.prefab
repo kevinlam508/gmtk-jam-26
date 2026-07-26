@@ -272,6 +272,10 @@ PrefabInstance:
       value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 1621670262501801983, guid: 30b57697b0080a0498cfc859066c8a3e, type: 3}
+      propertyPath: _defaultSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621670262501801983, guid: 30b57697b0080a0498cfc859066c8a3e, type: 3}
       propertyPath: _springLength
       value: 0.3
       objectReference: {fileID: 0}
