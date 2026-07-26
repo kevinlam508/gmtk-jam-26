@@ -131,8 +131,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'WASD to move, Space to Jump, Shift to Air Dash, and Left Click to Attach
-    Tow Hook. '
+  m_text: '<color=#C270CF>WASD</color> to move, <color=#C270CF>Space</color> to Jump,
+    <color=#C270CF>Shift</color> to Air Dash, and <color=#C270CF>Left Click</color>
+    to Attach Tow Hook. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d4a8f22e64b946442b01f0a6377a3cf3, type: 2}
   m_sharedMaterial: {fileID: -7010468816127244243, guid: d4a8f22e64b946442b01f0a6377a3cf3, type: 2}
@@ -914,8 +915,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Grab all 7 bounties before dawn otherwise you''ll miss your rent and freakin
-    die!! '
+  m_text: 'Grab all <color=#C270CF>7</color> bounties before dawn otherwise you''ll
+    miss your rent and freakin die!! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d4a8f22e64b946442b01f0a6377a3cf3, type: 2}
   m_sharedMaterial: {fileID: -7010468816127244243, guid: d4a8f22e64b946442b01f0a6377a3cf3, type: 2}
@@ -2229,8 +2230,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Follow the arrow to find your bounty target! Once they''re in sight, attach
-    your tow hook and ram  into them to cash in their bounty. '
+  m_text: 'Follow the arrow to find your bounty target! Once they''re in sight, <color=#C270CF>attach
+    your tow hook</color> and <color=#C270CF>ram into them</color> to cash in their
+    bounty. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d4a8f22e64b946442b01f0a6377a3cf3, type: 2}
   m_sharedMaterial: {fileID: -7010468816127244243, guid: d4a8f22e64b946442b01f0a6377a3cf3, type: 2}
