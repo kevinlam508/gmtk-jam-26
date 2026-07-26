@@ -13,12 +13,22 @@ public class TargetArrow : MonoBehaviour
     [SerializeField] private Transform _follow;
     [SerializeField] private Vector3 _followOffset;
     [SerializeField] private GameObject _visualRoot;
+    [SerializeField] private Material _material;
+    [ColorUsage(true, true)]
+    [SerializeField] private Color _offColor;
+    [ColorUsage(true, true)]
+    [SerializeField] private Color _onColor;
 
     [Space]
     [SerializeField] private float _hoverOverTargetDistance = 10f;
     [SerializeField] private float _moveToTargetSpeed = 40f;
 
     private HoverState _state = HoverState.OnFollow;
+
+    private void Start()
+    {
+        _material.SetColor("_EmissiveColor", _offColor);
+    }
 
     private void Update()
     {
@@ -53,9 +63,11 @@ public class TargetArrow : MonoBehaviour
         {
             case HoverState.OnFollow:
                 position = _follow.position;
+                _material.SetColor("_EmissiveColor", _offColor);
                 break;
             case HoverState.OnTarget:
                 position = targetPosition.Value;
+                _material.SetColor("_EmissiveColor", _onColor);
                 break;
             case HoverState.ToFollow:
                 Vector3 toFollow = _follow.position - position;
@@ -66,6 +78,7 @@ public class TargetArrow : MonoBehaviour
                     _state = HoverState.OnFollow;
                 }
                 position += delta;
+                _material.SetColor("_EmissiveColor", _offColor);
                 break;
             case HoverState.ToTarget:
                 Vector3 toTarget = targetPosition.Value - position;
@@ -76,6 +89,7 @@ public class TargetArrow : MonoBehaviour
                     _state = HoverState.OnTarget;
                 }
                 position += targetDelta;
+                _material.SetColor("_EmissiveColor", _onColor);
                 break;
         }
 
