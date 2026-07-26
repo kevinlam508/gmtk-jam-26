@@ -62,7 +62,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1679119138004852033}
-  - component: {fileID: 7908239761616777708}
+  - component: {fileID: 75680648331235839}
   m_Layer: 0
   m_Name: Boulder_L
   m_TagString: Untagged
@@ -86,8 +86,8 @@ Transform:
   - {fileID: 3147971552326796602}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &7908239761616777708
-CapsuleCollider:
+--- !u!65 &75680648331235839
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -104,11 +104,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3.6557379
-  m_Height: 15.021302
-  m_Direction: 0
-  m_Center: {x: 0.06316519, y: 0.031234741, z: 0.19000006}
+  serializedVersion: 3
+  m_Size: {x: 11.968744, y: 6.6419573, z: 6.4582367}
+  m_Center: {x: 0.19854546, y: 0.046186924, z: 0.02956283}
 --- !u!1001 &8622720976400981083
 PrefabInstance:
   m_ObjectHideFlags: 0
