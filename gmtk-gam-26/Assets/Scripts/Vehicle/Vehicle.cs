@@ -187,7 +187,7 @@ public class Vehicle : MonoBehaviour
             tire.localRotation = frontTireRotation;
         }
 
-        Quaternion rootRotation = Quaternion.Euler(0, VisualSteer * _visualTurnBonusAngle * Mathf.Sign(DesiredMagnitude), 0);
+        Quaternion rootRotation = Quaternion.Euler(0, VisualSteer * _visualTurnBonusAngle, 0);
         float rootRotationMultiplier = Mathf.Approximately(VisualSteer, 0)
             ? _visualTurnRestorationMultiplier : _visualTurnEnterMultiplier;
         _visualRoot.localRotation = Quaternion.Lerp(_visualRoot.localRotation, rootRotation, timeStep * rootRotationMultiplier);

@@ -67,7 +67,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject _aiCarPrefab;
     [SerializeField] private List<Transform> _waypoints;
-    
+
+    [Space]
+    [SerializeField] private float _roadWaypointOffset = 1f;
+
     public static GameManager Instance => _instance;
     private static GameManager _instance = null;
 
@@ -121,6 +124,24 @@ public class GameManager : MonoBehaviour
         }
 
         _contractPool.AddRange(_contractProfiles);
+
+        HashSet<RoadAnchor> roadAnchors = new HashSet<RoadAnchor>();
+        RoadSystem road = FindAnyObjectByType<RoadSystem>();
+        foreach (Road r in road.Roads)
+        {
+            roadAnchors.Add(r.start);
+            roadAnchors.Add(r.end);
+        }
+        foreach (RoadAnchor anchor in roadAnchors)
+        {
+            GameObject waypoint = new GameObject();
+            waypoint.name = "Waypoint";
+            waypoint.transform.SetParent(transform);
+
+            waypoint.transform.position = anchor.transform.position
+                + _roadWaypointOffset * Vector3.up;
+            _waypoints.Add(waypoint.transform);
+        }
     }
     
     private void Start()
