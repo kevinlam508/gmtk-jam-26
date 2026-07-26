@@ -294,6 +294,94 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_Window_Embellishment
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2
+        width: 77
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e43df72198a889a40bde63633eafb480
+      internalID: -824478460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Slider
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 13
+        width: 216
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 19, y: 15, z: 20, w: 16}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0ca1e8fbe0b1c04299b8105574ff9c4
+      internalID: -1941252688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_SliderHandle
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 1
+        width: 57
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab3adc5e573277440b115baf9604992b
+      internalID: 767625350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Fill
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 1
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 30, y: 30, z: 30, w: 30}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2e33b8edc13b547b80734ae78ec5ef
+      internalID: -1038699463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -314,10 +402,14 @@ TextureImporter:
       UI_Bounty_Info_Border: -1037205235
       UI_Bounty_Info_Fill: -1292243709
       UI_Bounty_Portrait: 1669091376
+      UI_Fill: -1038699463
       UI_Guy: 722963044
       UI_Money_Border: 756319209
+      UI_Slider: -1941252688
+      UI_SliderHandle: 767625350
       UI_Timer_Border: -198891024
       UI_Timer_Mask: -682296421
+      UI_Window_Embellishment: -824478460
       UI_white: 840805959
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
