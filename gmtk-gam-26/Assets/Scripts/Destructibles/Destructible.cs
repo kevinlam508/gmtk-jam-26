@@ -9,6 +9,7 @@ public class Destructible : MonoBehaviour
     [SerializeField] private GameObject brokenObject;
     [SerializeField] private ParticleSystem destructionEffect;
     [SerializeField] private Rigidbody intactRigidbody;
+    [SerializeField] private AudioSource audioSource;
 
     [SerializeField] private float breakThreshold = 8f;
 
@@ -67,8 +68,6 @@ public class Destructible : MonoBehaviour
         {
             brokenInitialPositions.Add(piece.transform.localPosition);
             brokenInitialRotation.Add(piece.transform.localRotation);
-
-            Debug.Log(piece.name);
         }
     }
 
@@ -81,6 +80,7 @@ public class Destructible : MonoBehaviour
         intactObject.gameObject.SetActive(false);
         brokenObject.gameObject.SetActive(true);
         destructionEffect.Play();
+        audioSource.Play();
 
         foreach (Rigidbody piece in brokenPieces)
         {
