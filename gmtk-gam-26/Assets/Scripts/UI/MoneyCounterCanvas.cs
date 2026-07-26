@@ -19,7 +19,7 @@ public class MoneyCounterCanvas : MonoBehaviour
     [SerializeField] private int vibrato;
     [SerializeField] private string _monospaceFormat = "<mspace=0em>{0}</mspace>";
     
-    private void Start()
+    private void Awake()
     {
         _moneyText.text = "0".PadLeft(7, '0');
         _moneyCounterStartPosition = _moneyCounter.transform.position;

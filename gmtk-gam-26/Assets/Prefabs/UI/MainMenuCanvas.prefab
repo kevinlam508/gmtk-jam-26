@@ -1091,7 +1091,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Grab all <color=#C270CF>7</color> bounties before dawn otherwise you''ll
+  m_text: 'Grab all <color=#C270CF>10</color> bounties before dawn otherwise you''ll
     miss your rent and freakin die!! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d4a8f22e64b946442b01f0a6377a3cf3, type: 2}
