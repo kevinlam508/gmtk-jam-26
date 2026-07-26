@@ -6133,7 +6133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5165178749103741006, guid: 4a6e2ae91aaaca2448a5d9d6673ac786, type: 3}
       propertyPath: m_text
-      value: ?????????????????
+      value: Bumper Sticker Printer
       objectReference: {fileID: 0}
     - target: {fileID: 5165178749103741006, guid: 4a6e2ae91aaaca2448a5d9d6673ac786, type: 3}
       propertyPath: m_fontSize
@@ -6925,7 +6925,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5165178749103741006, guid: 4a6e2ae91aaaca2448a5d9d6673ac786, type: 3}
       propertyPath: m_text
-      value: ??????????
+      value: Crane Operator
       objectReference: {fileID: 0}
     - target: {fileID: 5165178749103741006, guid: 4a6e2ae91aaaca2448a5d9d6673ac786, type: 3}
       propertyPath: m_fontSize
