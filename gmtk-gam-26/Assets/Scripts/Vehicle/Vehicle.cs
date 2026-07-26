@@ -105,7 +105,20 @@ public class Vehicle : MonoBehaviour
 
         float turnAmount = Mathf.Abs(_body.angularVelocity.y);
 
-        
+        // if (VisualSteer * _tireTurnAngle != 0 && IsGrounded)
+        // {
+        //     if (!_tireSmokeVFX.isPlaying)
+        //     {
+        //         _tireSmokeVFX.Play();
+        //     }
+        // }
+        // else
+        // {
+        //     if (_tireSmokeVFX.isPlaying)
+        //     {
+        //         _tireSmokeVFX.Stop();
+        //     }
+        // }
 
     }
 
@@ -199,7 +212,7 @@ public class Vehicle : MonoBehaviour
             tire.localRotation = frontTireRotation;
         }
         
-        if (VisualSteer * _tireTurnAngle != 0 && IsGrounded)
+        if (VisualSteer * _visualTurnBonusAngle != 0 && IsGrounded)
         {
             if (!_tireSmokeVFX.isPlaying)
             {
