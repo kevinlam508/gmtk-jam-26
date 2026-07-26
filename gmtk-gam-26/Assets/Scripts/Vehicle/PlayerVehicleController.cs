@@ -88,16 +88,19 @@ public class PlayerVehicleController : MonoBehaviour
         _currentSpeedRatio = velocity.magnitude/PlayerTopSpeed;
 
         float _currentFOV = _cinemachineCam.Lens.FieldOfView;
+        float _desiredFOV = _cameraMaxFOV;
 
         if (_currentSpeedRatio > _speedRatioLimit)
         {
-            _cinemachineCam.Lens.FieldOfView = Mathf.Lerp(_currentFOV, _cameraMaxFOV, Mathf.Min(_currentSpeedRatio, _cameraStepFOV));
+            _desiredFOV = _cameraMaxFOV;
             _speedLines.Play();
         }
         else
         {
-            _cinemachineCam.Lens.FieldOfView = Mathf.Lerp(_cameraMinFOV, _cameraMaxFOV, _currentSpeedRatio);
+            _desiredFOV = _cameraMinFOV;
             _speedLines.Stop();
         }
+
+        _cinemachineCam.Lens.FieldOfView = Mathf.Lerp(_currentFOV, _desiredFOV, Mathf.Min(_currentSpeedRatio, _cameraStepFOV));
     }
 }
