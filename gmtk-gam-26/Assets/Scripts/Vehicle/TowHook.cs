@@ -106,7 +106,7 @@ public class TowHook : MonoBehaviour
         _hookTrail.Clear();
         //hookObject.SetActive(false);
         if (_hookSkinnedMeshRenderer != null)
-            _hookSkinnedMeshRenderer.enabled = false;
+            _hookSkinnedMeshRenderer.enabled = true;
 
         hookTargets = new List<HookTarget>();
     }
