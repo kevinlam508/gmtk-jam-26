@@ -8,7 +8,7 @@ public class SpeedometerCanvas : MonoBehaviour
     [SerializeField] private TMP_Text _speedText;
     [SerializeField] private float _tweenDuration;
     [SerializeField] private GameObject _speedometer;
-    private Transform _speedometerStartTransform;
+    private Vector3 _speedometerStartPos;
     [SerializeField] private float _punchScale;
     private Vector3 _scaleVector;
     [SerializeField] private float _shakeDistance;
@@ -26,7 +26,7 @@ public class SpeedometerCanvas : MonoBehaviour
     {
         _speedText.text = 0.ToString();
         
-        _speedometerStartTransform = _speedometer.transform;
+        _speedometerStartPos = _speedometer.transform.position;
         
         shakeTween = _speedometer.transform.DOShakePosition(_tweenDuration, _shakeVector, vibrato).SetLoops(-1);
         shakeTween.Pause();
@@ -41,8 +41,8 @@ public class SpeedometerCanvas : MonoBehaviour
 
         _shakeVector = new Vector3(_shakeDistance, _shakeDistance, _shakeDistance);
         _scaleVector = new Vector3(_punchScale, _punchScale, _punchScale);
-            
-        // _speedometer.transform.position = _speedometerStartTransform.position;
+
+        _speedometer.transform.position = _speedometerStartPos;
         
         // reset
         if (scaleTween != null)
