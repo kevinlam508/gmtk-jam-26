@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private Action<float, float> _contractTimerChanged;
     private Action<int> _moneyChanged;
     private Action<ContractProfileData> _contractChanged;
+    private Action<int, int> _contractsCompletedChanged;
 
     public event Action<float, float> TimerChanged
     {
@@ -51,6 +52,19 @@ public class GameManager : MonoBehaviour
             }
         }
         remove => _contractChanged -= value;
+    }
+    public event Action<int, int> ContractsCompletedChanged
+    {
+
+        add
+        {
+            _contractsCompletedChanged += value;
+            if (_currentContract >= 0)
+            {
+                value.Invoke(ContractsCompleted, _numRequiredContracts);
+            }
+        }
+        remove => _contractsCompletedChanged -= value;
     }
 
     public event Action ContractSucceded;
@@ -112,7 +126,17 @@ public class GameManager : MonoBehaviour
             _moneyChanged?.Invoke(_money);
         }
     }
-    public int ContractsCompleted { get; private set; }
+
+    private int _contractsCompleted;
+    public int ContractsCompleted 
+    {
+        get => _contractsCompleted;
+        private set
+        {
+            _contractsCompleted = value;
+            _contractsCompletedChanged?.Invoke(value, _numRequiredContracts);
+        }
+    }
 
 
     public Vector3? TargetLocation => _contractTarget?.Location;

@@ -7,6 +7,7 @@ public class TimerCanvas : MonoBehaviour
 {
     [SerializeField] private TMP_Text _timerLabel;
     [SerializeField] private string _timeFormat = "<mspace=0em>{0}</mspace>";
+    [SerializeField] private Color _normalColor;
     [SerializeField] private Color _warningColor;
     [SerializeField] private float _punchScale;
     private Vector3 _scaleVector;
@@ -28,9 +29,10 @@ public class TimerCanvas : MonoBehaviour
             TimeSpan.FromSeconds(currentTime).ToString("mm"),
             TimeSpan.FromSeconds(currentTime).ToString("ss"));
 
+        _timerLabel.color = currentTime <= 10
+            ? _warningColor : _normalColor;
         if (currentTime <= 10)
         {
-            _timerLabel.color = _warningColor;
             _timerLabel.transform.DOPunchScale(_scaleVector, 0.1f);
             if (currentTime <= 3)
             {

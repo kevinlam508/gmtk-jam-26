@@ -1136,6 +1136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TimerCanvas
   _timerLabel: {fileID: 5523219760543835610}
   _timeFormat: <mspace=.65em>{0}</mspace>:<mspace=.65em>{1}</mspace>
+  _normalColor: {r: 0.9137255, g: 0.7372549, b: 0.9137255, a: 1}
   _warningColor: {r: 0.7176471, g: 0, b: 0, a: 1}
   _punchScale: 0.1
   _shakeDistance: 10

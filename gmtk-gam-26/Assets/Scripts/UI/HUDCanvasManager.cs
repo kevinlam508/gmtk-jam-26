@@ -16,6 +16,8 @@ public class HUDCanvasManager : MonoBehaviour
         GameManager.Instance.ContractTimerChanged += _bounty.UpdateBountyTimerUI;
         GameManager.Instance.ContractSucceded += _bounty.BountyComplete;
         GameManager.Instance.ContractFailed += _bounty.BountyFailed;
+        GameManager.Instance.ContractsCompletedChanged += _bounty.OnBountyCompletCountChanged;
+
         GameManager.Instance.TimerChanged += _timer.UpdateGlobalTimerUI;
         GameManager.Instance.MoneyChanged += _moneyCounter.OnMoneyChanged;
     }
@@ -26,6 +28,8 @@ public class HUDCanvasManager : MonoBehaviour
         GameManager.Instance.ContractTimerChanged += _bounty.UpdateBountyTimerUI;
         GameManager.Instance.ContractSucceded -= _bounty.BountyComplete;
         GameManager.Instance.ContractFailed -= _bounty.BountyFailed;
+        GameManager.Instance.ContractsCompletedChanged -= _bounty.OnBountyCompletCountChanged;
+
         GameManager.Instance.TimerChanged -= _timer.UpdateGlobalTimerUI;
         GameManager.Instance.MoneyChanged -= _moneyCounter.OnMoneyChanged;
     }
