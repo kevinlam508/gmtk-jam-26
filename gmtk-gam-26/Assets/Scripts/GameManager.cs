@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
     public event Action ContractSucceded;
     public event Action ContractFailed;
 
+    [SerializeField] private ScreenSwitcher _switcher;
+
     [Header("Starting Values")] 
     [SerializeField] private float _totalTime;
     [SerializeField] private float _contractTime;
@@ -218,6 +220,11 @@ public class GameManager : MonoBehaviour
 
     private void EndGame(bool won)
     {
-        
+        EndScreen.Won = won;
+        EndScreen.MoneyCollected = _money;
+        EndScreen.ContractsCaught = ContractsCompleted;
+        EndScreen.TimeLeft = _timer;
+
+        _switcher.Switch();
     }
 }
