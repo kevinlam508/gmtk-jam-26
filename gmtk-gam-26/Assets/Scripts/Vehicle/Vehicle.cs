@@ -77,6 +77,8 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private ParticleSystem _tireSmokeVFX;
     [SerializeField] private float _tireVFXTurnThreshold = 1.55f;
 
+    [Header("Audio")]
+    [SerializeField] private VehicleAudioHandler _vehicleAudioHandler;
 
     public float VisualSteer { get; set; }
     public float DesiredMagnitude { get; set; }
@@ -106,12 +108,16 @@ public class Vehicle : MonoBehaviour
         if (turnAmount > _tireVFXTurnThreshold && IsGrounded)
         {
             if (!_tireSmokeVFX.isPlaying)
-            _tireSmokeVFX.Play();
+            {
+                _tireSmokeVFX.Play();
+            }
         }
         else
         {
             if (_tireSmokeVFX.isPlaying)
-            _tireSmokeVFX.Stop();
+            {
+                _tireSmokeVFX.Stop();
+            }
         }
 
     }
@@ -276,6 +282,7 @@ public class Vehicle : MonoBehaviour
             _body.AddForce(direction * (_airDashSpeed - existingSpeed), ForceMode.VelocityChange);
             _airDashCount++;
             _dashVFX.Play();
+            _vehicleAudioHandler.PlayDashSFX();
         }
     }
 
@@ -288,6 +295,7 @@ public class Vehicle : MonoBehaviour
             _body.AddForce((_jumpSpeed - existingVertical) * Vector3.up, ForceMode.VelocityChange);
             _jumpCount++;
             _jumpVFX.Play();
+            _vehicleAudioHandler.PlayJumpSFX();
         }
     }
 

@@ -25016,6 +25016,10 @@ PrefabInstance:
       value: TowHook
       objectReference: {fileID: 0}
     - target: {fileID: 4745333949078364357, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: captureClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 24d841ebc467f5f47ae852c212442997, type: 3}
+    - target: {fileID: 4745333949078364357, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
       propertyPath: originPoint
       value: 
       objectReference: {fileID: 5328707712298307516}
@@ -25028,12 +25032,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4704876993164392835}
     - target: {fileID: 4745333949078364357, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: hookLaunchClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 60d8802165ff8d149a4493307abefadb, type: 3}
+    - target: {fileID: 4745333949078364357, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
+      propertyPath: hookAudioSource
+      value: 
+      objectReference: {fileID: 3406630264529371423}
+    - target: {fileID: 4745333949078364357, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
       propertyPath: _hookSkinnedMeshRenderer
       value: 
       objectReference: {fileID: 8659777451138357472}
     - target: {fileID: 7907114332768997330, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
       propertyPath: length
-      value: 0.000099390025
+      value: 0.0000012908491
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25313,6 +25325,11 @@ HingeJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 10
   m_ConnectedMassScale: 0.00001
+--- !u!82 &3406630264529371423 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6353418044291216589, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+  m_PrefabInstance: {fileID: 8605578587486467538}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3928488365391844083 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4749577400444593953, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
