@@ -139,7 +139,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Grunge_Blend_1: 0.112
+    - _Grunge_Blend_1: 0.169
     - _Grunge_Tiling: 0.1
     - _Metallic: 0
     - _NormalStrength: 1
@@ -172,7 +172,7 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _BaseColor: {r: 0.8207547, g: 0.8092478, b: 0.80914026, a: 1}
-    - _Base_Color: {r: 0.5943396, g: 0.49061054, b: 0.49061054, a: 1}
+    - _Base_Color: {r: 0.9245283, g: 0.64476466, b: 0.6061766, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CubemapColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

@@ -56,6 +56,10 @@ public class TowHook : MonoBehaviour
     public float gravityDamping = 0.5f;
     public float gravityResponse = 0f;
 
+    [Header("Truck Visuals")]
+    [SerializeField] private Animator _truckAnimator;
+    [SerializeField] private SkinnedMeshRenderer _hookMeshRenderer;
+
     public float chainWhipRadius;
 
     private SecondOrderDynamics gravityDynamics;
@@ -258,6 +262,8 @@ public class TowHook : MonoBehaviour
 
         //chain.SetRopePositions(context.ReadValue<Vector2>());
 
+        _truckAnimator.SetTrigger("ThrowHook");
+
         RaycastHit hit;
         LayerMask mask = LayerMask.GetMask("Hookable");
 
@@ -276,6 +282,7 @@ public class TowHook : MonoBehaviour
                     targetPoint = target.hookSpot;
                     ActivateChainCallback(true);
                     currentHookedTarget = target;
+                    _hookMeshRenderer.enabled = false;
                 }
             }
         }
@@ -283,6 +290,7 @@ public class TowHook : MonoBehaviour
         {
             if (currentHookedTarget != null)
             {
+                _hookMeshRenderer.enabled = true;
                 currentHookedTarget.SetHooked(false);
                 if (hookTargets.Contains(currentHookedTarget))
                 {

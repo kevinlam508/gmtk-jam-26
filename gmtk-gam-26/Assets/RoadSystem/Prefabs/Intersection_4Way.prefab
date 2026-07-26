@@ -194,6 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 740326307660131891}
   - component: {fileID: 8655102206878722572}
+  - component: {fileID: 4494785443935232538}
   m_Layer: 0
   m_Name: Intersection_4Way
   m_TagString: Untagged
@@ -239,6 +240,28 @@ MonoBehaviour:
   - {fileID: 8094191204346841571}
   - {fileID: 1185427087081431563}
   radius: 4
+--- !u!64 &4494785443935232538
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7053196448911404232}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6531437468124202964, guid: aa691c7362f198f4a8a212d02b996708, type: 3}
 --- !u!1001 &6313178426763023107
 PrefabInstance:
   m_ObjectHideFlags: 0
