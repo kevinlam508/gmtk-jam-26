@@ -171,6 +171,7 @@ MonoBehaviour:
   interactable: 1
   toggleOnStart: 0
   durationOnStart: 0
+  hideOnStart: 0
 --- !u!1 &1183971990204149255
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,6 +698,7 @@ MonoBehaviour:
   interactable: 1
   toggleOnStart: 0
   durationOnStart: 0
+  hideOnStart: 0
 --- !u!1 &1946537764409163608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,6 +1490,16 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   rotateLooptype: 0
+  image: {fileID: 0}
+  alphaCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  alpha: 0
+  startAlpha: 0
+  endAlpha: 0
 --- !u!114 &1167548110698148909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1846,6 +1858,16 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   rotateLooptype: 0
+  image: {fileID: 0}
+  alphaCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  alpha: 0
+  startAlpha: 0
+  endAlpha: 0
 --- !u!1 &4271204659972113392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2320,6 +2342,7 @@ MonoBehaviour:
   interactable: 1
   toggleOnStart: 0
   durationOnStart: 0
+  hideOnStart: 0
 --- !u!1 &5141074660644829574
 GameObject:
   m_ObjectHideFlags: 0
@@ -2843,6 +2866,16 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   rotateLooptype: 0
+  image: {fileID: 0}
+  alphaCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  alpha: 0
+  startAlpha: 0
+  endAlpha: 0
 --- !u!1 &6776128799046726386
 GameObject:
   m_ObjectHideFlags: 0
@@ -3010,6 +3043,7 @@ MonoBehaviour:
   interactable: 1
   toggleOnStart: 0
   durationOnStart: 0
+  hideOnStart: 0
 --- !u!1 &6954379852272206801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3439,6 +3473,7 @@ MonoBehaviour:
   interactable: 1
   toggleOnStart: 0
   durationOnStart: 0
+  hideOnStart: 0
 --- !u!1 &8573242783747324491
 GameObject:
   m_ObjectHideFlags: 0
@@ -6453,7 +6488,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5165178749103741006, guid: 4a6e2ae91aaaca2448a5d9d6673ac786, type: 3}
       propertyPath: m_text
-      value: Truck Juicer
+      value: Truck Tuner
       objectReference: {fileID: 0}
     - target: {fileID: 5165178749103741006, guid: 4a6e2ae91aaaca2448a5d9d6673ac786, type: 3}
       propertyPath: m_fontSize

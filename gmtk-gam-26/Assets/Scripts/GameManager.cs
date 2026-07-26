@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < _numStartingCars - 1; i++)
         {
-            SpawnNewVehicle();
+            SpawnNewVehicle(true);
         }
 
         SpawnNewContractTarget();
@@ -203,7 +203,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            SpawnNewVehicle();
+            SpawnNewVehicle(true);
         }
         Destroy(aiCar.gameObject);
     }
@@ -215,7 +215,7 @@ public class GameManager : MonoBehaviour
         return waypointsCopy[Random.Range(0, waypointsCopy.Count)];
     }
 
-    private AIVehicleController SpawnNewVehicle()
+    private AIVehicleController SpawnNewVehicle(bool removeHook)
     {
         Transform spawnPoint = _waypoints[Random.Range(0, _waypoints.Count)];
         GameObject newCar = Instantiate(_aiCarPrefab, spawnPoint.position, spawnPoint.rotation);
@@ -225,7 +225,12 @@ public class GameManager : MonoBehaviour
             Debug.LogError("[GameManager] AI Car Prefab is missing AIVehicleController component!");
             return null;
         }
-            
+        
+        if (removeHook)
+        {
+            aiCar.RemoveHookTarget();
+        }
+
         aiCar.OnSpawned(spawnPoint);
         _activeVehicles.Add(aiCar);
         return aiCar;
@@ -233,7 +238,7 @@ public class GameManager : MonoBehaviour
 
     private void SpawnNewContractTarget()
     {
-        _contractTarget = SpawnNewVehicle();
+        _contractTarget = SpawnNewVehicle(false);
         ContractTimer = _contractTime;
 
         _currentContract = Random.Range(0, _contractPool.Count);

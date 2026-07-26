@@ -103,7 +103,6 @@ public class Vehicle : MonoBehaviour
         ProcessTilt(Time.fixedDeltaTime);
 
         float turnAmount = Mathf.Abs(_body.angularVelocity.y);
-        Debug.Log(turnAmount);
 
         if (turnAmount > _tireVFXTurnThreshold && IsGrounded)
         {

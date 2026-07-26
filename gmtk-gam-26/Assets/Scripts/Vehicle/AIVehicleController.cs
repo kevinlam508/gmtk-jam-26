@@ -30,7 +30,10 @@ public class AIVehicleController : MonoBehaviour
             Debug.Log("[AIVehicleController] No Road System found in the scene!");
         }
 
-        _hookTarget.captured += OnHookTargetCaptured;
+        if (_hookTarget != null)
+        {
+            _hookTarget.captured += OnHookTargetCaptured;
+        }
         
         SetNewGoal();
     }
@@ -43,7 +46,7 @@ public class AIVehicleController : MonoBehaviour
             return;
         }
 
-        if (_hookTarget.isHooked)
+        if (_hookTarget?.isHooked ?? false)
         {
             Vector3 vectorToPlayer = PlayerVehicleController.PlayerPosition - _vehicle.transform.position;
             _vehicle.ApplyExternalForce(vectorToPlayer.normalized * _hookForceMagnitude);
@@ -129,5 +132,12 @@ public class AIVehicleController : MonoBehaviour
     {
         _hookTarget.captured -= OnHookTargetCaptured;
         GameManager.Instance.OnAIVehicleCaptured(this);
+    }
+
+    public void RemoveHookTarget()
+    {
+        _hookTarget.captured -= OnHookTargetCaptured;
+        Destroy(_hookTarget.gameObject);
+        _hookTarget = null;
     }
 }
