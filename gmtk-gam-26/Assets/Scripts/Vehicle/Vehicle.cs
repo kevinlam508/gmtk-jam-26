@@ -76,6 +76,7 @@ public class Vehicle : MonoBehaviour
 
     [SerializeField] private ParticleSystem _tireSmokeVFX;
     [SerializeField] private float _tireVFXTurnThreshold = 1.55f;
+    [SerializeField] private float _tireVFXTurnAdder = 1.55f;
 
     [Header("Audio")]
     [SerializeField] private VehicleAudioHandler _vehicleAudioHandler;
@@ -104,20 +105,7 @@ public class Vehicle : MonoBehaviour
 
         float turnAmount = Mathf.Abs(_body.angularVelocity.y);
 
-        if (turnAmount > _tireVFXTurnThreshold && IsGrounded)
-        {
-            if (!_tireSmokeVFX.isPlaying)
-            {
-                _tireSmokeVFX.Play();
-            }
-        }
-        else
-        {
-            if (_tireSmokeVFX.isPlaying)
-            {
-                _tireSmokeVFX.Stop();
-            }
-        }
+        
 
     }
 
@@ -209,6 +197,21 @@ public class Vehicle : MonoBehaviour
         foreach (Transform tire in _frontTireTransforms)
         {
             tire.localRotation = frontTireRotation;
+        }
+        
+        if (VisualSteer * _tireTurnAngle != 0 && IsGrounded)
+        {
+            if (!_tireSmokeVFX.isPlaying)
+            {
+                _tireSmokeVFX.Play();
+            }
+        }
+        else
+        {
+            if (_tireSmokeVFX.isPlaying)
+            {
+                _tireSmokeVFX.Stop();
+            }
         }
 
         Quaternion rootRotation = Quaternion.Euler(0, VisualSteer * _visualTurnBonusAngle * Mathf.Sign(DesiredMagnitude), 0);
