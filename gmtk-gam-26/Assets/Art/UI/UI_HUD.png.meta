@@ -163,35 +163,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Bounty_Info_Fill
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 551
-        width: 387
-        height: 234
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7aeb0a6fec607514c959343fa48c66a7
-      internalID: -1292243709
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: UI_Timer_Border
       rect:
         serializedVersion: 2
         x: 1
         y: 391
         width: 439
-        height: 156
+        height: 151
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,10 +210,10 @@ TextureImporter:
       name: UI_Money_Border
       rect:
         serializedVersion: 2
-        x: 2
-        y: 193
-        width: 391
-        height: 93
+        x: 0
+        y: 649
+        width: 484
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -382,6 +360,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_Button
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 90
+        width: 160
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 63, y: 0, z: 61, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 745869414ebd24045ba4417a3ab60b1e
+      internalID: 268304301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -402,6 +402,7 @@ TextureImporter:
       UI_Bounty_Info_Border: -1037205235
       UI_Bounty_Info_Fill: -1292243709
       UI_Bounty_Portrait: 1669091376
+      UI_Button: 268304301
       UI_Fill: -1038699463
       UI_Guy: 722963044
       UI_Money_Border: 756319209
