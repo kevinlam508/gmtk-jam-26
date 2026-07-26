@@ -375,7 +375,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 2
+      minMaxState: 0
       minColor: {r: 0, g: 0, b: 0, a: 1}
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
@@ -25033,7 +25033,7 @@ PrefabInstance:
       objectReference: {fileID: 8659777451138357472}
     - target: {fileID: 7907114332768997330, guid: 303db6c5fefda9a4a856ee32b8e11528, type: 3}
       propertyPath: length
-      value: 0.0000016029431
+      value: 0.000099390025
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
