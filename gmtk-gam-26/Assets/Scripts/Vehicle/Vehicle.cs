@@ -74,6 +74,10 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private ParticleSystem _dashVFX;
     [SerializeField] private ParticleSystem _jumpVFX;
 
+    [SerializeField] private ParticleSystem _tireSmokeVFX;
+    [SerializeField] private float _tireVFXTurnThreshold = 1.55f;
+
+
     public float VisualSteer { get; set; }
     public float DesiredMagnitude { get; set; }
     public Vector3 Forward { get; set; }
@@ -95,6 +99,21 @@ public class Vehicle : MonoBehaviour
         ProcessMovement(Time.fixedDeltaTime, groundedRatio);
         ProcessSteer(Time.fixedDeltaTime, groundedRatio);
         ProcessTilt(Time.fixedDeltaTime);
+
+        float turnAmount = Mathf.Abs(_body.angularVelocity.y);
+        Debug.Log(turnAmount);
+
+        if (turnAmount > _tireVFXTurnThreshold && IsGrounded)
+        {
+            if (!_tireSmokeVFX.isPlaying)
+            _tireSmokeVFX.Play();
+        }
+        else
+        {
+            if (_tireSmokeVFX.isPlaying)
+            _tireSmokeVFX.Stop();
+        }
+
     }
 
     private float ProcessSuspension()

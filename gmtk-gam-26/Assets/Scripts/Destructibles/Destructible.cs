@@ -67,8 +67,6 @@ public class Destructible : MonoBehaviour
         {
             brokenInitialPositions.Add(piece.transform.localPosition);
             brokenInitialRotation.Add(piece.transform.localRotation);
-
-            Debug.Log(piece.name);
         }
     }
 
