@@ -67,6 +67,9 @@ public class TowHook : MonoBehaviour
     [SerializeField] private AudioClip hookLaunchClip;
     [SerializeField] private AudioClip captureClip;
     
+    [Header("Complete Contract Visuals")]
+    [SerializeField] private ParticleSystem completeContractVFX;
+
 
     public float chainWhipRadius;
 
@@ -137,6 +140,7 @@ public class TowHook : MonoBehaviour
                 currentHookedTarget.SetInView(false);
                 Debug.Log(currentHookedTarget.name + " CAPTURED!!!");
                 hookAudioSource.PlayOneShot(captureClip);
+                completeContractVFX.Play();
                 ActivateChainCallback(false);
                 cachedHookTarget.OnCaptureComplete();
             }
