@@ -90,7 +90,7 @@ public class Vehicle : MonoBehaviour
     private int _airDashCount = 0;
 
     public Vector3 Velocity => _body.linearVelocity;
-    public float TopSpeed => _defaultSpeed;
+    public float TopSpeed => _airDashSpeed;
 
     private void FixedUpdate()
     {

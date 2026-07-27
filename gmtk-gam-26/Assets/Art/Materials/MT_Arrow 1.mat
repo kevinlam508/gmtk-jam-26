@@ -90,7 +90,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Thickness: 0.021
+    - _Thickness: 0.025
     - _Toggle_Smooth_Step_Color: 0
     - _USECOLORVARIATION: 0
     - _USEROTSCALEVARIATION: 0
