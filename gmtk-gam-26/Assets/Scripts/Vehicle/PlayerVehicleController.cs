@@ -17,12 +17,16 @@ public class PlayerVehicleController : MonoBehaviour
     [SerializeField] private float _cameraTurnSpeedDegrees = 30f;
 
     [Header("Juice")]
-    [SerializeField, Range(0, 1)] private float _speedRatioLimit;
+    [SerializeField, Range(0, 1)] private float _speedRatioMidLimit;
+    [SerializeField, Range(0, 1)] private float _speedRatioMaxLimit;
     [SerializeField] private CinemachineCamera _cinemachineCam;
     [SerializeField] private float _cameraMinFOV = 60f;
+    [SerializeField] private float _cameraMidFOV = 70f;
     [SerializeField] private float _cameraMaxFOV = 80f;
     [SerializeField, Range(0, 1)] private float _cameraStepFOV = 0.5f;
     [SerializeField] private ParticleSystem _speedLines;
+    [SerializeField] private TrailRenderer _brakeLightTrail_L;
+    [SerializeField] private TrailRenderer _brakeLightTrail_R;
 
     private float _steer;
 
@@ -90,17 +94,41 @@ public class PlayerVehicleController : MonoBehaviour
         float _currentFOV = _cinemachineCam.Lens.FieldOfView;
         float _desiredFOV = _cameraMaxFOV;
 
-        if (_currentSpeedRatio > _speedRatioLimit)
+        if (_currentSpeedRatio > _speedRatioMaxLimit)
         {
             _desiredFOV = _cameraMaxFOV;
-            _speedLines.Play();
+            Debug.Log("max");
+            JuiceEffects(true);
+        }
+        else if (_currentSpeedRatio > _speedRatioMidLimit)
+        {
+            _desiredFOV = _cameraMidFOV;
+            Debug.Log("mid");
+            JuiceEffects(true);
         }
         else
         {
             _desiredFOV = _cameraMinFOV;
-            _speedLines.Stop();
+            Debug.Log("min");
+            JuiceEffects(false);
         }
 
         _cinemachineCam.Lens.FieldOfView = Mathf.Lerp(_currentFOV, _desiredFOV, Mathf.Min(_currentSpeedRatio, _cameraStepFOV));
+    }
+
+    private void JuiceEffects(bool turnOn)
+    {
+        if (turnOn)
+        {
+            _speedLines.Play();
+            _brakeLightTrail_L.emitting = true;
+            _brakeLightTrail_R.emitting = true;
+        }
+        else
+        {
+            _speedLines.Stop();
+            _brakeLightTrail_L.emitting = false;
+            _brakeLightTrail_R.emitting = false;
+        }
     }
 }

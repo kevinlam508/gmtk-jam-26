@@ -200,7 +200,7 @@ public class TowHook : MonoBehaviour
             hookAudioSource.PlayOneShot(hookLaunchClip);
             _hookGameplayModel.SetActive(true);
             if (_hookSkinnedMeshRenderer != null)
-                _hookSkinnedMeshRenderer.enabled = true;
+                _hookSkinnedMeshRenderer.enabled = false;
             _hookTrail.emitting = true;
         }
         else
@@ -213,6 +213,8 @@ public class TowHook : MonoBehaviour
             _hookTrail.emitting = false;
             _hookTrail.Clear();
             //hookObject.SetActive(false);
+            if (_hookSkinnedMeshRenderer != null)
+                _hookSkinnedMeshRenderer.enabled = true;
             _hookGameplayModel.SetActive(false);
         }
             
