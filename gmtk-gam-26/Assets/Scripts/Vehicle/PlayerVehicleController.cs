@@ -88,8 +88,7 @@ public class PlayerVehicleController : MonoBehaviour
         Vector3 velocity = PlayerVelocity;
         velocity.y = 0f;
 
-        float _currentSpeedRatio;
-        _currentSpeedRatio = velocity.magnitude/PlayerTopSpeed;
+        float _currentSpeedRatio = velocity.magnitude/PlayerTopSpeed;
 
         float _currentFOV = _cinemachineCam.Lens.FieldOfView;
         float _desiredFOV = _cameraMaxFOV;
@@ -97,19 +96,16 @@ public class PlayerVehicleController : MonoBehaviour
         if (_currentSpeedRatio > _speedRatioMaxLimit)
         {
             _desiredFOV = _cameraMaxFOV;
-            Debug.Log("max");
             JuiceEffects(true);
         }
         else if (_currentSpeedRatio > _speedRatioMidLimit)
         {
             _desiredFOV = _cameraMidFOV;
-            Debug.Log("mid");
             JuiceEffects(true);
         }
         else
         {
             _desiredFOV = _cameraMinFOV;
-            Debug.Log("min");
             JuiceEffects(false);
         }
 
