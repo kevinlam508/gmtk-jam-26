@@ -16,7 +16,7 @@ public class TimerCanvas : MonoBehaviour
     private Tween shakeTween;
     [SerializeField] private int vibrato;
     
-    private void Start()
+    private void Awake()
     {
         _scaleVector = Vector3.one * _punchScale;
         shakeTween = _timerLabel.transform.DOShakePosition(1, _shakeVector, vibrato).SetLoops(-1);

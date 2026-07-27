@@ -43,7 +43,7 @@ public class BountyCanvas : MonoBehaviour
     private Vector3 _graveStartRot;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         _coffinStartPos = _coffin.transform.position;
         _coffinStartRot = _coffin.transform.eulerAngles;
