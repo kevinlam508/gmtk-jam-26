@@ -12542,6 +12542,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4819333646674148210, guid: 33cc5311b561cdc4c87964ccc3a6ddc2, type: 3}
   m_PrefabInstance: {fileID: 396579758}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &397100151 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8893314980489568522, guid: 413ed8eb8b0510347a70c326515cc87b, type: 3}
+  m_PrefabInstance: {fileID: 933731533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &397100155
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397100151}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7390741271567824216, guid: b21d0076c445f3d49886605d30e7a62d, type: 3}
 --- !u!1001 &397769521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16404,7 +16431,7 @@ MonoBehaviour:
   - {x: 130.67181, y: 0.101287335, z: 48.531036}
   - {x: 127.397995, y: 0.100883484, z: 57.172512}
   - {x: 122.92644, y: 0.1003319, z: 68.97542}
-  - {x: 119.3778, y: -0.09000015, z: 76.59729}
+  - {x: 119.37784, y: -0.09000015, z: 76.59727}
   - {x: 100.35799, y: -0.09000015, z: 89.15595}
   normals:
   - {x: 0.013289373, y: 0.99980044, z: -0.014914684}
@@ -21103,6 +21130,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1903945602201809716, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
+      propertyPath: m_Height
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903945602201809716, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
+      propertyPath: m_Radius
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903945602201809716, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
+      propertyPath: m_Center.y
+      value: 0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 2364250927716760535, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -21150,6 +21189,10 @@ PrefabInstance:
     - target: {fileID: 3189890212725944520, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3330541338194408618, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
+      propertyPath: m_Size.z
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 8116037191538163943, guid: fd09524fa6bbb5844ac2952394a04b4b, type: 3}
       propertyPath: Lens.FarClipPlane
@@ -22628,7 +22671,7 @@ MonoBehaviour:
   points:
   - {x: 58.6292, y: 0, z: 69.98836}
   - {x: 48.490276, y: 0, z: 75.79678}
-  - {x: 46.8694, y: 0, z: 76.25378}
+  - {x: 46.86942, y: 0, z: 76.25378}
   - {x: 36.2807, y: 0, z: 78.52951}
   normals:
   - {x: 0, y: 1, z: 0}
@@ -28032,7 +28075,7 @@ MonoBehaviour:
   autoSetControlPoints: 0
   points:
   - {x: -20.868399, y: 0, z: -63.682407}
-  - {x: -38.121353, y: 0, z: -59.14399}
+  - {x: -38.121372, y: 0, z: -59.143982}
   - {x: -79.70721, y: 0, z: -65.30597}
   - {x: -101.957466, y: 0, z: -63.94433}
   normals:
@@ -30432,6 +30475,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 966368686}
     m_Modifications:
+    - target: {fileID: 75680648331235839, guid: 413ed8eb8b0510347a70c326515cc87b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1679119138004852033, guid: 413ed8eb8b0510347a70c326515cc87b, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.624051
@@ -30491,7 +30538,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8893314980489568522, guid: 413ed8eb8b0510347a70c326515cc87b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 397100155}
   m_SourcePrefab: {fileID: 100100000, guid: 413ed8eb8b0510347a70c326515cc87b, type: 3}
 --- !u!4 &933731534 stripped
 Transform:
@@ -45102,8 +45152,8 @@ MonoBehaviour:
   autoSetControlPoints: 0
   points:
   - {x: 12.795713, y: 0, z: -44.09257}
-  - {x: 21.394869, y: 0, z: -42.089577}
-  - {x: 25.31065, y: 0.05000019, z: -49.86035}
+  - {x: 21.394882, y: 0, z: -42.089573}
+  - {x: 25.310642, y: 0.05000019, z: -49.86035}
   - {x: 36.302647, y: 0.05000019, z: -52.399654}
   normals:
   - {x: 0, y: 1, z: 0}
@@ -54575,7 +54625,7 @@ MonoBehaviour:
   autoSetControlPoints: 0
   points:
   - {x: -14.695673, y: 10, z: -9.790707}
-  - {x: -7.121964, y: 10, z: -6.7048683}
+  - {x: -7.1219597, y: 10, z: -6.704867}
   - {x: 16.06445, y: 9.860617, z: 1.7544514}
   - {x: 33.90196, y: 10.199115, z: 1.4017512}
   - {x: 49.961548, y: 10.503875, z: 1.0842057}
@@ -63547,7 +63597,7 @@ MonoBehaviour:
   autoSetControlPoints: 0
   points:
   - {x: 5.0042863, y: 0, z: -45.90743}
-  - {x: -5.2804112, y: 0, z: -48.303032}
+  - {x: -5.2804255, y: 0, z: -48.303036}
   - {x: -13.669355, y: 0, z: -52.038456}
   - {x: -15.9824095, y: 0, z: -60.831596}
   normals:
