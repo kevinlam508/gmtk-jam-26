@@ -81,7 +81,9 @@ public class PlayerVehicleController : MonoBehaviour
     {
         if (context.started)
         {
-            _vehicle.AirDash();
+            Vector3 forward = _cinemachineCam.transform.forward;
+            forward.y = 0;
+            _vehicle.AirDash(forward.normalized);
         }
     }
 
