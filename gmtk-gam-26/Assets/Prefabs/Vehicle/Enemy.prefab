@@ -50,6 +50,7 @@ MonoBehaviour:
   _hookTarget: {fileID: 3168593997294150355}
   _targetDistanceFromGoal: 5
   _targetDistanceFromSubgoal: 3
+  _destinationOffset: -0.5
   _fallRecoveryHeight: -10
   _hookForceMagnitude: 10
 --- !u!1 &3767436099859506041
