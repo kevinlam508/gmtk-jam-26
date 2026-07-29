@@ -9,9 +9,14 @@ public class AIVehicleController : MonoBehaviour
     [SerializeField] private Vehicle _vehicle;
     [SerializeField] private RoadSystemNavigator _navigator;
     [SerializeField] private HookTarget _hookTarget;
+
+    [Header("Navigation")]
     [SerializeField] private float _targetDistanceFromGoal = 5f;
     [SerializeField] private float _targetDistanceFromSubgoal = 1f;
+    [Tooltip("Offset to the right to drive towards to try to prevent collisions when two enemies go opposite directions")]
+    [SerializeField] private float _destinationOffset = .5f;
 
+    [Header("Etc")]
     [SerializeField] private float _fallRecoveryHeight = -10f;
     [SerializeField] private float _hookForceMagnitude = 10f;
 
@@ -61,10 +66,10 @@ public class AIVehicleController : MonoBehaviour
         }
         else
         {
+            Vector3 posXZ = _vehicle.transform.position;
+            posXZ.y = 0f;
             if (_navigator.currentRoadSystem != null)
             {
-                Vector3 posXZ = _vehicle.transform.position;
-                posXZ.y = 0f;
                 Vector3 nextPoint = _orientedPoints[_pathIndex].position;
                 Vector3 nextPointXZ = nextPoint;
                 nextPointXZ.y = 0f;
@@ -74,16 +79,20 @@ public class AIVehicleController : MonoBehaviour
                 {
                     _pathIndex++;
                 }
-                _vehicle.Forward = vectorToNextPoint.normalized;
-                _vehicle.DesiredMagnitude = 1f;
-                _vehicle.VisualSteer = vectorToNextPoint.x;
+                vectorToGoal = vectorToNextPoint;
             }
-            else
-            {
-                _vehicle.Forward = vectorToGoal.normalized;
-                _vehicle.DesiredMagnitude = 1f;
-                _vehicle.VisualSteer = vectorToGoal.x;
-            }
+
+            vectorToGoal.y = 0;
+            vectorToGoal = vectorToGoal.normalized;
+
+            // Offset goal to the right of the line to prevent head on collisions
+            Vector3 modifiedGoal = posXZ + vectorToGoal + Vector3.Cross(Vector3.up, vectorToGoal) * _destinationOffset;
+            vectorToGoal = modifiedGoal - posXZ;
+            vectorToGoal.y = 0;
+
+            _vehicle.Forward = vectorToGoal;
+            _vehicle.DesiredMagnitude = 1f;
+            _vehicle.VisualSteer = vectorToGoal.x;
         }
     }
     

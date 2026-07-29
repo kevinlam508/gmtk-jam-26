@@ -62,7 +62,7 @@ MonoBehaviour:
     FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 600
     Dutch: 0
     ModeOverride: 0
     PhysicalProperties:
@@ -25561,7 +25561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
       propertyPath: _tractionStrength
-      value: 0.948
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 6813161914464754707, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
       propertyPath: _visualTurnBonusAngle
@@ -25617,6 +25617,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6771684787425646667, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5865003564167168753}
+    - targetCorrespondingSourceObject: {fileID: 1918668017583192068, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1737569243198865560}
+    - targetCorrespondingSourceObject: {fileID: 1918668017583192068, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1940168965649570438}
   m_SourcePrefab: {fileID: 100100000, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
 --- !u!1 &2036817041572625491 stripped
 GameObject:
@@ -25757,6 +25763,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5676290069560723100, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
   m_PrefabInstance: {fileID: 8605578587486467538}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7912070576467103190 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1918668017583192068, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}
+  m_PrefabInstance: {fileID: 8605578587486467538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1737569243198865560
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912070576467103190}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.23
+  m_Height: 0.74
+  m_Direction: 0
+  m_Center: {x: 0, y: 0.06, z: -0.38}
+--- !u!136 &1940168965649570438
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912070576467103190}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.33
+  m_Height: 0.74
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!137 &8659777451138357472 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1099051569415761202, guid: 40e227037a6247842aff85290e6e1a1a, type: 3}

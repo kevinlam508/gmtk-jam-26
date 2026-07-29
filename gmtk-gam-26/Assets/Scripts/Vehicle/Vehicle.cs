@@ -182,7 +182,7 @@ public class Vehicle : MonoBehaviour
         Debug.DrawRay(_body.position, driveDirection * 5 * Mathf.Sign(appliedForce), Color.red, -1);
 
         // Apply traction to side velocity
-        Vector3 sideDirection = Vector3.Cross(Vector3.up, driveDirection);
+        Vector3 sideDirection = Vector3.Cross(Vector3.up, driveDirection).normalized;
         float sideSpeed = Vector3.Dot(currentVelocity, sideDirection);
         float instantSideAcceleration = -sideSpeed / timeStep;
         float appliedSideForce = instantSideAcceleration * _tractionStrength
@@ -275,7 +275,7 @@ public class Vehicle : MonoBehaviour
         }
     }
 
-    public void AirDash()
+    public void AirDash(Vector3 forward)
     {
         if (IsGrounded)
         {
@@ -290,8 +290,8 @@ public class Vehicle : MonoBehaviour
 
         if (_airDashCount < _maxAirDashCount)
         {
-            Vector3 direction = new Vector3(VisualSteer, 0, DesiredMagnitude);
-            direction = _body.transform.rotation * direction;
+            Vector3 right = Vector3.Cross(Vector3.up, forward);
+            Vector3 direction = forward * DesiredMagnitude + right * VisualSteer;
             direction = direction.normalized;
             float existingSpeed = Vector3.Dot(_body.linearVelocity, direction);
             _body.AddForce(direction * (_airDashSpeed - existingSpeed), ForceMode.VelocityChange);
