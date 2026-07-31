@@ -12,14 +12,15 @@ public class TimerCanvas : MonoBehaviour
     [SerializeField] private float _punchScale;
     private Vector3 _scaleVector;
     [SerializeField] private float _shakeDistance;
-    private Vector3 _shakeVector;
     private Tween shakeTween;
     [SerializeField] private int vibrato;
-    
+
+    private int _lastPunch = 10;
+
     private void Awake()
     {
         _scaleVector = Vector3.one * _punchScale;
-        shakeTween = _timerLabel.transform.DOShakePosition(1, _shakeVector, vibrato).SetLoops(-1);
+        shakeTween = _timerLabel.transform.DOShakePosition(1, Vector3.one * _shakeDistance, vibrato).SetLoops(-1);
         shakeTween.Pause();
     }
 
@@ -31,14 +32,15 @@ public class TimerCanvas : MonoBehaviour
 
         _timerLabel.color = currentTime <= 10
             ? _warningColor : _normalColor;
-        if (currentTime <= 10)
+        if (currentTime <= _lastPunch)
         {
             _timerLabel.transform.DOPunchScale(_scaleVector, 0.1f);
-            if (currentTime <= 3)
-            {
-                shakeTween = _timerLabel.transform.DOShakePosition(1, _shakeVector, vibrato).SetLoops(-1);
-                shakeTween.Play();
-            }
+            _lastPunch = (int)currentTime;
+        }
+
+        if (currentTime <= 3 && !shakeTween.IsPlaying())
+        {
+            shakeTween.Play();
         }
     }
 }
