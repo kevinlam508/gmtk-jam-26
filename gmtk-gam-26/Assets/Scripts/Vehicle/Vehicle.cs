@@ -76,7 +76,8 @@ public class Vehicle : MonoBehaviour
 
     [SerializeField] private ParticleSystem _tireSmokeVFX;
     [SerializeField] private float _tireVFXTurnThreshold = 1.55f;
-    [SerializeField] private float _tireVFXTurnAdder = 1.55f;
+
+    [SerializeField] private TrailRenderer[] tireMarkRefs;
 
     [Header("Audio")]
     [SerializeField] private VehicleAudioHandler _vehicleAudioHandler;
@@ -102,24 +103,6 @@ public class Vehicle : MonoBehaviour
         ProcessMovement(Time.fixedDeltaTime, groundedRatio);
         ProcessSteer(Time.fixedDeltaTime, groundedRatio);
         ProcessTilt(Time.fixedDeltaTime);
-
-        float turnAmount = Mathf.Abs(_body.angularVelocity.y);
-
-        // if (VisualSteer * _tireTurnAngle != 0 && IsGrounded)
-        // {
-        //     if (!_tireSmokeVFX.isPlaying)
-        //     {
-        //         _tireSmokeVFX.Play();
-        //     }
-        // }
-        // else
-        // {
-        //     if (_tireSmokeVFX.isPlaying)
-        //     {
-        //         _tireSmokeVFX.Stop();
-        //     }
-        // }
-
     }
 
     private float ProcessSuspension()
@@ -224,6 +207,33 @@ public class Vehicle : MonoBehaviour
             if (_tireSmokeVFX.isPlaying)
             {
                 _tireSmokeVFX.Stop();
+            }
+        }
+
+        // Tire Tread Marks
+        float turnAmount = Mathf.Abs(_body.angularVelocity.y);
+        if ( tireMarkRefs.Length > 0 )
+        {
+            if (turnAmount > _tireVFXTurnThreshold && IsGrounded)
+            {
+                if (!tireMarkRefs[0].emitting)
+                {
+                    foreach (TrailRenderer trail in tireMarkRefs)
+                    {
+                        trail.Clear();
+                        trail.emitting = true; 
+                    }
+                }
+            }
+            else
+            {
+                if (tireMarkRefs[0].emitting)
+                {
+                    foreach (TrailRenderer trail in tireMarkRefs)
+                    {
+                        trail.emitting = false; 
+                    }  
+                }
             }
         }
 

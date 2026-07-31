@@ -113,7 +113,7 @@ public class Destructible : MonoBehaviour
             brokenPieces[i].transform.SetLocalPositionAndRotation(brokenInitialPositions[i], brokenInitialRotation[i]);
             piece.Sleep();
         }
-        Debug.Log("Reset");
+        // Debug.Log("Reset");
         
         intactRigidbody.isKinematic = false;
         intactObject.gameObject.SetActive(true);
